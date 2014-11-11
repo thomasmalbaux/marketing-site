@@ -1,10 +1,10 @@
 @import 'reset';
 
-@import 'vendor.scss';
+@import 'vendor';
 @import 'semantic-grid';
 @import 'variables';
 @import 'mixins';
-@import '../fonts/MyFontsWebfontsKit.css';
+@import 'MyFontsWebfontsKit';
 
 body, html { height: 100%; }
 
@@ -24,6 +24,8 @@ strong { @include Gibson-Regular; }
 
   &.feature {
     clear: both;
+    padding-bottom: 0px;
+    padding-top: 0px;
   }
 
   &.feature-both {
@@ -537,28 +539,38 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
   float: left;
   position: relative;
   width: 200px;
-  left: -380px;
+  left: -320px;
+
+  &.track-manage {
+    margin-top: 100px;
+    margin-bottom: -150px;
+  }
 }
 
 .right-screenshot {
   float: right;
   position: relative;
   width: 200px;
-  right: 300px;
-  top: 140px;
+  right: 320px;
+  top: 166px;
 }
 
 .feature-info {
-  width: 488px;
-  top: 20px;
+  max-width: 500px;
+  width: 90%;
+  top: 0px;
   float: right;
   position: relative;
   text-align: left;
   line-height: 32px;
 
+  &.track-manage {
+    top: 90px;
+  }
+
   &.right-info {
     width: 460px;
-    top: 20px;
+    top: 0px;
     float: left;
     position: relative;
     text-align: left;
@@ -593,6 +605,7 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
   height: 800px;
   background: $bg-grey;
   position: relative;
+  overflow: hidden;
 }
 
 img.svg.creditcards {
@@ -619,7 +632,7 @@ img.svg.paypal {
     padding: 160px 0;
     max-width: 450px;
     max-height: 430px;
-    width: 50%;
+    width: 80%;
     text-align: center;
     margin: 0 auto;
     font-family: Gibson-LightIt;
@@ -1101,6 +1114,9 @@ img.svg.paypal {
   &.two-thirds { float: left; width: 540px; margin-right: 90px; margin-left: 0; }
 
   &.two-thirds-last { float: left; width: 550px; margin-right: 0; margin-left: 0; }
+
+  .img-left { margin-left: -25px; margin-top: -22px; }
+  .img-right { margin-left: -15px; margin-top: -15px;  }
 
 }
 
@@ -2043,6 +2059,16 @@ img.story-left, img.story-right {
     margin-right: 30px;
   }
 
+
+  // HOMEPAGE FEATURES
+
+  .feature-info {
+    margin-right: 5%;
+
+    &.right-info {
+      margin-left: 5%;
+    }
+  }
 }
 
 @media screen and (max-width: 1000px) {
