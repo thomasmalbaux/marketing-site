@@ -6,12 +6,15 @@ The marketing site shown at www.sharetribe.com
 
 ### Setting up the dev environment
 
-**Prerequisites:** git, node, npm, grunt-cli, aws-keys.json (scroll down to more info)
+**Prerequisites:** git, node, npm, grunt-cli
 
 ```bash
 git clone git@github.com:sharetribe/marketing-site.git
+cd marketing-site
 npm install # This will download the whole internet, so be patient
 ```
+
+Setup `aws-keys.json` (scroll down for more info)
 
 ### Development
 
@@ -41,7 +44,7 @@ _tl;dr Run `grunt build package deploy`_
 
 1. Go to S3 URL (http://www.sharetri.be.s3-website-us-east-1.amazonaws.com/ or http://www.sharetribe.com.s3-website-us-east-1.amazonaws.com/) and test.
 
-1. Go to [CloudFront console](https://console.aws.amazon.com/cloudfront/home) and invalidate *.html files
+1. Go to [CloudFront console](https://console.aws.amazon.com/cloudfront/home), click the distribution to see the details and select `Invalidations` tab. Now invalidate all HTML files. The easiest way to do this is to locate a previous invalidation task, which invalidated all the HTML files and click `Copy`.
 
 1. Make sure the cache is invalidated: Open the browser and go to the site URL. See the source code. Scroll to the bottom and make sure the VERSION is updated.
 
