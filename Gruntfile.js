@@ -95,6 +95,7 @@ module.exports = function(grunt) {
         }
       }
     },
+    revision: { /* Default options are just fine */ },
     filerev: {
       options: {
         algorithm: 'md5',
@@ -140,7 +141,7 @@ module.exports = function(grunt) {
         replacements: [{
           from: '<!-- VERSION -->',
           to: function() {
-            return '<!-- VERSION ' + new Date() + ' -->';
+            return '<!-- VERSION ' + grunt.config('meta.revision') + ' at ' + new Date() + ' -->';
           }
         }]
       }
@@ -251,6 +252,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-aws-s3');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-git-revision');
 
   /**
     Task to build a distribution package. Outputs to `dist` directory.
@@ -264,6 +266,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean',
     'copy:temp',
+    'revision',
     'replace:version',
     'requirejs:compile',
     'replace:requirejs',
