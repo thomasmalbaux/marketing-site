@@ -3,6 +3,16 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    connect: {
+      dev: {
+        options: {
+          port: 8888,
+          base: 'src',
+          keepalive: true,
+          livereload: true
+        }
+      }
+    },
     compass: {
       dist: {
         options: {
@@ -66,7 +76,11 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: '**/*.scss',
-        tasks: ['compass:dev']
+        tasks: ['compass:dev'],
+        options: {
+          atBegin: true,
+          livereload: true
+        }
       },
       configFiles: {
         files: [ 'Gruntfile.js' ],
@@ -230,6 +244,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-text-replace');
   grunt.loadNpmTasks('grunt-aws-s3');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   /**
     Task to build a distribution package. Outputs to `dist` directory.
