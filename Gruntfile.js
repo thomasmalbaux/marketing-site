@@ -8,8 +8,14 @@ module.exports = function(grunt) {
         options: {
           port: 8888,
           base: 'src',
-          keepalive: true,
           livereload: true
+        }
+      },
+      test: {
+        options: {
+          port: 8889,
+          base: 'dist',
+          keepalive: true // keep the grunt process alive
         }
       }
     },
@@ -267,7 +273,6 @@ module.exports = function(grunt) {
     'copy:dist'
   ]);
 
-
   grunt.registerTask('package', [
     'compress',
     'copy:package'
@@ -275,5 +280,14 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deploy', [
     'aws_s3'
+  ]);
+
+  grunt.registerTask('dev', [
+    'connect:dev',
+    'watch'
+  ]);
+
+  grunt.registerTask('test', [
+    'connect:test'
   ]);
 };
