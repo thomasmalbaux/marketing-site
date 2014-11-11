@@ -174,13 +174,9 @@ module.exports = function(grunt) {
       staging: {
         options: {
           bucket: 'www.sharetri.be',
-          differential: false // Only uploads the files that have changed (this is now disabled. seems to be a good idea, but didn't seem to work that well)
+          differential: true // Only uploads the files that have changed
         },
         files: [
-          // Cleanup all old files. If differential: true, this deletes only
-          // files that do not exists locally
-          {cwd: 'dist-packaged/', dest: '/', action: 'delete'},
-
           // Compressed files with long cache expiration
           {expand: true, cwd: 'dist-packaged/', src: [
             'js/*',
@@ -202,18 +198,18 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'dist-packaged/', src: ['*.html'], dest: '', params: {
             ContentEncoding: "gzip"
           }},
+
+          // Cleanup all old files. If differential: true, this deletes only
+          // files that do not exists locally
+          {cwd: 'dist-packaged/', dest: '/', action: 'delete'}
         ]
       },
       production: {
         options: {
           bucket: 'www.sharetribe.com',
-          differential: false // Only uploads the files that have changed (this is now disabled. seems to be a good idea, but didn't seem to work that well)
+          differential: true // Only uploads the files that have changed
         },
         files: [
-          // Cleanup all old files. If differential: true, this deletes only
-          // files that do not exists locally
-          {cwd: 'dist-packaged/', dest: '/', action: 'delete'},
-
           // Compressed files with long cache expiration
           {expand: true, cwd: 'dist-packaged/', src: [
             'js/*',
@@ -235,6 +231,10 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'dist-packaged/', src: ['*.html'], dest: '', params: {
             ContentEncoding: "gzip"
           }},
+
+          // Cleanup all old files. If differential: true, this deletes only
+          // files that do not exists locally
+          {cwd: 'dist-packaged/', dest: '/', action: 'delete'},
         ]
       }
     }
