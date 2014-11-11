@@ -2,6 +2,29 @@
 
 The marketing site shown at www.sharetribe.com
 
+## Getting started
+
+### Setting up the dev environment
+
+**Prerequisites:** git, node, npm, grunt-cli, aws-keys.json (scroll down to more info)
+
+```bash
+git clone git@github.com:sharetribe/marketing-site.git
+npm install # This will download the whole internet, so be patient
+```
+
+### Development
+
+Run
+
+```bash
+grunt dev
+```
+
+...to start a local server on port 8888. Open URL http://localhost:8888 to access the site.
+
+This task also watches changed in SCSS files and auto-compiles new CSS files and refreshes your browser when a change occures.
+
 ## Deploy
 
 ### Build, package and deploy new version
@@ -12,7 +35,7 @@ _tl;dr Run `grunt build package deploy`_
 
 1. Run `grunt build`
 
-1. Build task creates a new folder `dist`. Go to that browser and run http-server on that folder. Do your testing.
+1. Build task creates a new folder `dist`. Run `grunt test` to test the `dist` folder in http://localhost:8889.
 
 1. Run `grunt package deploy`
 
@@ -24,7 +47,13 @@ _tl;dr Run `grunt build package deploy`_
 
 ### AWS Credentials
 
-Create a new file called `aws-keys.json`. The content of that file should be:
+**If you are only developing, and do not need the AWS access** you must create an empty `aws-keys.json` file. This command should do the trick
+
+```bash
+echo '{}' >> aws-keys.json
+```
+
+**If you are doing a deploy**, create a new file called `aws-keys.json`. The content of that file should be:
 
 ```json
   {
