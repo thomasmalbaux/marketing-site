@@ -43,17 +43,6 @@ define(
             type        : 'iframe',
             scrolling   : 'no',
             preload     : 'true'
-			// TEST CODE FOR GOOGLE ANALYTICS
-			console.info( 'Current: ' + current.href );    
-			console.info( 'This: ' + this.href);
-			afterLoad: function() {
-				ga('send', 'pageview', this.href]);
-				ga('send', 'event', 'GetStarted', 'Begin', this.href);
-			},
-			helpers : {
-				overlay : null
-			}
-			// END TEST CODE FOR GOOGLE ANALYTICS
           });
 
         $('.fancybox-media')
