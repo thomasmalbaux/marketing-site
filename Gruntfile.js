@@ -192,7 +192,7 @@ module.exports = function(grunt) {
           }},
 
           // Not compressed filed with long cache expiration
-          {expand: true, cwd: 'dist-packaged/', src: ['images/*'], dest: '', params: {
+          {expand: true, cwd: 'dist-packaged/', src: ['images/*', 'images/vendor/*'], dest: '', params: {
             CacheControl: "max-age=" + 3600 * 24 * 365 + "" // One year
           }},
 
@@ -225,7 +225,7 @@ module.exports = function(grunt) {
           }},
 
           // Not compressed filed with long cache expiration
-          {expand: true, cwd: 'dist-packaged/', src: ['images/*'], dest: '', params: {
+          {expand: true, cwd: 'dist-packaged/', src: ['images/*', 'images/vendor/*'], dest: '', params: {
             CacheControl: "max-age=" + 3600 * 24 * 365 + "" // One year
           }},
 
@@ -284,7 +284,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('deploy', [
-    'aws_s3'
+    'aws_s3:staging'
   ]);
 
   grunt.registerTask('dev', [
