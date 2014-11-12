@@ -26,6 +26,10 @@ requirejs.config(
       {
         'deps': ['jquery']
       }
+    , swiper:
+      {
+        'deps': ['jquery']
+      }
     }
   }
 );

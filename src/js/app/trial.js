@@ -5,8 +5,9 @@ define(
   , "text!../../templates/name.html"
   , "text!../../templates/password.html"
   , "text!../../templates/marketplace.html"
+  , "swiper"
   ],
-  function (Chosen, trialHtml, localizationHtml, nameHtml, passwordHtml, marketplaceHtml) {
+  function (Chosen, trialHtml, localizationHtml, nameHtml, passwordHtml, marketplaceHtml, swiper) {
 
     var trial = {
 
