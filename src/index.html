@@ -32,6 +32,7 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    
 </head>
 <body>
 
@@ -63,7 +64,7 @@
 
       <div class="logo"><a href="index.html"><img class="svg" src="images/svg/logo.svg" alt="Sharetribe logo"></a></div>
 
-      <div class="mobile-menu"><a href="menu.html" class="fancybox"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
+      <div class="mobile-menu"><a id="mobilemenu"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
 
       <div class="menu-items">
 
@@ -144,6 +145,7 @@
       <div class="feature-info">
 
         <h6 class="marketplace-design">Marketplace types</h6>
+        
         <h2>Product selling, rentals, services - we have it all.</h2>
 
         <p>Need a marketplace to sell products? Is your idea to facilitate peer-to-peer rentals? Or maybe a site for booking services? No worries - we support all types of marketplaces! And your merchants and buyers can be individuals or companies.</p>
@@ -166,11 +168,12 @@
         <div class="feature-info right-info">
 
           <h6 class="payments">Payments</h6>
+          
           <h2>Global payments made simple. Setup takes only a few minutes.</h2>
 
-          <p>Sharetribe's built-in payment system allows your merchants to accept both PayPal and all of major credit cards. It works in 190+ countries and in 25+ currencies. You can easily earn commission from each transaction.</p>
+          <p>Sharetribe's built-in payment system allows your merchants to accept both PayPal and all of major credit cards. It works in 190+ countries and in 25+ currencies. You can easily charge a fee from each transaction.</p>
+          
           <img class="svg paypal" src="images/svg/paypal.svg" alt="Sharetribe logo"><img class="svg creditcards" src="images/icons/credit.cards.svg" alt="Sharetribe logo">
-
 
         </div>
 
@@ -190,9 +193,11 @@
       <div class="feature-info track-manage">
 
         <h6 class="track-manage">Manage & track</h6>
+        
         <h2>Manage your marketplace. <br>You are in control.</h2>
 
         <p>Easily manage and moderate your marketplace from our admin dashboard. Connect Google Analytics to get a detailed view of what is going on.</p>
+        
         <a href="features.html" class="button"><img class="svg add" src="images/icons/add.svg">See more features</a>
 
       </div>
@@ -294,39 +299,41 @@
   </div>
   
   
-  <div class="menu-cover" style="display: none;">
+  <!-- Mobile menu -->
+  
+  <div class="menu-cover" style="display: none; top: 0px;">
 	
-	<div class="logo"><img class="svg" src="images/svg/logo.valk.svg" alt="Sharetribe logo"></div>
+	  <div class="logo"><img class="svg" src="images/svg/logo.valk.svg" alt="Sharetribe logo"></div>
 	
-	<!-- <div class="mobile-menu-close"><a href="#"><img class="svg menu-close" src="images/icons/menu-close.svg" alt="Sharetribe logo">Close</a></div> -->
+    <div class="mobile-menu-close"><a id="menuclose"><img class="svg menu-close" src="images/icons/menu-close.svg" alt="Sharetribe logo">Close</a></div>
 
-	<div class="menu-cover-text">
+    <div class="menu-cover-text">
 	
-		<div class="menu-cover-text-container">
+		  <div class="menu-cover-text-container">
 			
-			<ul>
+			  <ul>
 				
-				<li><a href="index.html">Home</a></li>
-				<li><a href="features.html">Features</a></li>
-				<li><a href="stories.html">Success stories</a></li>
-				<li><a href="pricing.html">Pricing</a></li>
-				<li><a href="about.html">About us</a></li>
-				<li><a href="http://blog.sharetribe.com" target="_blank">Blog</a></li>
-				<li><a href="contact.html">Contact us</a></li>
+  				<li><a href="index.html">Home</a></li>
+  				<li><a href="features.html">Features</a></li>
+  				<li><a href="stories.html">Success stories</a></li>
+  				<li><a href="pricing.html">Pricing</a></li>
+  				<li><a href="about.html">About us</a></li>
+  				<li><a href="http://blog.sharetribe.com" target="_blank">Blog</a></li>
+  				<li><a href="contact.html">Contact us</a></li>
 				
-			</ul>
+			  </ul>
 		
-		</div>
+		  </div>
 		
-	</div>
+	  </div>
 	
-	<div class="button-bottom">
+    <div class="button-bottom">
 		
-		<a class="button ghost">Get started</a>
+		  <a class="button ghost">Get started</a>
 	
-	</div>
+	  </div>
 	
-</div>
+  </div>
 
 
   <!-- Load all JavaScript here, at the end of the document body.
@@ -334,6 +341,19 @@
 
        This will be replaced by grunt build -->
   <script data-main="js/app" src="vendor/require.js"></script>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+  <script>
+    
+    $( "#mobilemenu" ).click(function() {
+      $( ".menu-cover" ).slideDown( "slow" );
+    });
+    
+    $( "#menuclose" ).click(function() {
+      $( ".menu-cover" ).slideUp( "slow" );
+    });
+  
+  </script>
 
   <!-- VERSION -->
 

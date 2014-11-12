@@ -541,10 +541,15 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
 ////////////////////////
 
 .feature-screenshot {
+  max-width: 846px;
+  margin-left: -323px;
+  width: 100%;
+  overflow: hidden;
   float: left;
-  position: relative;
-  width: 200px;
-  left: -320px;
+  
+  img {
+    width: 100%;
+  }
 
   &.track-manage {
     margin-top: 100px;
@@ -553,32 +558,35 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
 }
 
 .right-screenshot {
+  max-width: 846px;
+  margin-right: -323px;
+  width: 100%;
+  overflow: hidden;
   float: right;
-  position: relative;
-  width: 200px;
-  right: 320px;
-  top: 166px;
+  margin-top: 166px;
+  
+  img {
+    width: 100%;
+  }
 }
 
 .feature-info {
   max-width: 500px;
   width: 90%;
   top: 0px;
-  float: right;
-  position: relative;
   text-align: left;
   line-height: 32px;
+  float: right;
 
   &.track-manage {
-    top: 90px;
+    margin-top: 90px;
   }
 
   &.right-info {
-    max-width: 460px;
+    max-width: 500px;
     width: 90%;
     top: 0px;
     float: left;
-    position: relative;
     text-align: left;
     line-height: 32px;
 
@@ -1684,8 +1692,13 @@ img.story-left, img.story-right {
 // MOBILE NAV //
 ////////////////
 
+.mobile-menu, .mobile-menu-close {
+  cursor: pointer;
+}
+
 .menu-cover {
-  position: relative;
+  position: fixed;
+  z-index: 99;
   width: 100%;
   height: 100%;
   background: $orange;
@@ -1704,8 +1717,9 @@ img.story-left, img.story-right {
 
   .logo {
     position: relative;
-    margin-left: 0px;
-    top: 0px;
+    margin-left: 25px;
+    top: 25px;
+    width: 140px;
   }
 
   .mobile-menu-close {
@@ -1713,8 +1727,8 @@ img.story-left, img.story-right {
 		font-size: 14px;
 		@include Gibson-Regular;
 		position: absolute;
-		right: 40px;
-		top: 40px;
+		right: 25px;
+		top: 25px;
 
 		a {
 			color: $white;
@@ -2132,6 +2146,74 @@ img.story-left, img.story-right {
       margin-left: 5%;
     }
   }
+  
+  .feature-screenshot, .right-screenshot {
+    width: 75%;
+  }
+  
+  
+  
+}
+
+@media screen and (max-width: 1024px) {
+  
+  .hero {
+    background-size: 1024px auto;
+    background: url("../images/bg.hero.jpg") no-repeat -520px -200px;
+    
+    h1 {
+      font-size: 46px;
+      line-height: 56px;
+      width: 500px;
+    }
+    
+    p {
+      font-size: 17px;
+      line-height: 28px;
+    }
+    
+    .logo {
+      margin-bottom: 75px;
+    }
+  }
+  
+  .hero-text {
+    left: 7.5%;
+    height: 450px;
+  }
+  
+  .video {
+    background: url("../images/bg.video.jpg") no-repeat -520px -330px;
+  }
+  
+  .trial {
+    background: url("../images/bg.footer.jpg") no-repeat center top;
+  }
+  
+  .where {
+    background: url("../images/bg.where.jpg") no-repeat center center;
+  }
+  
+  .what {
+    background: url("../images/bg.video.jpg") no-repeat center top;
+    max-height: 475px;
+  }
+  
+  .feature-info {
+    width: 43%;
+    margin-top: -90px;
+    margin-right: 7%;
+  }
+  
+  .feature-info.right-info {
+    width: 35%;
+    margin-top: -20px;
+    margin-left: 7%;
+  }
+  
+ .feature-screenshot, .right-screenshot {
+    width: 75%;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -2325,6 +2407,16 @@ img.story-left, img.story-right {
 }
 
 @media screen and (max-width: 768px) {
+  
+  .feature-info, .feature-info.right-info {
+    width: 52%
+  }
+  
+  .feature-info {
+    &.manage-track {
+      margin-top: 0px;
+    }
+  }
   
   .main-wrapper {
     

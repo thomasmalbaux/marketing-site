@@ -25,7 +25,7 @@
 
         <div class="logo"><a href="index.html"><img class="svg" src="images/svg/logo.svg" alt="Sharetribe logo"></a></div>
 
-      <div class="mobile-menu"><a href="menu.html" class="fancybox"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
+      <div class="mobile-menu"><a id="mobilemenu"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
 
         <div class="menu-items">
 
@@ -98,7 +98,7 @@
           <h6>Payments</h6>
           <h5>Global payments made simple. Setup takes only a few minutes.</h5>
 
-          <p>Sharetribe's built-in payment system allows your merchants to accept both PayPal and all of major credit cards. It works in 190+ countries and in 25+ currencies. You can easily earn commission from each transaction.</p>
+          <p>Sharetribe's built-in payment system allows your merchants to accept both PayPal and all of major credit cards. It works in 190+ countries and in 25+ currencies. You can easily charge a fee from each transaction.</p>
           <img class="svg paypal" src="images/svg/paypal.svg" alt="Sharetribe logo">
 
         </div>
@@ -182,7 +182,7 @@
           <h6>Mobile friendly</h6>
           <h5>Your marketplace on the go. Optimized for every screen.</h5>
 
-          <p>Sharetribe marketplaces are designed to look good on all screen sizes. Your members get a great experience, whether they're on desktop, tablet, or a smartphone. The content will load quickly on any device.</p>
+          <p>Sharetribe marketplaces are designed to look good on all screen sizes. Your members get a great experience, whether they're on desktop, tablet, or a smartphone. The content will load quickly on any device. E-commerce is moving more and more towards mobile, and we’ve got you covered there.</p>
 
         </div>
 
@@ -237,7 +237,7 @@
           <h6>Trust & reputation</h6>
           <h5>Build a trusted community.</h5>
 
-          <p>You can allow people to write reviews after each transaction. This helps in weeding out the bad apples and building trust in your marketplace community.</p>
+          <p>You can allow people to write reviews after each transaction. This helps in weeding out the bad apples and building trust in your marketplace community. Many studies show that sellers with positive reviews are able to get better prices for their products, and buyers’ satisfaction is guaranteed.</p>
 
         </div>
 
@@ -302,12 +302,65 @@
     </div>
 
   </div>
+  
+  
+  <!-- Mobile menu -->
+  
+  <div class="menu-cover" style="display: none; top: 0px;">
+	
+	  <div class="logo"><img class="svg" src="images/svg/logo.valk.svg" alt="Sharetribe logo"></div>
+	
+    <div class="mobile-menu-close"><a id="menuclose"><img class="svg menu-close" src="images/icons/menu-close.svg" alt="Sharetribe logo">Close</a></div>
+
+    <div class="menu-cover-text">
+	
+		  <div class="menu-cover-text-container">
+			
+			  <ul>
+				
+  				<li><a href="index.html">Home</a></li>
+  				<li><a href="features.html">Features</a></li>
+  				<li><a href="stories.html">Success stories</a></li>
+  				<li><a href="pricing.html">Pricing</a></li>
+  				<li><a href="about.html">About us</a></li>
+  				<li><a href="http://blog.sharetribe.com" target="_blank">Blog</a></li>
+  				<li><a href="contact.html">Contact us</a></li>
+				
+			  </ul>
+		
+		  </div>
+		
+	  </div>
+	
+    <div class="button-bottom">
+		
+		  <a class="button ghost">Get started</a>
+	
+	  </div>
+	
+  </div>
+
 
   <!-- Load all JavaScript here, at the end of the document body.
        No need to use domReady or anything like that.
 
        This will be replaced by grunt build -->
   <script data-main="js/app" src="vendor/require.js"></script>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  
+  <script>
+    
+    $( "#mobilemenu" ).click(function() {
+      $( ".menu-cover" ).slideDown( "slow" );
+    });
+    
+    $( "#menuclose" ).click(function() {
+      $( ".menu-cover" ).slideUp( "slow" );
+    });
+  
+  </script>
+
+  <!-- VERSION -->
 
 </body>
 </html>

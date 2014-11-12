@@ -26,7 +26,7 @@
 
       <div class="logo"><a href="index.html"><img class="svg" src="images/svg/logo.svg" alt="Sharetribe logo"></a></div>
 
-      <div class="mobile-menu"><a href="menu.html" class="fancybox"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
+      <div class="mobile-menu"><a id="mobilemenu"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
 
       <div class="menu-items">
 
@@ -105,11 +105,65 @@
     </div>
 
   </div>
+  
+  
+  <!-- Mobile menu -->
+  
+  <div class="menu-cover" style="display: none; top: 0px;">
+	
+	  <div class="logo"><img class="svg" src="images/svg/logo.valk.svg" alt="Sharetribe logo"></div>
+	
+    <div class="mobile-menu-close"><a id="menuclose"><img class="svg menu-close" src="images/icons/menu-close.svg" alt="Sharetribe logo">Close</a></div>
+
+    <div class="menu-cover-text">
+	
+		  <div class="menu-cover-text-container">
+			
+			  <ul>
+				
+  				<li><a href="index.html">Home</a></li>
+  				<li><a href="features.html">Features</a></li>
+  				<li><a href="stories.html">Success stories</a></li>
+  				<li><a href="pricing.html">Pricing</a></li>
+  				<li><a href="about.html">About us</a></li>
+  				<li><a href="http://blog.sharetribe.com" target="_blank">Blog</a></li>
+  				<li><a href="contact.html">Contact us</a></li>
+				
+			  </ul>
+		
+		  </div>
+		
+	  </div>
+	
+    <div class="button-bottom">
+		
+		  <a class="button ghost">Get started</a>
+	
+	  </div>
+	
+  </div>
+
 
   <!-- Load all JavaScript here, at the end of the document body.
        No need to use domReady or anything like that.
 
        This will be replaced by grunt build -->
   <script data-main="js/app" src="vendor/require.js"></script>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  
+  <script>
+    
+    $( "#mobilemenu" ).click(function() {
+      $( ".menu-cover" ).slideDown( "slow" );
+    });
+    
+    $( "#menuclose" ).click(function() {
+      $( ".menu-cover" ).slideUp( "slow" );
+    });
+  
+  </script>
+
+  <!-- VERSION -->
+
 </body>
 </html>
