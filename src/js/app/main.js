@@ -40,7 +40,7 @@ define(
           .fancybox({
             width       : '100%',
             height      : '100%',
-            type        : 'iframe',
+            type        : 'inline',
             scrolling   : 'no',
             preload     : 'true'
           });
