@@ -11,7 +11,9 @@ define(['jquery', 'move', 'app/trial-form-validators'], function($, move, valida
       emailNotSell: $('#trial-email-not-sell'),
       emailInvalid: $('#trial-email-invalid'),
 
-      existingAccountSlide: $('#trial-existing-account')
+      existingAccountSlide: $('#trial-existing-account'),
+
+      localizationSlide: $('#trial-localization')
     };
 
     el['emailForm'].submit(emailHandler);
@@ -64,7 +66,7 @@ define(['jquery', 'move', 'app/trial-form-validators'], function($, move, valida
       hide(el.emailSlide);
       checkEmailAvailability(email, function(available) {
         if (available) {
-
+          show(el.localizationSlide);
         } else {
           show(el.existingAccountSlide);
         }
