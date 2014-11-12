@@ -105,6 +105,7 @@ module.exports = function(grunt) {
       // WARNING! Do NOT use expand: true in filerev task. It seems to be unable to delete
       // the originals if expand is true
       images: { src: '.build-tmp/images/*' },
+      vendor: { src: '.build-tmp/images/vendor/*' },
       icons: { src: '.build-tmp/images/icons/*' },
       svg: { src: '.build-tmp/images/svg/*' },
       css: { src: '.build-tmp/css/*' },
