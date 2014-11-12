@@ -100,8 +100,8 @@
         <li>No transaction fees**</li>
         <li class="last-band">Premium support</li>
 
-        <a class="fancybox button" href="form.html">Start your free trial</a>
-        <a href="javascript:void()" class="switch-price switch-monthly">› Switch to monthly billing</a>
+        <a class="fancybox button" href="form.html" onclick="ga('send', 'event', 'start-trial', 'pricing', 'starter')">Start your free trial</a>
+        <a href="javascript:void()" class="switch-price switch-monthly" onclick="javascript:UA_eventbilling(0,'starter');">› Switch to monthly billing</a>
 
       </div>
 
@@ -125,8 +125,8 @@
         <li>Premium support</li>
         <li class="last">Custom domain</li>
 
-        <a class="fancybox button" href="form.html">Start your free trial</a>
-        <a href="javascript:void()" class="switch-price switch-monthly">› Switch to monthly billing</a>
+        <a class="fancybox button" href="form.html" onclick="ga('send', 'event', 'start-trial', 'pricing', 'pro')">Start your free trial</a>
+        <a href="javascript:void()" class="switch-price switch-monthly" onclick="javascript:UA_eventbilling(1,'pro');">› Switch to monthly billing</a>
 
       </div>
 
@@ -149,8 +149,8 @@
         <li>Premium support</li>
         <li class="last">Custom domain</li>
 
-        <a class="fancybox button" href="form.html">Start your free trial</a>
-        <a href="javascript:void()" class="switch-price switch-monthly">› Switch to monthly billing</a>
+        <a class="fancybox button" href="form.html" onclick="ga('send', 'event', 'start-trial', 'pricing', 'growth')">Start your free trial</a>
+        <a href="javascript:void()" class="switch-price switch-monthly" onclick="javascript:UA_eventbilling(2,'growth');">› Switch to monthly billing</a>
 
       </div>
 
@@ -173,8 +173,8 @@
         <li>Premium support</li>
         <li class="last">Custom domain</li>
 
-        <a class="fancybox button" href="form.html">Start your free trial</a>
-        <a href="javascript:void()" class="switch-price switch-monthly">› Switch to monthly billing</a>
+        <a class="fancybox button" href="form.html" onclick="ga('send', 'event', 'start-trial', 'pricing', 'scale')">Start your free trial</a>
+        <a href="javascript:void()" class="switch-price switch-monthly" onclick="javascript:UA_eventbilling(3,'scale');">› Switch to monthly billing</a>
 
       </div>
 
@@ -253,5 +253,18 @@
 
        This will be replaced by grunt build -->
   <script data-main="js/app" src="vendor/require.js"></script>
+  
+  <!-- Script to track billing period change -->
+  <script>
+  function UA_eventbilling(index, typeplan) {
+    var s=x[index];
+    var x = document.getElementsByClassName("billing-cycle");
+    var layer = document.createElement('p');
+    layer.className="billing-cycle";
+    layer.textContent="Billed every 6 months";
+    if (s.isEqualNode(layer)) { ga('send', 'event', 'pricing', 'switch-to-monthly', typeplan)}
+    else {ga('send', 'event', 'pricing', 'switch-to-semiannual', typeplan) }
+  };
+  </script>
 </body>
 </html>
