@@ -1871,7 +1871,9 @@ img.story-left, img.story-right {
   }
   
   h6.reasons {
-    width: 340px;
+    max-width: 340px;
+    width: 90%;
+    line-height: 21px;
   }
 
 	// FOOTER
@@ -2497,6 +2499,10 @@ img.story-left, img.story-right {
     display: none;
   }
   
+  .hero a.button.white {
+    margin-right: 0;
+  }
+  
     h2 {
      font-size: 30px;
      line-height: 40px;
@@ -2543,12 +2549,43 @@ img.story-left, img.story-right {
   	margin-top: 0px;
   }
   
+  .feature-info {
+    
+    p {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 40px;
+    }
+    
+    h6 {
+      margin-top: 30px;
+    }
+    
+    a.button {
+      top: 0px;
+    }
+  }
+  
+  .feature-info.right-info h6 {
+        margin-top: 80px;
+  }
+  
+  img.svg.paypal, img.svg.creditcards {
+    margin-top: -10px;
+    margin-bottom: 50px;
+    
+  }
+  
   .feature-screenshot {
       left: -20px;
       width: 100%;
     
       img {
         width: 100%;
+      }
+      
+      &.track-manage {
+        margin-bottom: -110px;
       }
   }
   
@@ -2727,6 +2764,7 @@ img.story-left, img.story-right {
   .reason {
     width: 28%;
     margin-bottom: 30px;
+    float: right;
   }
 
 
