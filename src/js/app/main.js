@@ -1,7 +1,6 @@
 define(
   [ "jquery"
   , "smoothScroll"
-  , "swiper"
   , "odometer"
   , "app/trial"
   , "app/scrollspy"
@@ -10,7 +9,7 @@ define(
   , "fastclick"
   , "googleAnalytics"
   ]
-  , function ($, SmoothScroll, Swiper, Odometer, Trial, scrollSpy, fancybox, sticky, FastClick) {
+  , function ($, SmoothScroll, Odometer, Trial, scrollSpy, fancybox, sticky, FastClick) {
     var app = {
       init: function() {
         new FastClick(document.body);
@@ -36,7 +35,7 @@ define(
         this.initializeOdometers();
 
         // Initialize trial to DOM element
-        Trial.initializeTrialForm($('.trial'));
+        // Trial.initializeTrialForm($('.trial'));
 
         scrollSpy.init($('#side-navigation a'));
 

@@ -8,7 +8,7 @@ define(
   , "swiper"
   ],
   function (Chosen, trialHtml, localizationHtml, nameHtml, passwordHtml, marketplaceHtml, swiper) {
-
+    return;
     var trial = {
 
       initializeTrialForm: function($trial) {
