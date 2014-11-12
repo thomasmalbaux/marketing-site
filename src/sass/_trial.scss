@@ -25,6 +25,8 @@ $trial-next-button-margin: 15px;
   margin: auto;
   max-width: 1140px;
   width: 90%;
+  height: 270px; // add fixed height so that we can freely change slides without container height change
+  overflow: hidden; // the fixed height should not change. Also, animated content might overflow and we want to hide it
 }
 
 .trial-h4 {
@@ -124,6 +126,16 @@ $trial-next-button-margin: 15px;
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }
+}
+
+.trial-text {
+  color: darken($white, 15%);
+  font-size: 18px;
+  @include Gibson-Regular;
+}
+
+.trial-link {
+  color: white;
 }
 
 .trial-warning {

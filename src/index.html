@@ -267,16 +267,21 @@
       <h4 class="trial-h4">No credit card or business loan required.</h4>
       <h3 class="trial-h3">Start your free 30-day trial of Sharetribe.</h3>
       <div id="trial-email-slide" class="trial-slide">
-        <div class="trial-input-with-next-wrapper">
-          <input id="trial-email-input" class="trial-input" type="text" name="email" placeholder="First, what's your email?">
-          <button id="trial-email-next" class="trial-next-button" type="submit">Next ›</button>
-        </div>
+        <form id="trial-email-form">
+          <div class="trial-input-with-next-wrapper">
+            <input id="trial-email-input" class="trial-input" type="text" name="email" placeholder="First, what's your email?" />
+            <button id="trial-email-next" class="trial-next-button" type="submit">Next ›</button>
+          </div>
+        </form>
 
         <p id="trial-email-not-sell" class="trial-info">We pinky promise that we will never sell your information.</p>
         <p id="trial-email-invalid" class="trial-warning hidden">Sorry, we need a valid email address.</p>
       </div>
-
+      <div id="trial-existing-account" class="trial-slide hidden">
+        <p class="trial-text">It seems you already have a Sharetribe account.</p>
+        <p class="trial-text">If you want to create a new marketplace with this account, <a class="trial-link" href="contact.html" alt="contact us">contact us</a>.</p>
       </div>
+    </div>
   </div>
 
     <div class="clear"></div>
