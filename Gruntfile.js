@@ -57,12 +57,12 @@ module.exports = function(grunt) {
           '**',
 
           // These are packaged by RequireJS.
-          '!**/js/almond*.js',
-          '!**/js/app/**',
+          '!js/almond*.js',
+          '!js/app/**',
 
-          '!**/sass/**', // SASS source is not needed. Only CSS.
-          '!**/vendor/**', // These are included by SASS and RequireJS
-          '!**/templates/**', // Templates are bundled with RequireJS package
+          '!sass/**', // SASS source is not needed. Only CSS.
+          '!vendor/**', // These are included by SASS and RequireJS
+          '!templates/**', // Templates are bundled with RequireJS package
         ],
         dest: 'dist/'
       },
@@ -74,6 +74,7 @@ module.exports = function(grunt) {
         cwd: 'dist/',
         src: [
           '**/images/*',
+          '**/images/vendor/*'
         ],
         dest: 'dist-packaged/'
       }
