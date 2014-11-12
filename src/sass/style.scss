@@ -35,6 +35,10 @@ strong { @include Gibson-Regular; }
   }
 }
 
+.hidden {
+  display: none;
+}
+
 a {
   @include transition(color, 0.1s, ease-in-out);
   text-decoration: none;

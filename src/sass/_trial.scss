@@ -126,6 +126,16 @@ $trial-next-button-margin: 15px;
   }
 }
 
+.trial-warning {
+  @extend .trial-info;
+  color: yellow;
+}
+
+.trial-slide {
+  position: relative;
+  left: 0px;
+}
+
 .trial-next-button {
   border: none;
   font-size: 12px;
