@@ -8,6 +8,8 @@
 
 body, html { height: 100%; }
 
+html { -webkit-text-size-adjust: 100%!important; }
+
 body {
   @include Gibson-Light;
   text-rendering: optimizeLegibility;
@@ -38,7 +40,9 @@ a {
   text-decoration: none;
   color: $orange;
 
-  &:hover { color: $blue; }
+  &:hover {
+    color: $blue;
+  }
 }
 
 
@@ -631,7 +635,7 @@ img.svg.paypal {
   text-align: center;
 
   p {
-    padding: 160px 0;
+    padding: 10px 0 160px;
     max-width: 450px;
     max-height: 430px;
     width: 80%;
@@ -640,6 +644,14 @@ img.svg.paypal {
     font-family: Gibson-LightIt;
     font-size: 26px;
     line-height: 36px;
+  }
+  
+  h6 {
+    color: $white;
+    margin: 130px auto 30px;
+    width: 81px;
+	  text-align: center;
+	  padding-bottom: 25px;
   }
 }
 
@@ -1118,6 +1130,7 @@ img.svg.paypal {
   &.two-thirds-last { float: left; width: 550px; margin-right: 0; margin-left: 0; }
 
   .img-left { margin-left: -25px; margin-top: -22px; }
+  
   .img-right { margin-left: -15px; margin-top: -15px;  }
 
 }
@@ -1278,6 +1291,7 @@ img.svg.paypal {
     margin-top: 36px;
     line-height: 21px;
   }
+  
   a.switch-monthly {
     color: #b3b3b3;
 
@@ -1287,7 +1301,9 @@ img.svg.paypal {
   a.switch-biannually {
     color: $orange;
 
-    &:hover { color: $blue; }
+    &:hover { 
+      color: $blue;
+    }
   }
 }
 
@@ -1340,9 +1356,13 @@ p.pricing-faq {
     margin-bottom: 15px;
   }
 
-  &.first { margin-left: 40px!important; }
+  &.first { 
+    margin-left: 40px!important;
+  }
 
-  &.second, &.third { margin-left: 70px; }
+  &.second, &.third {
+    margin-left: 70px;
+  }
 
 }
 
@@ -1353,12 +1373,15 @@ p.pricing-faq {
 ////////////////////
 
 .stories {
+  @include transition(all, 0.15s, ease-in-out);
   width: 100%;
   height: 300px;
   background-color: $blue;
-  @include transition(all, 0.15s, ease-in-out);
 
-  &:hover { box-shadow: 0px 300px rgba(237, 79, 46, 0.9) inset; cursor: hand; }
+  &:hover { 
+    box-shadow: 0px 300px rgba(237, 79, 46, 0.9) inset; 
+    cursor: hand;
+  }
 }
 
 .thequiver { background: url("../images/bg.thequiver.jpg") no-repeat center center; }
@@ -1781,7 +1804,6 @@ img.story-left, img.story-right {
   h1 {
     font-size: 54px;
     line-height: 64px;
-    width: 500px;
   }
   
   
@@ -2305,8 +2327,13 @@ img.story-left, img.story-right {
 @media screen and (max-width: 768px) {
   
   .main-wrapper {
-  		&.stories-wrapper {
+    
+  	&.stories-wrapper {
   		width: 90%;
+		}
+		
+		&.features {
+  	    overflow-x: hidden;
 		}
   }
   
@@ -2458,7 +2485,6 @@ img.story-left, img.story-right {
   }
 
   .feature {
-
     margin: 0 auto;
     padding-bottom: 30px;
 
@@ -2470,16 +2496,23 @@ img.story-left, img.story-right {
 
     &.one-half-last { width: 40%; margin-left: 5%; }
 
-    &.two-thirds { clear: both; margin-top: -70px; }
+    &.two-thirds { width: 40%; margin-top: -70px; }
 
-    &.two-thirds-last { clear: both; display: none;}
+    &.two-thirds-last { width: 40%; }
+    
+    .img-right {
+      margin-left: 11px;
+    }
+    
+    .img-left{
+      display: none;
+    }
   }
-
-  div#marketing {
+  
+  div#manage-track {
     width: 90%;
+    margin-bottom: 20px;
   }
-
-
 }
 
 @media screen and (max-width: 640px) {
@@ -2487,7 +2520,6 @@ img.story-left, img.story-right {
   h1 {
     font-size: 28px;
     line-height: 36px;
-    width: 500px;
   }
   
   .hero p {
@@ -2503,7 +2535,7 @@ img.story-left, img.story-right {
     margin-right: 0;
   }
   
-    h2 {
+  h2 {
      font-size: 30px;
      line-height: 40px;
     
@@ -2520,10 +2552,21 @@ img.story-left, img.story-right {
 			width: 100%;
 		}
 
-		&.about-us p {
-			font-size: 16px;
-			line-height: 24px;
-		}
+		&.about-us {
+  		margin: 40px auto 60px;
+		
+		  p {
+			  font-size: 16px;
+        line-height: 24px;
+      }
+      
+      h4 {
+        font-size: 21px;
+        line-height: 28px;
+        margin: 50px auto 20px;  
+      }
+    
+    }   
 
 		&.pricing {
   		width: 95%;
@@ -2571,7 +2614,7 @@ img.story-left, img.story-right {
   }
   
   img.svg.paypal, img.svg.creditcards {
-    margin-top: -10px;
+    margin-top: 20px;
     margin-bottom: 50px;
     
   }
@@ -2671,6 +2714,22 @@ img.story-left, img.story-right {
 			max-width: 90%;
 			margin-left: 5%;
 			margin-right: 5%;
+			padding-top: 0px;
+			padding-bottom: 0px;
+			
+			p.important-privacy {
+  			font-size: 26px;
+        line-height: 34px;
+			}
+			
+		  h3 {
+  		  font-size: 21px;
+  		  line-height: 28px;
+		  }	
+		}
+		
+		&.features-page {
+  		margin-top: -30px;
 		}
 	}
 
@@ -2904,7 +2963,7 @@ img.story-left, img.story-right {
 	}
 
 	.contact img.castle {
-		margin-bottom: 10px;
+		margin-bottom: 25px;
 	}
 
 
@@ -2943,3 +3002,60 @@ img.story-left, img.story-right {
     margin-left: 5%;
   }
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
+  
+   html {  -webkit-text-size-adjust: 100%!important; }
+   
+   .contact {
+     height: 450px;
+   }
+   
+   .contact-text {
+     height: auto;
+     margin: 50px auto;
+     padding-bottom: 100px;
+     top: 0px;
+   }
+   
+   .about-cover {
+     height: 650px;
+   }
+   
+   .about-cover-text {
+     height: auto;
+   }
+   
+   .main-wrapper {
+
+		&.about-us {
+  		margin: 40px auto 60px;
+		
+		  p {
+			  font-size: 16px;
+        line-height: 24px;
+      }
+      
+      h4 {
+        font-size: 21px;
+        line-height: 28px;
+        margin: 50px auto 20px;  
+      }
+    }   
+	} 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
