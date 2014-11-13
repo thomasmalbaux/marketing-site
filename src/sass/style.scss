@@ -96,7 +96,8 @@ a {
 
   .get-started {
     @include button($white, $orange, $orange, $white, $blue, $blue);
-    top: -1px;
+    top: -13px;
+    float: right;
   }
 
 }
@@ -1680,7 +1681,7 @@ img.story-left, img.story-right {
 	left: 0;
 	right: 0;
 	margin: auto;
-	height: 65%;
+	height: 55%;
 	max-width: 1020px;
 	width: 90%;
 	text-align: center;
@@ -1726,8 +1727,8 @@ img.story-left, img.story-right {
 		font-size: 14px;
 		@include Gibson-Regular;
 		position: absolute;
-		right: 25px;
-		top: 25px;
+		right: 146px;
+    top: 32px;
 
 		a {
 			color: $white;
@@ -1746,17 +1747,16 @@ img.story-left, img.story-right {
 
 .button-bottom {
 	position: absolute;
-	bottom: 7%;
-	left: 50%;
+	top: 32px;
+	right: 24px;
 
 	a.button.ghost {
 		position: relative;
-		left: -50%;
-	    font-family: Gibson-Regular!important;
-	    @include button($white, $orange, $white ,$white,$blue,$blue);
-	    font-size: 14px;
-	    letter-spacing: 0.07em;
-	    padding: 14px 20px;
+    font-family: Gibson-Regular!important;
+    @include button($white, $orange, $white ,$white,$blue,$blue);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    padding: 12px 20px;
 	}
 }
 
@@ -2166,7 +2166,21 @@ br.br-titlebreak {
   }
   
   
+  // WHERE & WHAT
   
+  .where, .what {
+    max-height: 405px;
+    
+    p {
+      padding: 10px 0 120px;
+    }
+    
+    h6 {
+      margin: 100px auto 30px;
+      padding-bottom: 25px;
+      width: 70px;
+    }
+  } 
 }
 
 @media screen and (max-width: 1024px) {
@@ -2215,7 +2229,7 @@ br.br-titlebreak {
   
   .what {
     background: url("../images/bg.video.jpg") no-repeat center top;
-    max-height: 475px;
+    max-height: 405px;
   }
   
   .feature-info {
@@ -2342,9 +2356,10 @@ br.br-titlebreak {
 		display: inline-block;
 		font-size: 14px;
 		@include Gibson-Regular;
-		position: absolute;
-		right: 150px;
-		top: 30px;
+		position: relative;
+		float: right;
+		right: 15px;
+		top: 0px;
 
 		a {	color: $orange;
 			&:hover { color: $grey; }
@@ -2535,17 +2550,22 @@ br.br-titlebreak {
   }
 
   .where, .what {
-    width: 50%;
-    max-height: 272px;
-
+    max-height: 405px;
+    min-height: 300px;
+    
     p {
-      padding: 80px 0;
-      width: 65%;
-      font-size: 18px;
+      padding: 10px 0 70px;
+      font-size: 19px;
       line-height: 28px;
     }
+    
+    h6 {
+      margin: 60px auto 20px;
+      padding-bottom: 15px;
+      width: 70px;
+    }
   }
-
+  
   .story {
     width: 45%;
     margin-left: 2.5%;
@@ -2754,14 +2774,24 @@ br.br-titlebreak {
 
   	&.jackie {display: none;}
 	}
+	
 
 	.where, .what {
   	width: 100%;
+  	min-height: 260px;
+  	max-height: auto;
 
   	p {
-    	padding: 60px 0px;
-    	width: 90%;
+    	padding: 20px 0px 0px;
+    	width: 80%;
+    	max-width: 640px;
   	}
+  	
+  	h6 {
+      margin: 50px auto 10px;
+      padding-bottom: 15px;
+      width: 70px;
+    }
   }
 
 	.what {
@@ -2938,7 +2968,8 @@ br.br-titlebreak {
 	}
 
 	.about-cover-text {
-		height: 100%;
+		height: auto;
+		margin-top: 50px;
 	}
 
 	.contact-text {
@@ -3042,7 +3073,8 @@ br.br-titlebreak {
 			margin-left: 15px;
 		}
 	}
-	.mobile-menu { right: 15px; top: 18px; }
+	
+	.mobile-menu { right: 0px; top: 0px; }
 
 	.menu-cover {
 
@@ -3058,8 +3090,8 @@ br.br-titlebreak {
 		}
 
 		.mobile-menu-close {
-			right: 15px;
-			top: 23px;
+			right: 26px;
+			top: 18px;
 		}
 
 		.menu-cover-text {
@@ -3069,15 +3101,17 @@ br.br-titlebreak {
 	}
 
 	.button-bottom {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    top: auto;
 
 		a.button.ghost {
 			font-size: 12px;
-		    padding: 10px 16px;
+		  padding: 10px 16px;
+		  left: -50%
 		}
 	}
-
-	.mobile-menu { right: 15px; top: 18px; }
-
 
 	// STORIES PAGE
 
@@ -3242,8 +3276,8 @@ br.br-titlebreak {
     height: 750px;
     
     li a {
-      font-size: 32px;
-      line-height: 60px;
+      font-size: 100%;
+      line-height: 200%;
     }
   }
   

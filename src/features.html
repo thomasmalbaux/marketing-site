@@ -10,6 +10,24 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 
   <title>Create a marketplace with Sharetribe – Marketplace Features</title>
 
@@ -19,27 +37,29 @@
 <body>
 
 <!-- Sticky navigation -->
-  <div id="navigation-wrapper">
 
-      <nav class="main-navigation fixedsticky" id="main-navigation">
+  <div id="learn-more" >
+    
+    <nav class="main-navigation fixedsticky" id="main-navigation">
 
-        <div class="logo"><a href="index.html" onclick="ga('send', 'event', 'menu', 'home', 'features', {'noninteraction': 1});"><img class="svg" src="images/svg/logo.svg" alt="Sharetribe logo"></a></div>
+      <div class="logo"><a href="index.html" onclick="ga('send', 'event', 'menu', 'home', 'home', {'noninteraction': 1});"><img class="svg" src="images/svg/logo.svg" alt="Sharetribe logo"></a></div>
 
-      <div class="mobile-menu"><a id="mobilemenu"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
+      <div class="menu-items">
 
-        <div class="menu-items">
-
-		  <li><a href="features.html" onclick="ga('send', 'event', 'menu', 'features', 'features', {'noninteraction': 1});">Features</a></li>
-		  <li><a href="stories.html" onclick="ga('send', 'event', 'menu', 'stories', 'features', {'noninteraction': 1});">Success stories</a></li>
-		  <li><a href="pricing.html" onclick="ga('send', 'event', 'menu', 'pricing', 'features', {'noninteraction': 1});">Pricing</a></li>
-		  <li><a href="about.html" onclick="ga('send', 'event', 'menu', 'about', 'features', {'noninteraction': 1});">About us</a></li>
-		  <li><a href="http://blog.sharetribe.com" target="_blank" onclick="ga('send', 'event', 'menu', 'blog', 'features', {'noninteraction': 1});">Blog</a></li>
-		  <li><a href="contact.html" onclick="ga('send', 'event', 'menu', 'contact', 'features', {'noninteraction': 1});">Contact us</a></li>
+      		<li><a href="features.html" onclick="ga('send', 'event', 'menu', 'features', 'home', {'noninteraction': 1});">Features</a></li>
+      		<li><a href="stories.html" onclick="ga('send', 'event', 'menu', 'stories', 'home', {'noninteraction': 1});">Success stories</a></li>
+      		<li><a href="pricing.html" onclick="ga('send', 'event', 'menu', 'pricing', 'home', {'noninteraction': 1});">Pricing</a></li>
+      		<li><a href="about.html" onclick="ga('send', 'event', 'menu', 'about', 'home', {'noninteraction': 1});">About us</a></li>
+      		<li><a href="http://blog.sharetribe.com" target="_blank" onclick="ga('send', 'event', 'menu', 'blog', 'home', {'noninteraction': 1});">Blog</a></li>
+      		<li><a href="contact.html" onclick="ga('send', 'event', 'menu', 'contact', 'home', {'noninteraction': 1});">Contact us</a></li>
+              
           <a class="fancybox button get-started" href="form.html">Get started</a>
+              
+          <div class="mobile-menu"><a id="mobilemenu"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
 
-        </div>
+      </div>
 
-      </nav>
+    </nav>
 
 
   <!-- Subpage Header -->

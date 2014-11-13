@@ -47,7 +47,6 @@ define(
           });
         }
 
-
       , initializeOdometers: function() {
         //TODO magic numbers
         this.initializeOdometer($('.starter.price-container'), 39, 49);

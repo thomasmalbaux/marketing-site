@@ -10,6 +10,24 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+    <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 
   <title>Create a marketplace with Sharetribe - Our story</title>
 
@@ -17,7 +35,30 @@
   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 </head>
 <body>
+  
+  
+    <nav class="main-navigation" style="position: fixed;">
 
+      <div class="logo"><a href="index.html" onclick="ga('send', 'event', 'menu', 'home', 'contact', {'noninteraction': 1});"><img class="svg" src="images/svg/logo.svg" alt="Sharetribe logo"></a></div>
+
+      <div class="menu-items">
+
+        <li><a href="features.html" onclick="ga('send', 'event', 'menu', 'features', 'contact', {'noninteraction': 1});">Features</a></li>
+        <li><a href="stories.html" onclick="ga('send', 'event', 'menu', 'stories', 'contact', {'noninteraction': 1});">Success stories</a></li>
+        <li><a href="pricing.html" onclick="ga('send', 'event', 'menu', 'pricing', 'contact', {'noninteraction': 1});">Pricing</a></li>
+        <li><a href="about.html" onclick="ga('send', 'event', 'menu', 'about', 'contact', {'noninteraction': 1});">About us</a></li>
+        <li><a href="http://blog.sharetribe.com" target="_blank" onclick="ga('send', 'event', 'menu', 'blog', 'contact', {'noninteraction': 1});">Blog</a></li>
+        <li><a href="contact.html" onclick="ga('send', 'event', 'menu', 'contact', 'contact', {'noninteraction': 1});">Contact us</a></li>
+        
+        <a class="fancybox button get-started" href="form.html">Get started</a>
+        
+        <div class="mobile-menu"><a id="mobilemenu"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
+
+      </div>
+
+    </nav>
+            
+  
 <!-- Header -->
 
   <header class="about-cover">
@@ -37,31 +78,7 @@
     </div>
 
   </header>
-
-
-<!-- Sticky navigation -->
-  <div id="learn-more" >
-
-    <nav class="main-navigation fixedsticky" id="main-navigation">
-
-      <div class="logo"><a href="index.html" onclick="ga('send', 'event', 'menu', 'home', 'about', {'noninteraction': 1});"><img class="svg" src="images/svg/logo.svg" alt="Sharetribe logo"></a></div>
-
-      <div class="mobile-menu"><a id="mobilemenu"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
-
-      <div class="menu-items">
-
-        <li><a href="features.html" onclick="ga('send', 'event', 'menu', 'features', 'about', {'noninteraction': 1});">Features</a></li>
-        <li><a href="stories.html" onclick="ga('send', 'event', 'menu', 'stories', 'about', {'noninteraction': 1});">Success stories</a></li>
-        <li><a href="pricing.html" onclick="ga('send', 'event', 'menu', 'pricing', 'about', {'noninteraction': 1});">Pricing</a></li>
-        <li><a href="about.html" onclick="ga('send', 'event', 'menu', 'about', 'about', {'noninteraction': 1});">About us</a></li>
-        <li><a href="http://blog.sharetribe.com" target="_blank" onclick="ga('send', 'event', 'menu', 'blog', 'about', {'noninteraction': 1});">Blog</a></li>
-        <li><a href="contact.html" onclick="ga('send', 'event', 'menu', 'contact', 'about', {'noninteraction': 1});">Contact us</a></li>
-        <a class="fancybox button get-started" href="form.html">Get started</a>
-
-      </div>
-
-    </nav>
-
+  
 
   <!-- Subpage Header -->
   <!-- 5 reasons to use sharetribe -->
@@ -96,7 +113,7 @@
 
 		<p>We have gone through our share of trial and error, and have launched a number of successful sites to date. We know our stuff. We've built this product for people like us: aspiring entrepreneurs, passionate about their concept and with the urge to get started as soon as possible.</p><br>
 
-		<p>Let us take care of all the complicated stuff so you can focus on what matters most: your community. We look forward to growing with you as your partner and building amazing an marketplace experiences together. </p>
+		<p>Let us take care of all the complicated stuff so you can focus on what matters most: your community. We look forward to growing with you as your partner and building amazing marketplace experiences together. </p>
 
 		<p><img src="images/nimmarit.png" style="max-width: 555px; width: 90%; margin-top: 50px; "></p>
   		
@@ -147,9 +164,7 @@
 
       </div>
 
-    </div>
 
-  </div>
   
   
   <!-- Mobile menu -->
@@ -185,8 +200,11 @@
 		  <a class="button ghost">Get started</a>
 	
 	  </div>
-	
+
   </div>
+  
+</div>
+
 
 
   <!-- Load all JavaScript here, at the end of the document body.
