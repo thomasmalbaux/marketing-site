@@ -949,12 +949,18 @@ img.svg.paypal {
     vertical-align: middle;
     right: -6px;
     position: relative;
+    //copies from odometer, to prevent jumping when odometer kicks in
+    vertical-align: middle;
+    line-height: 1.1em;
   }
 
   .price {
     @include Gibson-Light;
     font-size: 72px;
     letter-spacing: 0em;
+    //copies from odometer, to prevent jumping when odometer kicks in
+    vertical-align: middle;
+    line-height: 1.1em;
   }
 
   .month {
