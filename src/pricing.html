@@ -25,18 +25,18 @@
 
     <nav class="main-navigation fixedsticky" id="main-navigation">
 
-      <div class="logo"><a href="index.html"><img class="svg" src="images/svg/logo.svg" alt="Sharetribe logo"></a></div>
+      <div class="logo"><a href="index.html" onclick="ga('send', 'event', 'menu', 'home', 'pricing', {'noninteraction': 1});"><img class="svg" src="images/svg/logo.svg" alt="Sharetribe logo"></a></div>
 
       <div class="mobile-menu"><a id="mobilemenu"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
 
       <div class="menu-items">
 
-        <li><a href="features.html">Features</a></li>
-        <li><a href="stories.html">Success stories</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="about.html">About us</a></li>
-        <li><a href="http://blog.sharetribe.com" target="_blank">Blog</a></li>
-        <li><a href="contact.html">Contact us</a></li>
+		<li><a href="features.html" onclick="ga('send', 'event', 'menu', 'features', 'pricing', {'noninteraction': 1});">Features</a></li>
+		<li><a href="stories.html" onclick="ga('send', 'event', 'menu', 'stories', 'pricing', {'noninteraction': 1});">Success stories</a></li>
+		<li><a href="pricing.html" onclick="ga('send', 'event', 'menu', 'pricing', 'pricing', {'noninteraction': 1});">Pricing</a></li>
+		<li><a href="about.html" onclick="ga('send', 'event', 'menu', 'about', 'pricing', {'noninteraction': 1});">About us</a></li>
+		<li><a href="http://blog.sharetribe.com" target="_blank" onclick="ga('send', 'event', 'menu', 'blog', 'pricing', {'noninteraction': 1});">Blog</a></li>
+		<li><a href="contact.html" onclick="ga('send', 'event', 'menu', 'contact', 'pricing', {'noninteraction': 1});">Contact us</a></li>
         <a class="fancybox button get-started" href="form.html">Get started</a>
 
       </div>
@@ -100,8 +100,8 @@
         <li>No transaction fees**</li>
         <li class="last-band">Premium support</li>
 
-        <a class="fancybox button" href="form.html">Start your free trial</a>
-        <a href="javascript:void()" class="switch-price switch-monthly">› Switch to monthly billing</a>
+        <a class="fancybox button" href="form.html" onclick="ga('send', 'event', 'start-trial', 'pricing', 'starter')">Start your free trial</a>
+        <a href="javascript:void()" class="switch-price switch-monthly" onclick="javascript:UA_eventbilling(0,'starter');">› Switch to monthly billing</a>
 
       </div>
 
@@ -125,8 +125,8 @@
         <li>Premium support</li>
         <li class="last">Custom domain</li>
 
-        <a class="fancybox button" href="form.html">Start your free trial</a>
-        <a href="javascript:void()" class="switch-price switch-monthly">› Switch to monthly billing</a>
+        <a class="fancybox button" href="form.html" onclick="ga('send', 'event', 'start-trial', 'pricing', 'pro')">Start your free trial</a>
+        <a href="javascript:void()" class="switch-price switch-monthly" onclick="javascript:UA_eventbilling(1,'pro');">› Switch to monthly billing</a>
 
       </div>
 
@@ -149,8 +149,8 @@
         <li>Premium support</li>
         <li class="last">Custom domain</li>
 
-        <a class="fancybox button" href="form.html">Start your free trial</a>
-        <a href="javascript:void()" class="switch-price switch-monthly">› Switch to monthly billing</a>
+        <a class="fancybox button" href="form.html" onclick="ga('send', 'event', 'start-trial', 'pricing', 'growth')">Start your free trial</a>
+        <a href="javascript:void()" class="switch-price switch-monthly" onclick="javascript:UA_eventbilling(2,'growth');">› Switch to monthly billing</a>
 
       </div>
 
@@ -173,8 +173,8 @@
         <li>Premium support</li>
         <li class="last">Custom domain</li>
 
-        <a class="fancybox button" href="form.html">Start your free trial</a>
-        <a href="javascript:void()" class="switch-price switch-monthly">› Switch to monthly billing</a>
+        <a class="fancybox button" href="form.html" onclick="ga('send', 'event', 'start-trial', 'pricing', 'scale')">Start your free trial</a>
+        <a href="javascript:void()" class="switch-price switch-monthly" onclick="javascript:UA_eventbilling(3,'scale');">› Switch to monthly billing</a>
 
       </div>
 
@@ -217,19 +217,19 @@
 
       <div>
 
-        <li class="text-link"><a href="features.html">Features</a></li>
-        <li class="text-link"><a href="stories.html">Success stories</a></li>
-        <li class="text-link"><a href="pricing.html">Pricing</a></li>
+        <li class="text-link"><a href="features.html" onclick="ga('send', 'event', 'footer', 'features', 'pricing', {'noninteraction': 1});">Features</a></li>
+        <li class="text-link"><a href="stories.html" onclick="ga('send', 'event', 'footer', 'stories', 'pricing', {'noninteraction': 1});">Success stories</a></li>
+        <li class="text-link"><a href="pricing.html" onclick="ga('send', 'event', 'footer', 'pricing', 'pricing', {'noninteraction': 1});">Pricing</a></li>
 
-        <li><a href="https://www.facebook.com/Sharetribe" target="_blank"><img class="svg facebook" src="images/icons/facebook.svg" alt="Sharetribe Facebook"></a></li>
+        <li><a href="https://www.facebook.com/Sharetribe" target="_blank"><img class="svg facebook" src="images/icons/facebook.svg" alt="Sharetribe Facebook" onclick="ga('send', 'event', 'footer', 'facebook', 'pricing', {'noninteraction': 1});"></a></li>
 
-        <li><a href="index.html"><img class="svg" src="images/svg/sharetribe.symbol.svg" alt="Sharetribe logo"></a></li>
+        <li><a href="index.html"><img class="svg" src="images/svg/sharetribe.symbol.svg" alt="Sharetribe logo" onclick="ga('send', 'event', 'footer', 'home', 'pricing', {'noninteraction': 1});"></a></li>
 
-        <li class="twitter-last"><a href="https://www.twitter.com/Sharetribe" target="_blank"><img class="svg twitter" src="images/icons/twitter.svg" alt="Sharetribe Twitter"></a></li>
+        <li class="twitter-last"><a href="https://www.twitter.com/Sharetribe" target="_blank"><img class="svg twitter" src="images/icons/twitter.svg" alt="Sharetribe Twitter" onclick="ga('send', 'event', 'footer', 'twitter', 'pricing', {'noninteraction': 1});"></a></li>
 
-        <li class="text-link"><a href="about.html">About us</a></li>
-        <li class="text-link"><a href="http://blog.sharetribe.com" target="_blank">Blog</a></li>
-        <li class="footer-last text-link"><a href="contact.html">Contact us</a></li>
+        <li class="text-link"><a href="about.html" onclick="ga('send', 'event', 'footer', 'about', 'pricing', {'noninteraction': 1});">About us</a></li>
+        <li class="text-link"><a href="http://blog.sharetribe.com" target="_blank" onclick="ga('send', 'event', 'footer', 'blog', 'pricing', {'noninteraction': 1});">Blog</a></li>
+        <li class="footer-last text-link"><a href="contact.html" onclick="ga('send', 'event', 'footer', 'features', 'contact', {'noninteraction': 1});">Contact us</a></li>
 
       </div>
 
@@ -247,22 +247,22 @@
     </div>
 
   </div>
-  
-  
+
+
   <!-- Mobile menu -->
-  
+
   <div class="menu-cover" style="display: none; top: 0px;">
-	
+
 	  <div class="logo"><img class="svg" src="images/svg/logo.valk.svg" alt="Sharetribe logo"></div>
-	
+
     <div class="mobile-menu-close"><a id="menuclose"><img class="svg menu-close" src="images/icons/menu-close.svg" alt="Sharetribe logo">Close</a></div>
 
     <div class="menu-cover-text">
-	
+
 		  <div class="menu-cover-text-container">
-			
+
 			  <ul>
-				
+
   				<li><a href="index.html">Home</a></li>
   				<li><a href="features.html">Features</a></li>
   				<li><a href="stories.html">Success stories</a></li>
@@ -270,19 +270,19 @@
   				<li><a href="about.html">About us</a></li>
   				<li><a href="http://blog.sharetribe.com" target="_blank">Blog</a></li>
   				<li><a href="contact.html">Contact us</a></li>
-				
+
 			  </ul>
-		
+
 		  </div>
-		
+
 	  </div>
-	
+
     <div class="button-bottom">
-		
+
 		  <a class="button ghost">Get started</a>
-	
+
 	  </div>
-	
+
   </div>
 
 
@@ -291,21 +291,35 @@
 
        This will be replaced by grunt build -->
   <script data-main="js/app" src="vendor/require.js"></script>
+
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 
   <script>
-    
+
     $( "#mobilemenu" ).click(function() {
       $( ".menu-cover" ).slideDown( "slow" );
     });
-    
+
     $( "#menuclose" ).click(function() {
       $( ".menu-cover" ).slideUp( "slow" );
     });
-  
+
   </script>
 
   <!-- VERSION -->
+
+  <!-- Script to track billing period change -->
+  <script>
+  function UA_eventbilling(index, typeplan) {
+    var s=x[index];
+    var x = document.getElementsByClassName("billing-cycle");
+    var layer = document.createElement('p');
+    layer.className="billing-cycle";
+    layer.textContent="Billed every 6 months";
+    if (s.isEqualNode(layer)) { ga('send', 'event', 'pricing', 'switch-to-monthly', typeplan)}
+    else {ga('send', 'event', 'pricing', 'switch-to-semiannual', typeplan) }
+  };
+  </script>
 
 </body>
 </html>

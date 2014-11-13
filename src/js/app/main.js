@@ -7,6 +7,7 @@ define(
   , "app/scrollspy"
   , "fancybox"
   , "sticky"
+  , "googleAnalytics"
   ]
   , function ($, SmoothScroll, Swiper, Odometer, Trial, scrollSpy, fancybox, sticky) {
     var app = {
