@@ -6,7 +6,10 @@ define([
   , 'modernizr'
   , 'xdomain'
   , 'chosen'
+  , 'placeholder'
 ], function($, _, move, validator, Modernizr) {
+  $('input, textarea').placeholder();
+
   // cache elements
   var el = {};
 
