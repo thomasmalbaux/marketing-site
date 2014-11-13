@@ -1,0 +1,77 @@
+/* chosen overrides */
+.trial { // Wrap inside trial class. This is a bit ugly, but necessary to give higher precense to the overrides.
+    .chosen-container-active .chosen-single {
+        @include Gibson-Regular;
+        border: none;
+        box-shadow: none;
+    }
+    .chosen-container-single .chosen-single {
+        @include Gibson-Light;
+        color: $white;
+        line-height: 71px;
+        padding: 0;
+        height: 100%;
+        border: none;
+        border-radius: none;
+        background: none;
+        box-shadow: none;
+        text-decoration: none;
+        white-space: nowrap;
+        float: left;
+        width: 100%;
+        text-align: left;
+
+        div {
+            b {
+                background-image: url("../images/icons/arrow.down.svg");
+                background-repeat: no-repeat;
+                background-position: 100%;
+                background-size: 20px;
+            }
+        }
+    }
+
+    .chosen-container {
+        font-size: 18px;
+
+        &.chosen-container-active, &:hover, &:focus {
+            background-color: $bg-grey;
+            color: $light-grey;
+        }
+
+        .chosen-drop {
+            background-color: #2a3d4b;
+            border: none;
+        }
+        .chosen-search input {
+            border: none;
+            height: 50px;
+            color: $white;
+            background-color: #243440;
+            background-image: url("../images/icons/search.icon.svg");
+            background-repeat: no-repeat;
+            background-position: 93%;
+            background-size: 21px;
+            padding-left: 26px;
+        }
+
+        .chosen-results {
+            @include Gibson-Light;
+            width: 100%;
+            max-height: 115px;
+            color: $white;
+            text-align: left;
+
+            li.no-results {
+                color: $white;
+                font-size: 14px;
+                background: none;
+            }
+
+            .highlighted {
+                background: none;
+                color: #8fd0ff;
+            }
+        }
+    }
+}

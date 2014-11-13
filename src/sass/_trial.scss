@@ -1,5 +1,5 @@
 @import "compass/css3";
-
+@import "compass/utilities/general/clearfix";
 
 $trial-next-button-width: 80px;
 $trial-next-button-margin: 15px;
@@ -26,7 +26,16 @@ $trial-next-button-margin: 15px;
   max-width: 1140px;
   width: 90%;
   height: 270px; // add fixed height so that we can freely change slides without container height change
-  overflow: hidden; // the fixed height should not change. Also, animated content might overflow and we want to hide it
+
+  @media screen and (max-width: 768px) {
+    // Need more height due to stacking
+    height: 340px; // Estimation of needed size: two dropdowns, margin, and info texts
+  }
+
+  @media screen and (max-width: 470px) {
+    // Need more height due to stacking
+    height: 380px; // Estimation of needed size: two dropdowns, margin, and info texts
+  }
 }
 
 .trial-h4 {
@@ -72,17 +81,20 @@ $trial-next-button-margin: 15px;
   }
 }
 
-.trial-input {
+/*
+  Base class for look and feel for form elements.
+  Use @extend to make element specific (input, text, select) classes.
+  Do NOT include element specific declarations in this class
+*/
+.trial-input-look-and-feel {
   @include transition(all, 0.2s, ease-in-out);
   background-color: $bg-grey;
-  line-height: 21px;
   font-size: 18px;
   border: none;
   height: 70px;
   @include border-radius(5px);
   @include Gibson-Light;
-  padding-left: 24px;
-  padding-right: 24px + $trial-next-button-width + $trial-next-button-margin; // Add right padding, so that text doesn't go under the next button
+
   width: 100%;
   border-bottom: solid 3px #ff836d;
   outline: none;
@@ -91,6 +103,15 @@ $trial-next-button-margin: 15px;
     background: $white;
     border-bottom: solid 3px $blue;
   }
+
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.trial-input {
+  @extend .trial-input-look-and-feel;
+
+  padding-right: 24px + $trial-next-button-width + $trial-next-button-margin; // Add right padding, so that text doesn't go under the next button
 
   @include input-placeholder {
     color: $light-grey;
@@ -114,6 +135,51 @@ $trial-next-button-margin: 15px;
   // Without this, Chrome allows user to input multiline text to text input
   // See: http://stackoverflow.com/a/20376723/432787
   word-break: normal;
+}
+
+.trial-select {
+  // Note that there are a lot of chosen styles and chosen style overrides to affecting select element look and feel
+  @extend .trial-input-look-and-feel;
+}
+
+.trial-localization-selects {
+  position: relative;
+  height: 70px;
+  max-width: 710px; // country select + margin + language select
+  width: 100%;
+  margin: auto;
+
+  @media screen and (max-width: 768px) {
+    // Need more height due to stacking
+    height: (70px * 2) + 10px; // Estimation of needed size: two dropdowns, margin, and info text
+  }
+}
+
+/* The size of the chosen select element is 100%, so this container limits the size */
+.trial-country-select-container {
+  max-width: 290px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+
+  @media screen and (max-width: 768px) {
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* The size of the chosen select element is 100%, so this container limits the size */
+.trial-language-select-container {
+  max-width: 400px;
+  width: 100%;
+  position: absolute;
+  right: 0;
+
+  @media screen and (max-width: 768px) {
+    position: relative;
+    max-width: 100%;
+  }
 }
 
 .trial-info {

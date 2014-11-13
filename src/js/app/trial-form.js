@@ -1,4 +1,11 @@
-define(['jquery', 'move', 'app/trial-form-validators', 'modernizr', 'xdomain'], function($, move, validator, Modernizr) {
+define([
+  'jquery'
+  , 'move'
+  , 'app/trial-form-validators'
+  , 'modernizr'
+  , 'xdomain'
+  , 'chosen'
+], function($, move, validator, Modernizr) {
   var transitionEnd = "webkitTransitionEnd oTransitionEnd otransitionend transitionend msTransitionEnd";
   // cache elements
   var el = {};
@@ -15,10 +22,22 @@ define(['jquery', 'move', 'app/trial-form-validators', 'modernizr', 'xdomain'], 
 
       existingAccountSlide: $('#trial-existing-account'),
 
-      localizationSlide: $('#trial-localization')
+      localizationSlide: $('#trial-localization'),
+      localizationCountrySelect: $('#trial-localization-country-select'),
+      localizationLanguageSelect: $('#trial-localization-language-select')
     };
 
-    el['emailForm'].submit(emailHandler);
+    // initEmail();
+    initLocalization();
+  };
+
+  var initEmail = function() {
+    el.emailForm.submit(emailHandler);
+  };
+
+  var initLocalization = function() {
+    el.localizationCountrySelect.chosen({'inherit_select_classes': true, width: '100%'});
+    el.localizationLanguageSelect.chosen({'inherit_select_classes': true, width: '100%'});
   };
 
   var hide = function(slide) {
