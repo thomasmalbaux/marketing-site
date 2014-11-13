@@ -1,12 +1,12 @@
 define([
   'jquery'
+  , 'lodash'
   , 'move'
   , 'app/trial-form-validators'
   , 'modernizr'
   , 'xdomain'
   , 'chosen'
-], function($, move, validator, Modernizr) {
-  var transitionEnd = "webkitTransitionEnd oTransitionEnd otransitionend transitionend msTransitionEnd";
+], function($, _, move, validator, Modernizr) {
   // cache elements
   var el = {};
 
@@ -23,6 +23,8 @@ define([
 
   var init = function() {
     el = {
+      animationContainer: $('#trial-animation-container'),
+
       emailSlide: $('#trial-email-slide'),
       emailInput: $('#trial-email-input'),
       emailForm: $('#trial-email-form'),
@@ -49,8 +51,8 @@ define([
       nameLastInvalid: $('#trial-name-last-invalid')
     };
 
-    // initEmail();
-    // initLocalization();
+    initEmail();
+    initLocalization();
     initName();
   };
 
@@ -69,37 +71,52 @@ define([
     el.nameForm.submit(nameHandler);
   };
 
-  var hide = function(slide) {
+  var hide = function(slide, clbk) {
+    clbk = clbk || function() {};
     if (!Modernizr.csstransitions) {
-      slide.hide('slow');
+      slide.hide('slow', clbk);
     } else {
       move(slide[0])
         .translate(-300)
         .set('opacity', 0.1)
-        .duration('0.2s')
-        .then()
-          .set('display', 'none')
-          .set('opacity', 1)
-          .pop()
-        .end();
+        .end(function() {
+          slide.css('display', 'none');
+          slide.css('opacity', 1);
+
+          _.defer(clbk);
+        });
     }
   };
 
-  var show = function(slide) {
+  var show = function(slide, clbk) {
+    clbk = clbk || function() {};
     if (!Modernizr.csstransitions) {
-      slide.show('slow');
+      slide.show('slow', clbk);
     } else {
-      move(slide[0])
+      var clone = slide.clone();
+
+      $('#trial-animation-container')
+        .show()
+        .empty()
+        .append(clone);
+
+      move(clone[0])
         .set('display', 'block')
         .set('opacity', 0.1)
         .x(300)
         .duration(0)
-        .then()
-          .set('opacity', 1)
-          .x(-300)
-          .duration('0.2s')
-          .pop()
-        .end();
+        .end(function() {
+          move(clone[0])
+            .set('opacity', 1)
+            .x(0)
+            .end(function() {
+              _.defer(function() {
+                slide.show();
+                $('#trial-animation-container').empty().hide();
+                _.defer(clbk);
+              });
+            });
+        });
     }
   };
 
@@ -119,15 +136,34 @@ define([
   };
 
   var emailHandler = submitHandler(function(e) {
-    var email = el.emailInput.val();
-    if (validator.validEmail(email)){
-      hide(el.emailSlide);
-      checkEmailAvailability(email, function(available) {
-        if (available) {
+    // Keep animation and email check state in memory
+    var animationDone = false;
+    var checkDone = false;
+    var emailAvailable;
+
+    // Handle animation OR check ready.
+    // This is a stupid piece of code that should be handled without mutable variables
+    // by some library e.g. Bacon
+    var animationOrCheckDone = function() {
+      if(animationDone && checkDone) {
+        if (emailAvailable) {
           show(el.localizationSlide);
         } else {
           show(el.existingAccountSlide);
         }
+      }
+    };
+
+    var email = el.emailInput.val();
+    if (validator.validEmail(email)){
+      hide(el.emailSlide, function() {
+        animationDone = true;
+        animationOrCheckDone();
+      });
+      checkEmailAvailability(email, function(available) {
+        checkDone = true;
+        emailAvailable = available;
+        animationOrCheckDone();
       }, function() {
         show(el.emailCheckFailedSlide);
       });
@@ -150,7 +186,9 @@ define([
       el.localizationCountryInvalid.hide();
       el.localizationLanguageInvalid.show();
     } else {
-      hide(el.localizationSlide);
+      hide(el.localizationSlide, function() {
+        show(el.nameSlide);
+      });
     }
   });
 

@@ -263,16 +263,20 @@
   <!-- Sign up -->
 
   <div class="trial">
+    <h4 class="trial-h4">No credit card or business loan required.</h4>
+    <h3 class="trial-h3">Start your free 30-day trial of Sharetribe.</h3>
+
     <div class="trial-content">
-      <h4 class="trial-h4">No credit card or business loan required.</h4>
-      <h3 class="trial-h3">Start your free 30-day trial of Sharetribe.</h3>
+      <div id="trial-animation-container" class="trial-animation-container"></div>
 
       <!-- email -->
-      <div id="trial-email-slide" class="trial-slide hidden">
+      <div id="trial-email-slide" class="trial-slide">
         <form id="trial-email-form">
-          <div class="trial-input-with-next-wrapper">
-            <input id="trial-email-input" class="trial-input" type="text" name="email" placeholder="First, what's your email?" />
-            <button id="trial-email-next" class="trial-next-button" type="submit">Next ›</button>
+          <div class="trial-email-inputs">
+            <div class="trial-input-with-next-wrapper">
+              <input id="trial-email-input" class="trial-input" type="text" name="email" placeholder="First, what's your email?" />
+              <button id="trial-email-next" class="trial-next-button" type="submit">Next ›</button>
+            </div>
           </div>
         </form>
 
@@ -595,7 +599,7 @@
       </div>
 
       <!-- name -->
-      <div id="trial-name-slide" class="trial-slide">
+      <div id="trial-name-slide" class="trial-slide hidden">
         <form id="trial-name-form">
           <div class="trial-form-content">
             <input id="trial-name-first-input" class="trial-name-first-input" type="text" name="first-name" placeholder="Your first..." />

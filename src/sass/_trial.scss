@@ -21,6 +21,8 @@ $trial-next-button-wide-width: 120px;
   @media screen and (max-width: 768px) {
     padding: 40px 0px;
   }
+
+  position: relative;
 }
 
 .trial-content {
@@ -38,6 +40,19 @@ $trial-next-button-wide-width: 120px;
     // Need more height due to stacking
     height: 380px; // Estimation of needed size: two dropdowns, margin, and info texts
   }
+
+  position: relative;
+}
+
+// Container for animations. Overflow set to be hidden.
+.trial-animation-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  overflow: hidden;
 }
 
 .trial-h4 {
@@ -158,6 +173,12 @@ $trial-next-button-wide-width: 120px;
     // Need more height due to stacking
     height: (70px * 2) + 10px; // Estimation of needed size: two dropdowns, margin, and info text
   }
+}
+
+.trial-email-inputs {
+  width: 100%;
+  max-width: 540px;
+  margin: auto;
 }
 
 .trial-localization-selects {
