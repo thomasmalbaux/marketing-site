@@ -11,6 +11,7 @@ requirejs.config(
       , 'fancybox':        '../vendor/fancybox/jquery.fancybox'
       , 'lodash':          '../vendor/lodash'
       , 'googleAnalytics': '../vendor/google-analytics/google-analytics'
+      , 'fastclick':       '../vendor/fastclick'
       }
   , shim:
     { sticky:

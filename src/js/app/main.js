@@ -7,11 +7,14 @@ define(
   , "app/scrollspy"
   , "fancybox"
   , "sticky"
+  , "fastclick"
   , "googleAnalytics"
   ]
-  , function ($, SmoothScroll, Swiper, Odometer, Trial, scrollSpy, fancybox, sticky) {
+  , function ($, SmoothScroll, Swiper, Odometer, Trial, scrollSpy, fancybox, sticky, FastClick) {
     var app = {
       init: function() {
+        new FastClick(document.body);
+
         //initialize sticky nav bar
         $('#main-navigation').fixedsticky();
         var sidenav = $('#side-navigation');
