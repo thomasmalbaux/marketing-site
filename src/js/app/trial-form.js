@@ -24,7 +24,11 @@ define([
 
       localizationSlide: $('#trial-localization'),
       localizationCountrySelect: $('#trial-localization-country-select'),
-      localizationLanguageSelect: $('#trial-localization-language-select')
+      localizationLanguageSelect: $('#trial-localization-language-select'),
+      localizationForm: $('#trial-localization-form'),
+      localizationDidntFindLanguage: $('#trial-localization-didnt-find-language'),
+      localizationCountryInvalid: $('#trial-localization-country-invalid'),
+      localizationLanguageInvalid: $('#trial-localization-language-invalid')
     };
 
     // initEmail();
@@ -38,6 +42,8 @@ define([
   var initLocalization = function() {
     el.localizationCountrySelect.chosen({'inherit_select_classes': true, width: '100%'});
     el.localizationLanguageSelect.chosen({'inherit_select_classes': true, width: '100%'});
+
+    el.localizationForm.submit(localizationHandler);
   };
 
   var hide = function(slide) {
@@ -105,6 +111,28 @@ define([
     } else {
       el.emailNotSell.hide();
       el.emailInvalid.show();
+    }
+
+    // Don't submit form
+    e.preventDefault();
+    return false;
+  };
+
+  var localizationHandler = function(e) {
+    debugger;
+    var country = el.localizationCountrySelect.val();
+    var language = el.localizationLanguageSelect.val();
+
+    if (!validator.validCountry(country)) {
+      el.localizationDidntFindLanguage.hide();
+      el.localizationLanguageInvalid.hide();
+      el.localizationCountryInvalid.show();
+    } else if (!validator.validLanguage(language)) {
+      el.localizationDidntFindLanguage.hide();
+      el.localizationCountryInvalid.hide();
+      el.localizationLanguageInvalid.show();
+    } else {
+      hide(el.localizationSlide);
     }
 
     // Don't submit form

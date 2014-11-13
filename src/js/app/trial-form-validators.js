@@ -5,7 +5,17 @@ define([], function() {
     return emailFilter.test(email);
   };
 
+  var country = function(country) {
+    return country.length === 2;
+  };
+
+  var language = function(language) {
+    return language.length === 2;
+  };
+
   return {
-    validEmail: email
+    validEmail: email,
+    validCountry: country,
+    validLanguage: language
   };
 });
