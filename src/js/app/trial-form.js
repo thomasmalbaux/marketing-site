@@ -53,12 +53,22 @@ define([
       nameLastInput: $('#trial-name-last-input'),
       nameForm: $('#trial-name-form'),
       nameFirstInvalid: $('#trial-name-first-invalid'),
-      nameLastInvalid: $('#trial-name-last-invalid')
+      nameLastInvalid: $('#trial-name-last-invalid'),
+
+      passwordSlide: $('#trial-password-slide'),
+      passwordForm: $('#trial-password-form'),
+      passwordInput: $('#trial-password-input'),
+      passwordConfirmationInput: $('#trial-password-confirmation-input'),
+      passwordMissing: $('#trial-password-missing'),
+      passwordConfirmationMissing: $('#trial-password-confirmation-missing'),
+      passwordTooShort: $('#trial-password-too-short'),
+      passwordConfirmationMismatch: $('#trial-password-confirmation-mismatch')
     };
 
     initEmail();
     initLocalization();
     initName();
+    initPassword();
   };
 
   var initEmail = function() {
@@ -83,6 +93,10 @@ define([
 
   var initName = function() {
     el.nameForm.submit(nameHandler);
+  };
+
+  var initPassword = function() {
+    el.passwordForm.submit(passwordHandler);
   };
 
   var hide = function(slide, clbk) {
@@ -218,6 +232,43 @@ define([
       el.nameLastInvalid.show();
     } else {
       hide(el.nameSlide);
+    }
+  });
+
+  var passwordHandler = submitHandler(function(e) {
+    debugger;
+    var allMessages = [
+      el.passwordMissing,
+      el.passwordConfirmationMissing,
+      el.passwordTooShort,
+      el.passwordConfirmationMismatch
+    ];
+
+    var showMessage = function(activeMessage) {
+      allMessages.forEach(function(message) {
+        if (message === activeMessage) {
+          message.show();
+        } else {
+          message.hide();
+        }
+      });
+    };
+
+    var password = el.passwordInput.val();
+    var confirmation = el.passwordConfirmationInput.val();
+
+    if (!password) {
+      showMessage(el.passwordMissing);
+    } else if (!validator.validPassword(password)) {
+      showMessage(el.passwordTooShort);
+    } else if (!confirmation) {
+      showMessage(el.passwordConfirmationMissing);
+    } else if (password !== confirmation) {
+      showMessage(el.passwordConfirmationMismatch);
+    } else {
+      hide(el.passwordSlide, function() {
+
+      });
     }
   });
 

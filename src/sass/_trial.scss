@@ -29,16 +29,16 @@ $trial-next-button-wide-width: 120px;
   margin: auto;
   max-width: 1140px;
   width: 90%;
-  height: 270px; // add fixed height so that we can freely change slides without container height change
+  height: 170px; // add fixed height so that we can freely change slides without container height change
 
   @media screen and (max-width: 768px) {
     // Need more height due to stacking
-    height: 340px; // Estimation of needed size: two dropdowns, margin, and info texts
+    height: 260px; // Estimation of needed size: two dropdowns, margin, and info texts
   }
 
   @media screen and (max-width: 470px) {
     // Need more height due to stacking
-    height: 380px; // Estimation of needed size: two dropdowns, margin, and info texts
+    height: 300px; // Estimation of needed size: two dropdowns, margin, and info texts
   }
 
   position: relative;
@@ -218,7 +218,8 @@ $trial-next-button-wide-width: 120px;
   @include with-next-button($trial-next-button-wide-width + $trial-next-button-margin);
 }
 
-.trial-name-first-input {
+// For two input slides (name, password), this can be used for the first input
+.trial-first-input {
   @extend .trial-input-look-and-feel;
   width: 250px;
   margin-right: 20px;
@@ -232,7 +233,8 @@ $trial-next-button-wide-width: 120px;
   }
 }
 
-.trial-name-false-input-container {
+// For two input slides (name, password), this can be used for the second input (with next button) container
+.trial-second-input-container {
   float: left;
   width: 400px;
 
@@ -240,6 +242,22 @@ $trial-next-button-wide-width: 120px;
     float: none;
     width: 100%;
   }
+}
+
+.trial-name-first-input {
+  @extend .trial-first-input;
+}
+
+.trial-name-last-input-container {
+  @extend .trial-second-input-container;
+}
+
+.trial-password-input {
+  @extend .trial-first-input;
+}
+
+.trial-password-confirmation-input-container {
+  @extend .trial-second-input-container;
 }
 
 .trial-info {

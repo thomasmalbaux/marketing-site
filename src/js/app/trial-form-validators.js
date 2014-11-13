@@ -21,11 +21,16 @@ define([], function() {
     return lastName.length > 1;
   };
 
+  var password = function(password) {
+    return password.length >= 8;
+  };
+
   return {
     validEmail: email,
     validCountry: country,
     validLanguage: language,
     validFirstName: firstName,
-    validLastName: lastName
+    validLastName: lastName,
+    validPassword: password
   };
 });

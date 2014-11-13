@@ -270,7 +270,7 @@
       <div id="trial-animation-container" class="trial-animation-container"></div>
 
       <!-- email -->
-      <div id="trial-email-slide" class="trial-slide">
+      <div id="trial-email-slide" class="trial-slide hidden">
         <form id="trial-email-form">
           <div class="trial-email-inputs">
             <div class="trial-input-with-next-wrapper">
@@ -604,7 +604,7 @@
           <div class="trial-form-content">
             <input id="trial-name-first-input" class="trial-name-first-input" type="text" name="first-name" placeholder="Your first..." />
 
-            <div class="trial-input-with-next-wrapper trial-name-false-input-container">
+            <div class="trial-input-with-next-wrapper trial-name-last-input-container">
               <input id="trial-name-last-input" class="trial-input" type="text" name="last-name" placeholder="...and last name?" />
               <button id="trial-name-next" class="trial-next-button-with-slide-number" type="submit"><span class="trial-slide-number">3 of 5</span> Next ›</button>
             </div>
@@ -613,6 +613,24 @@
 
         <p id="trial-name-first-invalid" class="trial-warning hidden">Please enter your first name.</p>
         <p id="trial-name-last-invalid" class="trial-warning hidden">Please enter your last name.</p>
+      </div>
+
+      <div id="trial-password-slide" class="trial-slide">
+        <form id="trial-password-form">
+          <div class="trial-form-content">
+            <input id="trial-password-input" class="trial-password-input" type="password" placeholder="Password">
+
+            <div class="trial-input-with-next-wrapper trial-password-confirmation-input-container">
+              <input id="trial-password-confirmation-input" class="trial-input" type="password" name="confirm" placeholder="Confirm password" />
+              <button id="trial-password-next" class="trial-next-button-with-slide-number" type="submit"><span class="trial-slide-number">4 of 5</span> Next ›</button>
+            </div>
+          </div>
+        </form>
+
+        <p id="trial-password-missing" class="trial-warning hidden">Please enter your password.</p>
+        <p id="trial-password-confirmation-missing" class="trial-warning hidden">Please enter password confirmation.</p>
+        <p id="trial-password-too-short" class="trial-warning hidden">Password must be at least 8 characters long.</p>
+        <p id="trial-password-confirmation-mismatch" class="trial-warning hidden">Password and confirmation did not match.</p>
       </div>
     </div>
   </div>
