@@ -40,7 +40,9 @@ define([
 
       localizationSlide: $('#trial-localization'),
       localizationCountrySelect: $('#trial-localization-country-select'),
+      localizationCountryDefault: $('#trial-localization-country-default'),
       localizationLanguageSelect: $('#trial-localization-language-select'),
+      localizationLanguageDefault: $('#trial-localization-language-default'),
       localizationForm: $('#trial-localization-form'),
       localizationDidntFindLanguage: $('#trial-localization-didnt-find-language'),
       localizationCountryInvalid: $('#trial-localization-country-invalid'),
@@ -64,8 +66,17 @@ define([
   };
 
   var initLocalization = function() {
-    el.localizationCountrySelect.chosen({'inherit_select_classes': true, width: '100%'});
+    el.localizationCountrySelect.chosen({'inherit_select_classes': true, width: '100%', display_disabled_options: true } );
     el.localizationLanguageSelect.chosen({'inherit_select_classes': true, width: '100%'});
+
+    // Chosen is disabled for iOS, Android, etc.
+    // We need to add a default option in order to show a placeholder for those browsers
+    var chosenActivated = el.localizationForm.find('.chosen-container').length > 0;
+
+    if (!chosenActivated) {
+      el.localizationCountryDefault.text(el.localizationCountrySelect.data('placeholder'));
+      el.localizationLanguageDefault.text(el.localizationLanguageSelect.data('placeholder'));
+    }
 
     el.localizationForm.submit(localizationHandler);
   };
