@@ -44,22 +44,7 @@ define(
             scrolling   : 'no',
             preload     : 'true'
           });
-
-        $('.fancybox-media')
-          .attr('rel', 'media-gallery')
-          .fancybox({
-            openEffect : 'none',
-            closeEffect : 'none',
-            prevEffect : 'none',
-            nextEffect : 'none',
-
-            arrows : false,
-            helpers : {
-              media : {},
-              buttons : {}
-            }
-          });
-      }
+        }
 
 
       , initializeOdometers: function() {

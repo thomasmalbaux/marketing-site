@@ -1772,6 +1772,10 @@ img.story-left, img.story-right {
 	text-align: center;
 }
 
+br.br-titlebreak {
+    display: inline;
+  }
+
 
 //////////////////////
 // RESPONSIVE STUFF //
@@ -1815,9 +1819,10 @@ img.story-left, img.story-right {
 
 @media screen and (max-width: 1500px) {
   
-  h1 {
+  .hero h1 {
     font-size: 54px;
     line-height: 64px;
+    max-width: 500px;
   }
   
   
@@ -2158,8 +2163,8 @@ img.story-left, img.story-right {
 @media screen and (max-width: 1024px) {
   
   .hero {
-    background-size: 1024px auto;
     background: url("../images/bg.hero.jpg") no-repeat -520px -200px;
+    background-color: $orange;
     
     h1 {
       font-size: 46px;
@@ -2201,18 +2206,35 @@ img.story-left, img.story-right {
   
   .feature-info {
     width: 43%;
-    margin-top: -90px;
+    margin-top: -44px;
     margin-right: 7%;
+    
+    a.button {
+      top: 35px;
+    }
+    
+    &.track-manage {
+      margin-top: 57px;
+      margin-bottom: -38px;
+    }
   }
   
   .feature-info.right-info {
-    width: 35%;
-    margin-top: -20px;
+    width: 40%;
+    margin-top: -80px;
     margin-left: 7%;
   }
   
  .feature-screenshot, .right-screenshot {
     width: 75%;
+  }
+  
+  .right-screenshot {
+    margin-top: 155px;
+  }
+  
+  .bg-color {
+    height: 730px;
   }
 }
 
@@ -2418,6 +2440,18 @@ img.story-left, img.story-right {
     }
   }
   
+  h6.marketplace-design, h6.track-manage {
+    margin: 40px 0 30px;
+  }
+  
+  .right-screenshot img {
+    margin-top: 41px;
+  }
+  
+  .bg-color {
+    height: 630px;
+  }
+  
   .main-wrapper {
     
   	&.stories-wrapper {
@@ -2433,27 +2467,35 @@ img.story-left, img.story-right {
     margin-bottom: 100px;
   }
   
-  .hero .logo {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 75px;
-  }
+  .hero {
+    background-size: cover!important;
+    background: url("../images/bg.hero.tablet.jpg") no-repeat center center;
+    background-color: $orange;
   
+    .logo {
+      position: absolute;
+      width: 140px;
+      margin-top: -445px;
+      margin-left: -46px;
+    }
+  }
   .hero-text {
     left: 0%;
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
-    height: 450px;
+    height: 0px;
     
     h1 {
-      width: 90%;
-      margin-left: 5%;
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 40px;
     }
   }
   
   .hero-text-container {
     text-align: center;
+    float: none;
   }
 
   .where, .what {
@@ -2609,25 +2651,31 @@ img.story-left, img.story-right {
 
 @media screen and (max-width: 640px) {
   
-  h1 {
-    font-size: 28px;
-    line-height: 36px;
+  .hero {
+    height: 800px;
+
+    h1 {
+      font-size: 28px;
+      line-height: 34px;
+      width: 100%;
+      margin-left: 0;
+    }
+    
+    p {
+      font-size: 14px;
+      line-height: 21px;
+    }
+    
+    a.button.ghost {
+      display: none;
+    }
+    
+    a.button.white {
+      margin-right: 0;
+    }
   }
   
-  .hero p {
-    font-size: 14px;
-    line-height: 21px;
-  }
-  
-  .hero a.button.ghost {
-    display: none;
-  }
-  
-  .hero a.button.white {
-    margin-right: 0;
-  }
-  
-  h2 {
+    h2 {
      font-size: 30px;
      line-height: 40px;
     
@@ -2685,6 +2733,11 @@ img.story-left, img.story-right {
   }
   
   .feature-info {
+    max-width: 640px;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 0;
     
     p {
       font-size: 16px;
@@ -2692,21 +2745,23 @@ img.story-left, img.story-right {
       margin-bottom: 40px;
     }
     
-    h6 {
+    h6, .right-info h6 {
       margin-top: 30px;
     }
     
     a.button {
       top: 0px;
     }
-  }
-  
-  .feature-info.right-info h6 {
-        margin-top: 80px;
+    
+    &.feature-info.right-info {
+      width: 90%;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
   }
   
   img.svg.paypal, img.svg.creditcards {
-    margin-top: 20px;
+    margin-top: 0px;
     margin-bottom: 50px;
     
   }
@@ -2714,20 +2769,24 @@ img.story-left, img.story-right {
   .feature-screenshot {
       left: -20px;
       width: 100%;
+      margin-left: -30px;
     
       img {
         width: 100%;
       }
       
       &.track-manage {
-        margin-bottom: -110px;
+        margin-bottom: -60px;
+        margin-top: 60px;
       }
   }
   
   .right-screenshot {
     width: 100%;
     right: -20px;
-    top: 50px;
+    margin-right: -30px;
+    margin-top: 15px;
+    margin-bottom: 75px;
     
       img {
         width: 100%;
@@ -2922,6 +2981,10 @@ img.story-left, img.story-right {
 }
 
 @media screen and (max-width: 470px) {
+
+  br.br-titlebreak {
+    display: none;
+  }
   
   .reason {
     width: 45%;
