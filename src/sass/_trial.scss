@@ -147,10 +147,10 @@ $trial-next-button-wide-width: 120px;
   @extend .trial-input-look-and-feel;
 }
 
-.trial-localization-selects {
+.trial-form-content {
   position: relative;
   height: 70px;
-  max-width: 710px; // country select + margin + language select
+  max-width: 670px;
   width: 100%;
   margin: auto;
 
@@ -160,9 +160,13 @@ $trial-next-button-wide-width: 120px;
   }
 }
 
+.trial-localization-selects {
+  @extend .trial-form-content;
+}
+
 /* The size of the chosen select element is 100%, so this container limits the size */
 .trial-country-select-container {
-  max-width: 290px;
+  max-width: 270px;
   width: 100%;
   position: absolute;
   left: 0;
@@ -176,7 +180,7 @@ $trial-next-button-wide-width: 120px;
 
 /* The size of the chosen select element is 100%, so this container limits the size */
 .trial-language-select-container {
-  max-width: 400px;
+  max-width: 380px;
   width: 100%;
   position: absolute;
   right: 0;
@@ -190,6 +194,30 @@ $trial-next-button-wide-width: 120px;
 .trial-language-select {
   @extend .trial-select;
   @include with-next-button($trial-next-button-wide-width + $trial-next-button-margin);
+}
+
+.trial-name-first-input {
+  @extend .trial-input-look-and-feel;
+  width: 250px;
+  margin-right: 20px;
+  float: left;
+
+  @media screen and (max-width: 768px) {
+    float: none;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 10px;
+  }
+}
+
+.trial-name-false-input-container {
+  float: left;
+  width: 400px;
+
+  @media screen and (max-width: 768px) {
+    float: none;
+    width: 100%;
+  }
 }
 
 .trial-info {
@@ -258,7 +286,6 @@ $trial-next-button-wide-width: 120px;
 
 .trial-input-with-next-wrapper {
   position: relative;
-  max-width: 520px;
   margin: auto;
 }
 

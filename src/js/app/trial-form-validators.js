@@ -13,9 +13,19 @@ define([], function() {
     return language.length === 2;
   };
 
+  var firstName = function(firstName) {
+    return firstName.length > 2;
+  };
+
+  var lastName = function(lastName) {
+    return lastName.length > 1;
+  };
+
   return {
     validEmail: email,
     validCountry: country,
-    validLanguage: language
+    validLanguage: language,
+    validFirstName: firstName,
+    validLastName: lastName
   };
 });

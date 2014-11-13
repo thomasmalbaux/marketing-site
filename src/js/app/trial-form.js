@@ -10,6 +10,17 @@ define([
   // cache elements
   var el = {};
 
+  // Helper function to create submit handler
+  var submitHandler = function(clbk) {
+    return function(e) {
+      clbk(e); // Run the handler
+
+      // Don't submit the form
+      e.preventDefault();
+      return false;
+    };
+  };
+
   var init = function() {
     el = {
       emailSlide: $('#trial-email-slide'),
@@ -28,11 +39,19 @@ define([
       localizationForm: $('#trial-localization-form'),
       localizationDidntFindLanguage: $('#trial-localization-didnt-find-language'),
       localizationCountryInvalid: $('#trial-localization-country-invalid'),
-      localizationLanguageInvalid: $('#trial-localization-language-invalid')
+      localizationLanguageInvalid: $('#trial-localization-language-invalid'),
+
+      nameSlide: $('#trial-name-slide'),
+      nameFirstInput: $('#trial-name-first-input'),
+      nameLastInput: $('#trial-name-last-input'),
+      nameForm: $('#trial-name-form'),
+      nameFirstInvalid: $('#trial-name-first-invalid'),
+      nameLastInvalid: $('#trial-name-last-invalid')
     };
 
     // initEmail();
-    initLocalization();
+    // initLocalization();
+    initName();
   };
 
   var initEmail = function() {
@@ -44,6 +63,10 @@ define([
     el.localizationLanguageSelect.chosen({'inherit_select_classes': true, width: '100%'});
 
     el.localizationForm.submit(localizationHandler);
+  };
+
+  var initName = function() {
+    el.nameForm.submit(nameHandler);
   };
 
   var hide = function(slide) {
@@ -95,7 +118,7 @@ define([
     request.fail(fail);
   };
 
-  var emailHandler = function(e) {
+  var emailHandler = submitHandler(function(e) {
     var email = el.emailInput.val();
     if (validator.validEmail(email)){
       hide(el.emailSlide);
@@ -112,14 +135,9 @@ define([
       el.emailNotSell.hide();
       el.emailInvalid.show();
     }
+  });
 
-    // Don't submit form
-    e.preventDefault();
-    return false;
-  };
-
-  var localizationHandler = function(e) {
-    debugger;
+  var localizationHandler = submitHandler(function(e) {
     var country = el.localizationCountrySelect.val();
     var language = el.localizationLanguageSelect.val();
 
@@ -134,11 +152,22 @@ define([
     } else {
       hide(el.localizationSlide);
     }
+  });
 
-    // Don't submit form
-    e.preventDefault();
-    return false;
-  };
+  var nameHandler = submitHandler(function(e) {
+    var first = el.nameFirstInput.val();
+    var last = el.nameLastInput.val();
+
+    if (!validator.validFirstName(first)) {
+      el.nameFirstInvalid.show();
+      el.nameLastInvalid.hide();
+    } else if (!validator.validLastName(last)) {
+      el.nameFirstInvalid.hide();
+      el.nameLastInvalid.show();
+    } else {
+      hide(el.nameSlide);
+    }
+  });
 
   return {
     init: init

@@ -292,7 +292,7 @@
       </div>
 
       <!-- localization -->
-      <div id="trial-localization" class="trial-slide">
+      <div id="trial-localization" class="trial-slide hidden">
         <form id="trial-localization-form">
           <div class="trial-localization-selects">
             <div class="trial-country-select-container">
@@ -592,6 +592,23 @@
         <p id="trial-localization-didnt-find-language" class="trial-info">Didn't find your language? Easily translate your marketplace yourself! <a class="trial-link" href="contact.html">Contact us</a> to learn more.</p>
         <p id="trial-localization-country-invalid" class="trial-warning hidden">Please select a country from the list.</p>
         <p id="trial-localization-language-invalid" class="trial-warning hidden">Please select a language from the list.</p>
+      </div>
+
+      <!-- name -->
+      <div id="trial-name-slide" class="trial-slide">
+        <form id="trial-name-form">
+          <div class="trial-form-content">
+            <input id="trial-name-first-input" class="trial-name-first-input" type="text" name="first-name" placeholder="Your first..." />
+
+            <div class="trial-input-with-next-wrapper trial-name-false-input-container">
+              <input id="trial-name-last-input" class="trial-input" type="text" name="last-name" placeholder="...and last name?" />
+              <button id="trial-name-next" class="trial-next-button-with-slide-number" type="submit"><span class="trial-slide-number">3 of 5</span> Next ›</button>
+            </div>
+          </div>
+        </form>
+
+        <p id="trial-name-first-invalid" class="trial-warning hidden">Please enter your first name.</p>
+        <p id="trial-name-last-invalid" class="trial-warning hidden">Please enter your last name.</p>
       </div>
     </div>
   </div>
