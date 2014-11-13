@@ -270,7 +270,7 @@
       <div id="trial-animation-container" class="trial-animation-container"></div>
 
       <!-- email -->
-      <div id="trial-email-slide" class="trial-slide hidden">
+      <div id="trial-email-slide" class="trial-slide">
         <form id="trial-email-form">
           <div class="trial-email-inputs">
             <div class="trial-input-with-next-wrapper">
@@ -615,7 +615,7 @@
         <p id="trial-name-last-invalid" class="trial-warning hidden">Please enter your last name.</p>
       </div>
 
-      <div id="trial-password-slide" class="trial-slide">
+      <div id="trial-password-slide" class="trial-slide hidden">
         <form id="trial-password-form">
           <div class="trial-form-content">
             <input id="trial-password-input" class="trial-password-input" type="password" placeholder="Password">
@@ -631,6 +631,49 @@
         <p id="trial-password-confirmation-missing" class="trial-warning hidden">Please enter password confirmation.</p>
         <p id="trial-password-too-short" class="trial-warning hidden">Password must be at least 8 characters long.</p>
         <p id="trial-password-confirmation-mismatch" class="trial-warning hidden">Password and confirmation did not match.</p>
+      </div>
+
+      <!-- marketplace -->
+      <div id="trial-marketplace-slide" class="trial-slide hidden">
+        <form id="trial-marketplace-form">
+          <div class="trial-marketplace-fields">
+            <div class="trial-marketplace-type-select-container">
+              <select id="trial-marketplace-type-select" class="trial-select" type="text" name="marketplace-type" placeholder="Marketplace type" data-placeholder="Marketplace type">
+                <option id="trial-marketplace-type-default" value="default"></option>
+                <option value="product">Product marketplace</option>
+                <option value="rental">Rental marketplace</option>
+                <option value="service">Service marketplace</option>
+              </select>
+            </div>
+
+            <div class="trial-input-with-next-wrapper trial-marketplace-name-input-container">
+              <input id="trial-marketplace-name-input" class="trial-input" type="text" name="marketplace-name" placeholder="Marketplace name..." />
+              <button id="trial-password-next" class="trial-next-button-with-slide-number" type="submit"><span class="trial-slide-number">5 of 5</span> Next ›</button>
+            </div>
+          </div>
+        </form>
+
+        <p id="trial-marketplace-type-invalid" class="trial-warning hidden">Please select marketplace type.</p>
+        <p id="trial-marketplace-name-too-short" class="trial-warning hidden">Marketplace name must be at least 2 characters long.</p>
+      </div>
+
+      <!-- created -->
+      <div id="trial-created-slide" class="trial-slide hidden">
+        <p class="trial-text">Please wait...</p>
+        <p class="trial-text">We're setting up your marketplace.</p>
+      </div>
+
+      <!-- create failed -->
+      <div id="trial-create-failed-slide" class="trial-slide hidden">
+        <p class="trial-warning">Oops... Something went wrong while creating the marketplace. Please refresh and try again</p>
+      </div>
+
+      <!-- create success -->
+      <div id="trial-create-success-slide" class="trial-slide hidden">
+        <p class="trial-text">Congratulations!</p>
+        <p class="trial-text">Your marketplace is now ready.</p>
+
+        <a id="trial-goto-button" class="trial-goto-button" target="_blank">Go to your marketplace</a>
       </div>
     </div>
   </div>

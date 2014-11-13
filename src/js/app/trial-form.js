@@ -13,6 +13,9 @@ define([
   // cache elements
   var el = {};
 
+  // save user input to this object right after validation
+  var data = {};
+
   // Helper function to create submit handler
   var submitHandler = function(clbk) {
     return function(e) {
@@ -62,13 +65,28 @@ define([
       passwordMissing: $('#trial-password-missing'),
       passwordConfirmationMissing: $('#trial-password-confirmation-missing'),
       passwordTooShort: $('#trial-password-too-short'),
-      passwordConfirmationMismatch: $('#trial-password-confirmation-mismatch')
+      passwordConfirmationMismatch: $('#trial-password-confirmation-mismatch'),
+
+      marketplaceSlide: $('#trial-marketplace-slide'),
+      marketplaceForm: $('#trial-marketplace-form'),
+      marketplaceTypeSelect: $('#trial-marketplace-type-select'),
+      marketplaceTypeSelectDefault: $('#trial-marketplace-type-default'),
+      marketplaceNameInput: $('#trial-marketplace-name-input'),
+      marketplaceTypeInvalid: $('#trial-marketplace-type-invalid'),
+      marketplaceNameTooShort: $('#trial-marketplace-name-too-short'),
+
+      createdSlide: $('#trial-created-slide'),
+      createFailedSlide: $('#trial-create-failed-slide'),
+      createSuccessSlide: $('#trial-create-success-slide'),
+
+      gotoButton: $('#trial-goto-button')
     };
 
     initEmail();
     initLocalization();
     initName();
     initPassword();
+    initMarketplace();
   };
 
   var initEmail = function() {
@@ -76,17 +94,8 @@ define([
   };
 
   var initLocalization = function() {
-    el.localizationCountrySelect.chosen({'inherit_select_classes': true, width: '100%', display_disabled_options: true } );
-    el.localizationLanguageSelect.chosen({'inherit_select_classes': true, width: '100%'});
-
-    // Chosen is disabled for iOS, Android, etc.
-    // We need to add a default option in order to show a placeholder for those browsers
-    var chosenActivated = el.localizationForm.find('.chosen-container').length > 0;
-
-    if (!chosenActivated) {
-      el.localizationCountryDefault.text(el.localizationCountrySelect.data('placeholder'));
-      el.localizationLanguageDefault.text(el.localizationLanguageSelect.data('placeholder'));
-    }
+    initChosen(el.localizationForm, el.localizationCountrySelect, el.localizationCountryDefault);
+    initChosen(el.localizationForm, el.localizationLanguageSelect, el.localizationLanguageDefault);
 
     el.localizationForm.submit(localizationHandler);
   };
@@ -97,6 +106,28 @@ define([
 
   var initPassword = function() {
     el.passwordForm.submit(passwordHandler);
+  };
+
+  var initMarketplace = function() {
+    initChosen(el.marketplaceForm, el.marketplaceTypeSelect, el.marketplaceTypeDefault);
+
+    el.marketplaceForm.submit(marketplaceHandler);
+  };
+
+  var initChosen = function(form, select, defaultOption) {
+    select.chosen({
+      inherit_select_classes: true,
+      width: '100%',
+      disable_search_threshold: 4
+    });
+
+    // Chosen is disabled for iOS, Android, etc.
+    // We need to add a default option in order to show a placeholder for those browsers
+    var chosenActivated = form.find('.chosen-container').length > 0;
+
+    if (!chosenActivated) {
+      defaultOption.text(select.data('placeholder'));
+    }
   };
 
   var hide = function(slide, clbk) {
@@ -148,6 +179,13 @@ define([
     }
   };
 
+  var hideAndShow = function(elHide, elShow, clbk) {
+    clbk = clbk || function() {};
+    hide(elHide, function() {
+      show(elShow, clbk);
+    });
+  };
+
   var checkEmailAvailability = function(email, success, fail) {
     var request = $.ajax(
       {
@@ -168,6 +206,7 @@ define([
     var animationDone = false;
     var checkDone = false;
     var emailAvailable;
+    var email = el.emailInput.val();
 
     // Handle animation OR check ready.
     // This is a stupid piece of code that should be handled without mutable variables
@@ -175,6 +214,7 @@ define([
     var animationOrCheckDone = function() {
       if(animationDone && checkDone) {
         if (emailAvailable) {
+          data.admin_email = email;
           show(el.localizationSlide);
         } else {
           show(el.existingAccountSlide);
@@ -182,7 +222,6 @@ define([
       }
     };
 
-    var email = el.emailInput.val();
     if (validator.validEmail(email)){
       hide(el.emailSlide, function() {
         animationDone = true;
@@ -214,9 +253,9 @@ define([
       el.localizationCountryInvalid.hide();
       el.localizationLanguageInvalid.show();
     } else {
-      hide(el.localizationSlide, function() {
-        show(el.nameSlide);
-      });
+      data.marketplace_country = country;
+      data.marketplace_language = language;
+      hideAndShow(el.localizationSlide, el.nameSlide);
     }
   });
 
@@ -231,12 +270,13 @@ define([
       el.nameFirstInvalid.hide();
       el.nameLastInvalid.show();
     } else {
-      hide(el.nameSlide);
+      data.admin_first_name = first;
+      data.admin_last_name = last;
+      hideAndShow(el.nameSlide, el.passwordSlide);
     }
   });
 
   var passwordHandler = submitHandler(function(e) {
-    debugger;
     var allMessages = [
       el.passwordMissing,
       el.passwordConfirmationMissing,
@@ -266,11 +306,49 @@ define([
     } else if (password !== confirmation) {
       showMessage(el.passwordConfirmationMismatch);
     } else {
-      hide(el.passwordSlide, function() {
+      data.admin_password = password;
+      hideAndShow(el.passwordSlide, el.marketplaceSlide);
+    }
+  });
 
+  var marketplaceHandler = submitHandler(function(e) {
+    var type = el.marketplaceTypeSelect.val();
+    var name = el.marketplaceNameInput.val();
+
+    if (!validator.validMarketplaceType(type)) {
+      el.marketplaceTypeInvalid.show();
+      el.marketplaceNameTooShort.hide();
+    } else if (!validator.validMarketplaceName(name)) {
+      el.marketplaceTypeInvalid.hide();
+      el.marketplaceNameTooShort.show();
+    } else {
+      data.marketplace_type = type;
+      data.marketplace_name = name;
+      hideAndShow(el.marketplaceSlide, el.createdSlide, function() {
+        createMarketplace(data, function(marketplaceUrl) {
+            el.gotoButton.attr('href', marketplaceUrl);
+            hideAndShow(el.createdSlide, el.createSuccessSlide);
+          }, function() {
+            hideAndShow(el.createdSlide, el.createFailedSlide);
+          });
       });
     }
   });
+
+  var createMarketplace = function(data, success, error) {
+    var request = $.ajax({
+      type: "POST",
+      url: 'http://catch.sharetri.be/int_api/create_trial_marketplace',
+      data: data,
+      dataType: 'json'
+    });
+
+    request.done(function(response) {
+      success(response.marketplace_url);
+    });
+
+    request.fail(error);
+  };
 
   return {
     init: init

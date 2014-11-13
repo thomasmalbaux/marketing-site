@@ -1,4 +1,4 @@
-define([], function() {
+define(['lodash'], function(_) {
 
   var email = function(email) {
     var emailFilter = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -25,12 +25,22 @@ define([], function() {
     return password.length >= 8;
   };
 
+  var marketplaceType = function(type) {
+    return _.contains(['product', 'rental', 'service'], type);
+  };
+
+  var marketplaceName = function(name) {
+    return name.length > 1;
+  };
+
   return {
     validEmail: email,
     validCountry: country,
     validLanguage: language,
     validFirstName: firstName,
     validLastName: lastName,
-    validPassword: password
+    validPassword: password,
+    validMarketplaceType: marketplaceType,
+    validMarketplaceName: marketplaceName
   };
 });
