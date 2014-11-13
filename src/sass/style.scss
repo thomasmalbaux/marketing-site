@@ -1702,8 +1702,7 @@ img.story-left, img.story-right {
   width: 100%;
   height: 100%;
   background: $orange;
-  color: $orange;
-  background-size: cover;
+  color: $white;
   text-align: center;
 
   li a {
@@ -1776,6 +1775,10 @@ br.br-titlebreak {
     display: inline;
   }
 
+.logo-tablet {
+  display: none;
+}
+
 
 //////////////////////
 // RESPONSIVE STUFF //
@@ -1785,12 +1788,13 @@ br.br-titlebreak {
 
 	// HERO HOMEPAGE
 
-	.hero-text { left: 15%; }
+	.hero-text { @include transition(all, 0.2s, ease-in-out); left: 15%; }
 
 
 	// STORIES HOMEPAGE
 
 	.stories {
+  	@include transition(all, 0.2s, ease-in-out);
 		height: 400px;
 
 			&:hover {
@@ -1820,6 +1824,7 @@ br.br-titlebreak {
 @media screen and (max-width: 1500px) {
   
   .hero h1 {
+    @include transition(all, 0.2s, ease-in-out);
     font-size: 54px;
     line-height: 64px;
     max-width: 500px;
@@ -1879,6 +1884,7 @@ br.br-titlebreak {
 	// HOME
 
 	.video {
+  	@include transition(all, 0.2s, ease-in-out);
     margin-top: 120px;
 
   	h4 {
@@ -1890,6 +1896,7 @@ br.br-titlebreak {
   	}
 
     .center-v {
+      @include transition(all, 0.2s, ease-in-out);
   	  padding: 120px 0;
     }
 	}
@@ -2103,6 +2110,7 @@ br.br-titlebreak {
 	// PRICING
 
   .pricing-table {
+    @include transition(all, 0.2s, ease-in-out);
     width: 24%;
 
     li {
@@ -2120,6 +2128,7 @@ br.br-titlebreak {
   }
 
   .enterprise-table {
+    @include transition(all, 0.2s, ease-in-out);
     width: 96%;
     text-align: middle;
     margin-left: 2%;
@@ -2163,26 +2172,31 @@ br.br-titlebreak {
 @media screen and (max-width: 1024px) {
   
   .hero {
+    @include transition(all, 0.2s, ease-in-out);
     background: url("../images/bg.hero.jpg") no-repeat -520px -200px;
     background-color: $orange;
     
     h1 {
+      @include transition(all, 0.2s, ease-in-out);
       font-size: 46px;
       line-height: 56px;
       width: 500px;
     }
     
     p {
+      @include transition(all, 0.2s, ease-in-out);
       font-size: 17px;
       line-height: 28px;
     }
     
     .logo {
+      @include transition(all, 0.2s, ease-in-out);
       margin-bottom: 75px;
     }
   }
   
   .hero-text {
+    @include transition(all, 0.2s, ease-in-out);
     left: 7.5%;
     height: 450px;
   }
@@ -2205,6 +2219,7 @@ br.br-titlebreak {
   }
   
   .feature-info {
+    @include transition(all, 0.2s, ease-in-out);
     width: 43%;
     margin-top: -44px;
     margin-right: 7%;
@@ -2220,12 +2235,14 @@ br.br-titlebreak {
   }
   
   .feature-info.right-info {
+    @include transition(all, 0.2s, ease-in-out);
     width: 40%;
     margin-top: -80px;
     margin-left: 7%;
   }
   
  .feature-screenshot, .right-screenshot {
+   @include transition(all, 0.2s, ease-in-out);
     width: 75%;
   }
   
@@ -2234,6 +2251,7 @@ br.br-titlebreak {
   }
   
   .bg-color {
+    @include transition(all, 0.2s, ease-in-out);
     height: 730px;
   }
 }
@@ -2259,6 +2277,8 @@ br.br-titlebreak {
   }
 
   .feature {
+    
+    @include transition(all, 0.2s, ease-in-out);
 
     &.one-third { width: 30%; margin-right: 5%; }
 
@@ -2275,7 +2295,7 @@ br.br-titlebreak {
   }
 
   .story {
-
+    @include transition(all, 0.2s, ease-in-out);
     width: 28%;
     margin-left: 2.6%;
     margin-right: 2.6%;
@@ -2303,6 +2323,13 @@ br.br-titlebreak {
       text-align: center;
       margin: 0 auto 40px;
     }
+  }
+  
+  .hero {
+    a.button.white {
+      font-size: 13px;
+      padding: 14px 20px;
+    } 
   }
 
 	// NAVIGATION
@@ -2467,16 +2494,24 @@ br.br-titlebreak {
     margin-bottom: 100px;
   }
   
+  .logo-tablet {
+      display: inline;
+      top: 30px;
+      margin-left: 30px;
+      position: relative; 
+      
+      img {
+        width: 140px;
+      }
+  }
+  
   .hero {
     background-size: cover!important;
     background: url("../images/bg.hero.tablet.jpg") no-repeat center center;
     background-color: $orange;
   
     .logo {
-      position: absolute;
-      width: 140px;
-      margin-top: -445px;
-      margin-left: -46px;
+      display: none;
     }
   }
   .hero-text {
@@ -2487,8 +2522,9 @@ br.br-titlebreak {
     height: 0px;
     
     h1 {
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
       margin-top: 40px;
     }
   }
@@ -2658,7 +2694,6 @@ br.br-titlebreak {
       font-size: 28px;
       line-height: 34px;
       width: 100%;
-      margin-left: 0;
     }
     
     p {
@@ -2715,6 +2750,7 @@ br.br-titlebreak {
 
 	.story {
   	width: 100%;
+  	margin-left: 0;
 
   	&.jackie {display: none;}
 	}
@@ -3199,6 +3235,106 @@ br.br-titlebreak {
     }   
 	} 
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px) and (orientation : landscape) { // Header for landscape
+  
+  .menu-cover {
+    height: 750px;
+    
+    li a {
+      font-size: 32px;
+      line-height: 60px;
+    }
+  }
+  
+  .hero {
+    background: url("../images/bg.hero.jpg") no-repeat center center;
+    background-color: $orange;
+    background-size: cover;
+    height: 480px;
+  
+    h1 {
+      font-size: 30px;
+      line-height: 38px;
+      width: auto;
+    }
+    
+    p {
+      font-size: 17px;
+      line-height: 28px;
+    }
+    
+    .logo {
+      margin-bottom: 75px;
+    }
+    
+    a.button.ghost {
+      display: none;
+    }
+  }
+  
+  .hero-text {
+    left: 0;
+    margin-left: 5%;
+    width: 40%;
+    margin-top: 50px;
+    height: auto;
+    
+    h1 {
+      margin-left: 0;
+    }
+  }  
+  
+  .hero-text-container {
+    text-align: left;
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : portrait) { // Header for portrait
+  
+  .hero {
+    background-size: cover!important;
+    background: url("../images/bg.hero.tablet.jpg") no-repeat center center;
+    background-color: $orange;
+  
+    .logo {
+      display: none;
+    }
+  }
+  
+  .logo-tablet {
+    display: inline;
+    top: 30px;
+    margin-left: 30px;
+    position: relative; 
+    
+    img {
+      width: 110px;
+    }
+  }
+  
+  .hero-text {
+    left: 0%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 0px;
+    
+    h1 {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 40px;
+    }
+  }
+  
+  .hero-text-container {
+    text-align: center;
+    float: none;
+  }
+}
+
+
 
 
 
