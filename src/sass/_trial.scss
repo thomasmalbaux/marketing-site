@@ -1,8 +1,10 @@
-@import "compass/css3";
+@import "compass/css3/user-interface";
 @import "compass/utilities/general/clearfix";
+@import "compass/css3/opacity";
 
 $trial-next-button-width: 80px;
 $trial-next-button-margin: 15px;
+$trial-next-button-wide-width: 120px;
 
 .trial {
   width: 100%;
@@ -108,10 +110,13 @@ $trial-next-button-margin: 15px;
   padding-right: 24px;
 }
 
+@mixin with-next-button($button-width) {
+  padding-right: 24px + $button-width; // Add right padding, so that text doesn't go under the next button
+}
+
 .trial-input {
   @extend .trial-input-look-and-feel;
-
-  padding-right: 24px + $trial-next-button-width + $trial-next-button-margin; // Add right padding, so that text doesn't go under the next button
+  @include with-next-button($trial-next-button-width + $trial-next-button-margin);
 
   @include input-placeholder {
     color: $light-grey;
@@ -182,6 +187,11 @@ $trial-next-button-margin: 15px;
   }
 }
 
+.trial-language-select {
+  @extend .trial-select;
+  @include with-next-button($trial-next-button-wide-width + $trial-next-button-margin);
+}
+
 .trial-info {
   margin-top: 30px;
   font-size: 16px;
@@ -215,6 +225,7 @@ $trial-next-button-margin: 15px;
 }
 
 .trial-next-button {
+  @include transition(all, 0.2s, ease-in-out);
   border: none;
   font-size: 12px;
   letter-spacing: 0.03em;
@@ -231,6 +242,18 @@ $trial-next-button-margin: 15px;
   right: $trial-next-button-margin;
   width: $trial-next-button-width;
 
+  &:hover {
+    background-color: $blue;
+  }
+}
+
+.trial-next-button-with-slide-number {
+  @extend .trial-next-button;
+  width: $trial-next-button-wide-width;
+}
+
+.trial-slide-number {
+  @include opacity(0.7);
 }
 
 .trial-input-with-next-wrapper {
