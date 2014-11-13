@@ -12,6 +12,8 @@ requirejs.config(
       , 'move':         '../vendor/move'
       , 'googleAnalytics': '../vendor/google-analytics/google-analytics'
       , 'fastclick':       '../vendor/fastclick'
+      , 'xdomain':      '../vendor/jQuery.XDomainRequest' // IE support for cross domain requests
+      , 'modernizr':    '../vendor/modernizr.custom.05853' // Note: Usually modernizr should be included in the HTML head (http://modernizr.com/docs/#installing). However, since we are not using HTML classes, it's ok to use requirejs to load modernizr.
       }
   , shim:
     { sticky:
@@ -25,6 +27,10 @@ requirejs.config(
     , fancybox:
       {
         'deps': ['jquery']
+      }
+    , modernizr:
+      {
+        exports: 'Modernizr'
       }
     }
   }
