@@ -7,6 +7,7 @@
 <head>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -23,7 +24,7 @@
 <!-- Sticky navigation -->
 
   <div id="learn-more" >
-    
+
     <nav class="main-navigation fixedsticky" id="main-navigation">
 
       <div class="logo"><a href="index.html" onclick="ga('send', 'event', 'menu', 'home', 'home', {'noninteraction': 1});"><img class="svg" src="images/svg/logo.svg" alt="Sharetribe logo"></a></div>
@@ -36,9 +37,9 @@
       		<li><a href="about.html" onclick="ga('send', 'event', 'menu', 'about', 'home', {'noninteraction': 1});">About us</a></li>
       		<li><a href="http://blog.sharetribe.com" target="_blank" onclick="ga('send', 'event', 'menu', 'blog', 'home', {'noninteraction': 1});">Blog</a></li>
       		<li><a href="contact.html" onclick="ga('send', 'event', 'menu', 'contact', 'home', {'noninteraction': 1});">Contact us</a></li>
-              
+
           <a class="fancybox button get-started" href="form.html">Get started</a>
-              
+
           <div class="mobile-menu"><a id="mobilemenu"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
 
       </div>
@@ -207,22 +208,22 @@
     </div>
 
   </div>
-  
-  
+
+
   <!-- Mobile menu -->
-  
+
   <div class="menu-cover" style="display: none; top: 0px;">
-	
+
 	  <div class="logo"><img class="svg" src="images/svg/logo.valk.svg" alt="Sharetribe logo"></div>
-	
+
     <div class="mobile-menu-close"><a id="menuclose"><img class="svg menu-close" src="images/icons/menu-close.svg" alt="Sharetribe logo">Close</a></div>
 
     <div class="menu-cover-text">
-	
+
 		  <div class="menu-cover-text-container">
-			
+
 			  <ul>
-				
+
   				<li><a href="index.html">Home</a></li>
   				<li><a href="features.html">Features</a></li>
   				<li><a href="stories.html">Success stories</a></li>
@@ -230,19 +231,19 @@
   				<li><a href="about.html">About us</a></li>
   				<li><a href="http://blog.sharetribe.com" target="_blank">Blog</a></li>
   				<li><a href="contact.html">Contact us</a></li>
-				
+
 			  </ul>
-		
+
 		  </div>
-		
+
 	  </div>
-	
+
     <div class="button-bottom">
-		
+
 		  <a class="button ghost">Get started</a>
-	
+
 	  </div>
-	
+
   </div>
 
 
@@ -252,17 +253,17 @@
        This will be replaced by grunt build -->
   <script data-main="js/app" src="vendor/require.js"></script>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  
+
   <script>
-    
+
     $( "#mobilemenu" ).click(function() {
       $( ".menu-cover" ).slideDown( "slow" );
     });
-    
+
     $( "#menuclose" ).click(function() {
       $( ".menu-cover" ).slideUp( "slow" );
     });
-  
+
   </script>
 
   <!-- VERSION -->
