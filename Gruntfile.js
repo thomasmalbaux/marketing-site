@@ -7,7 +7,7 @@ module.exports = function(grunt) {
       dev: {
         options: {
           port: 8888,
-          base: 'src',
+          base: 'dev-tmp',
           livereload: true
         }
       },
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       dev: {
         options: {
           sassDir: 'src/sass',
-          cssDir: 'src/css'
+          cssDir: 'dev-tmp/css'
         }
       }
     },
@@ -41,7 +41,17 @@ module.exports = function(grunt) {
       package: ['dist-packaged/']
     },
     copy: {
-
+      dev: {
+        expand: true,
+        cwd: 'src/',
+        src: [
+          '**',
+          '!css/**/*',
+          '!html/**/*',
+          '!sass/**/*'
+        ],
+        dest: 'dev-tmp'
+      },
       // Copy files to temporary location
       temp: {
         expand: true,
@@ -67,6 +77,7 @@ module.exports = function(grunt) {
           '!sass/**', // SASS source is not needed. Only CSS.
           '!vendor/**', // These are included by SASS and RequireJS
           '!templates/**', // Templates are bundled with RequireJS package
+	  '!html/**' // Bake compiles html
         ],
         dest: 'dist/'
       },
@@ -87,6 +98,14 @@ module.exports = function(grunt) {
 
     },
     watch: {
+      bake: {
+        files: ['src/html/**'],
+        tasks: 'bake:dev',
+        options: {
+          atBegin: true,
+          livereload: true
+        }
+      },
       css: {
         files: '**/*.scss',
         tasks: ['compass:dev'],
@@ -100,6 +119,14 @@ module.exports = function(grunt) {
         options: {
           reload: true
         }
+      },
+      assets: {
+        files: ['src/**', '!src/html/**', '!src/sass/**'],
+        options: {
+          atBegin: true,
+          livereload: true
+        },
+        tasks: 'copy:dev'
       }
     },
     revision: { /* Default options are just fine */ },
@@ -263,6 +290,44 @@ module.exports = function(grunt) {
           {cwd: 'dist-packaged/', dest: '/', action: 'delete'},
         ]
       }
+    },
+    bake: {
+      dev: {
+        files: {
+          "dev-tmp/_menu.html": "src/html/_menu.html",
+          "dev-tmp/about.html": "src/html/about.html",
+          "dev-tmp/casaguau.html": "src/html/about.html",
+          "dev-tmp/contact.html": "src/html/contact.html",
+          "dev-tmp/features.html": "src/html/features.html",
+          "dev-tmp/form.html": "src/html/form.html",
+          "dev-tmp/index.html": "src/html/index.html",
+          "dev-tmp/maggieskidmarket.html": "src/html/maggieskidmarket.html",
+          "dev-tmp/press.html": "src/html/press.html",
+          "dev-tmp/pricing.html": "src/html/pricing.html",
+          "dev-tmp/privacypolicy.html": "src/html/privacypolicy.html",
+          "dev-tmp/stories.html": "src/html/stories.html",
+          "dev-tmp/termsofuse.html": "src/html/termsofuse.html",
+          "dev-tmp/thequiver.html": "src/html/thequiver.html"
+        },
+      },
+      dist: {
+        files: {
+          ".build-tmp/_menu.html": ".build-tmp/html/_menu.html",
+          ".build-tmp/about.html": ".build-tmp/html/about.html",
+          ".build-tmp/casaguau.html": ".build-tmp/html/about.html",
+          ".build-tmp/contact.html": ".build-tmp/html/contact.html",
+          ".build-tmp/features.html": ".build-tmp/html/features.html",
+          ".build-tmp/form.html": ".build-tmp/html/form.html",
+          ".build-tmp/index.html": ".build-tmp/html/index.html",
+          ".build-tmp/maggieskidmarket.html": ".build-tmp/html/maggieskidmarket.html",
+          ".build-tmp/press.html": ".build-tmp/html/press.html",
+          ".build-tmp/pricing.html": ".build-tmp/html/pricing.html",
+          ".build-tmp/privacypolicy.html": ".build-tmp/html/privacypolicy.html",
+          ".build-tmp/stories.html": ".build-tmp/html/stories.html",
+          ".build-tmp/termsofuse.html": ".build-tmp/html/termsofuse.html",
+          ".build-tmp/thequiver.html": ".build-tmp/html/thequiver.html"
+        }
+      }
     }
   });
 
@@ -279,6 +344,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-git-revision');
+  grunt.loadNpmTasks('grunt-bake');
 
   /**
     Task to build a distribution package. Outputs to `dist` directory.
@@ -292,6 +358,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean',
     'copy:temp',
+    'bake:dist',
     'revision',
     'replace:version',
     'requirejs:compile',
@@ -305,6 +372,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build-prod', [
     'clean',
     'copy:temp',
+    'bake:dist',
     'revision',
     'replace:version',
     'replace:prodendpoint',

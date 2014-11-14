@@ -6,3 +6,4 @@ dist
 dist-packaged
 .build-tmp
 aws-keys.json
+dev-tmp/

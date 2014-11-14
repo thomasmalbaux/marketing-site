@@ -1,46 +1,231 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--(bake includes/header.html title="Create a marketplace with Sharetribe")-->
+  <!-- Header -->
+  <header class="hero">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+    <div class="logo-tablet"><img class="svg" src="images/svg/logo.valk.svg" alt="Sharetribe logo"></div>
 
-<html lang="en">
-<head>
+    <div class="hero-text">
 
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+      <div class="hero-text-container">
 
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png">
-  <link rel="icon" type="image/png" href="images/favicons/favicon-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="images/favicons/favicon-160x160.png" sizes="160x160">
-  <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+        <div class="logo"><img class="svg" src="images/svg/logo.valk.svg" alt="Sharetribe logo"></div>
 
-  <title>Create a marketplace with Sharetribe</title>
+        <h1>Create a marketplace <br>with Sharetribe. It only takes a minute.</h1>
+        <p>Let your users sell or rent goods, spaces or services online. <br class="br-titlebreak">Set up your site in no time. You don't need a developer.</p>
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+        <p><a class="button white fancybox get-started" href="#trial-lightbox"><span class="crown-icon-wrapper"><img class="svg crown" src="images/icons/crown.svg"></span>Get started</a><a class="button ghost" data-scroll href="#learn-more" onclick="ga('send', 'event', 'more', 'learn-more', 'home', {'noninteraction': 1});">Learn more</a></p>
 
-</head>
-<body>
+      </div>
+
+    </div>
+
+  </header>
+
+
+<!-- Sticky navigation -->
+
+  <div id="learn-more" >
+
+    <nav class="main-navigation fixedsticky" id="main-navigation">
+
+      <div class="logo"><a href="index.html" onclick="ga('send', 'event', 'menu', 'home', 'home', {'noninteraction': 1});"><img class="svg" src="images/svg/logo.svg" alt="Sharetribe logo"></a></div>
+
+      <div class="menu-items">
+
+      		<li><a href="features.html" onclick="ga('send', 'event', 'menu', 'features', 'home', {'noninteraction': 1});">Features</a></li>
+      		<li><a href="stories.html" onclick="ga('send', 'event', 'menu', 'stories', 'home', {'noninteraction': 1});">Success stories</a></li>
+      		<li><a href="pricing.html" onclick="ga('send', 'event', 'menu', 'pricing', 'home', {'noninteraction': 1});">Pricing</a></li>
+      		<li><a href="about.html" onclick="ga('send', 'event', 'menu', 'about', 'home', {'noninteraction': 1});">About us</a></li>
+      		<li><a href="http://blog.sharetribe.com" target="_blank" onclick="ga('send', 'event', 'menu', 'blog', 'home', {'noninteraction': 1});">Blog</a></li>
+      		<li><a href="contact.html" onclick="ga('send', 'event', 'menu', 'contact', 'home', {'noninteraction': 1});">Contact us</a></li>
+
+          <a class="fancybox button get-started" href="#trial-lightbox">Get started</a>
+
+          <div class="mobile-menu"><a id="mobilemenu"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
+
+      </div>
+
+    </nav>
+
+
+  <!-- Subpage Header -->
+  <!-- 5 reasons to use sharetribe -->
+
+    <div class="main-wrapper reasons-wrapper">
+
+        <h6 class="reasons">5 Reasons to use sharetribe</h6>
+        <h2 class="centered">The easiest way to get started with your marketplace business.</h2>
+
+        <div class="reason">
+          <div class="icon-hexagon-bg"><img class="svg icon-hexagon" src="images/icons/timer.svg"></div>
+          <p><strong>Super quick setup</strong>Launch your site in a matter of minutes.</p>
+        </div>
+
+        <div class="reason">
+          <div class="icon-hexagon-bg"><img class="svg icon-hexagon" src="images/icons/developer.svg"></div>
+          <p><strong>No developers needed</strong>We take care of the technology.</p>
+        </div>
+
+        <div class="reason">
+          <div class="icon-hexagon-bg"><img class="svg icon-hexagon" src="images/icons/design.svg"></div>
+          <p><strong>Simple to customize</strong>Build your own concept, with your own brand.</p>
+        </div>
+
+        <div class="reason">
+          <div class="icon-hexagon-bg"><img class="svg icon-hexagon" src="images/icons/dollar-bag.svg"></div>
+          <p><strong>Easy to monetize</strong>Charge a transaction fee.</p>
+        </div>
+
+        <div class="reason">
+          <div class="icon-hexagon-bg"><img class="svg icon-hexagon" src="images/icons/unlock.svg"></div>
+          <p><strong>No lock-in</strong>The data and code are yours to keep.</p>
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+  <!-- Video -->
+
+    <div class="video">
+
+      <div class="main-wrapper center-v">
+
+        <h4>Have 48 seconds to spare?</h4>
+        <h3>Watch how Sharetribe works.</h3>
+
+        <a id="sharetribe-video" class="button" href="http://www.youtube.com/embed/AISCnwHYosc?rel=0&amp;controls=0&amp;showinfo=0"><img class="svg play" src="images/icons/play.svg">Play video</a>
+
+      </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+
+  <!-- Features // Marketplace design -->
+
+    <div class="main-wrapper">
+
+      <div class="feature-screenshot"><img src="images/features.marketplacetypes.jpg"></div>
+
+      <div class="feature-info">
+
+        <h6 class="marketplace-design">Marketplace types</h6>
+
+        <h2>Product selling, rentals, services - we have it all.</h2>
+
+        <p>Need a marketplace to sell products? Is your idea to facilitate peer-to-peer rentals? Or maybe a site for booking services? No worries - we support all types of marketplaces! And your merchants and buyers can be individuals or companies.</p>
+
+      </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+
+  <!-- Features // Payments -->
+
+    <div class="bg-color">
+
+      <div class="main-wrapper">
+
+        <div class="right-screenshot"><img src="images/features.payments.jpg"></div>
+
+        <div class="feature-info right-info">
+
+          <h6 class="payments">Payments</h6>
+
+          <h2>Global payments made simple. Setup takes only a few minutes.</h2>
+
+          <p>Sharetribe's built-in payment system allows your merchants to accept both PayPal and all of major credit cards. It works in 190+ countries and in 25+ currencies. You can easily charge a fee from each transaction.</p>
+
+          <img class="svg paypal" src="images/svg/paypal.svg" alt="Sharetribe logo"><img class="svg creditcards" src="images/icons/credit.cards.svg" alt="Sharetribe logo">
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+
+  <!-- Features // Track & Manage -->
+
+    <div class="main-wrapper">
+
+      <div class="feature-screenshot track-manage"><img src="images/features.manage.jpg"></div>
+
+      <div class="feature-info track-manage">
+
+        <h6 class="track-manage">Manage & track</h6>
+
+        <h2>Manage your marketplace. <br>You are in control.</h2>
+
+        <p>Easily manage and moderate your marketplace from our admin dashboard. Connect Google Analytics to get a detailed view of what is going on.</p>
+
+        <a href="features.html" class="button" onclick="ga('send', 'event', 'more', 'more-features', 'home', {'noninteraction': 1});"><img class="svg add" src="images/icons/add.svg">See more features</a>
+
+      </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+
+  <!-- Where and what -->
+
+    <div class="where">
+
+      <h6>Where</h6>
+      <p>USA, France, Australia, Germany, Mexico, Spain, India... Sharetribe is used all over the world. </p>
+
+    </div>
+
+    <div class="what">
+
+      <h6>What</h6>
+      <p>Equipment rentals for farmers, nanny booking, local food marketplace... Sharetribe powers all these and more!</p>
+
+    </div>
+
+    <div class="clear"></div>
+
+
+  <!-- Success stories -->
+
+    <div class="main-wrapper stories-wrapper">
+
+        <h6 class="stories-title">Success stories</h6>
+
+        <h2 class="centered desktop">Get inspired and become your own marketplace's boss. Say hello to Rob, Jacklyn and Mario.</h2>
+        <h2 class="centered tablet">Get inspired and become your own marketplace's boss. Say hello to Rob and Jacklyn.</h2>
+        <h2 class="centered mobile">Get inspired and become your own marketplace's boss. Say hello to Rob.</h2>
+
+        <div class="story">
+          <img src="images/story.rob.jpg">
+          <p><strong>Rob from <a href="thequiver.html" onclick="ga('send', 'event', 'stories', 'quiver', 'home', {'noninteraction': 1});">The Quiver</a> – <br>Peer-to-peer surfboard rentals</strong><i>"Without Sharetribe, it would have been impossible for me to pursue my dream and start The Quiver."</i><br><a href="thequiver.html" onclick="ga('send', 'event', 'stories', 'quiver', 'home', {'noninteraction': 1});">› Read Rob’s story</a></p>
+        </div>
+
+        <div class="story jackie">
+          <img src="images/story.jackie.jpg">
+          <p><strong>Jacklyn from <a href="maggieskidmarket.html" onclick="ga('send', 'event', 'stories', 'maggieskidmarket', 'home', {'noninteraction': 1});">Maggie's Kids Market</a> – <br>Pre-owned kids' clothes & toys</strong><i>"Sharetribe's great support made it really easy for me to set up my marketplace site."</i><br><a href="maggieskidmarket.html" onclick="ga('send', 'event', 'stories', 'maggieskidmarket', 'home', {'noninteraction': 1});">› Read Jacklyn's story</a></p>
+        </div>
+
+        <div class="story mario">
+          <img src="images/story.mario.jpg">
+          <p><strong>Mario from <a href="casaguau.html" onclick="ga('send', 'event', 'stories', 'casaguau', 'home', {'noninteraction': 1});">Casa Guau</a> – <br>Find a care-taker for your pet</strong><i>"All of the other marketplace providers I checked were 4-5 times more expensive."</i><br><a href="casaguau" onclick="ga('send', 'event', 'stories', 'casaguau', 'home', {'noninteraction': 1});">› Read Mario's story</a></p>
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+
 
   <!-- Sign up -->
 
-  <div id="trial" class="trial-lightbox">
+  <div id="trial" class="trial-inline">
     <h4 class="trial-h4">No credit card or business loan required.</h4>
     <h3 class="trial-h3">Start your free 30-day trial of Sharetribe.</h3>
 
@@ -52,7 +237,7 @@
         <form id="trial-email-form">
           <div class="trial-email-inputs">
             <div class="trial-input-with-next-wrapper">
-              <input id="trial-email-input" class="trial-input" type="text" name="email" placeholder="First, what's your email?" />
+              <input id="trial-email-input" class="trial-input" type="email" name="email" placeholder="First, what's your email?" />
               <button id="trial-email-next" class="trial-next-button" type="submit">Next ›</button>
             </div>
           </div>
@@ -363,7 +548,6 @@
                 <option value="nl">Dutch</option>
                 <option value="fi">Finnish</option>
                 <option value="sv">Swedish</option>
-                <option value="el">Greek</option>
               </select>
 
               <button id="trial-localizaton-next" class="trial-next-button-with-slide-number" type="submit"><span class="trial-slide-number">2 of 5</span> Next ›</button>
@@ -459,10 +643,103 @@
     </div>
   </div>
 
+    <div class="clear"></div>
+
+  <!-- Footer -->
+
+    <div class="main-wrapper footer">
+
+      <div>
+
+        <li class="text-link"><a href="features.html" onclick="ga('send', 'event', 'footer', 'features', 'home', {'noninteraction': 1});">Features</a></li>
+        <li class="text-link"><a href="stories.html" onclick="ga('send', 'event', 'footer', 'stories', 'home', {'noninteraction': 1});">Success stories</a></li>
+        <li class="text-link"><a href="pricing.html" onclick="ga('send', 'event', 'footer', 'pricing', 'home', {'noninteraction': 1});">Pricing</a></li>
+
+        <li><a href="https://www.facebook.com/Sharetribe" target="_blank"><img class="svg facebook" src="images/icons/facebook.svg" alt="Sharetribe Facebook" onclick="ga('send', 'event', 'footer', 'facebook', 'home', {'noninteraction': 1});"></a></li>
+
+        <li><a href="index.html"><img class="svg" src="images/svg/sharetribe.symbol.svg" alt="Sharetribe logo" onclick="ga('send', 'event', 'footer', 'home', 'home', {'noninteraction': 1});"></a></li>
+
+        <li class="twitter-last"><a href="https://www.twitter.com/Sharetribe" target="_blank"><img class="svg twitter" src="images/icons/twitter.svg" alt="Sharetribe Twitter" onclick="ga('send', 'event', 'footer', 'twitter', 'home', {'noninteraction': 1});"></a></li>
+
+        <li class="text-link"><a href="about.html" onclick="ga('send', 'event', 'footer', 'about', 'home', {'noninteraction': 1});">About us</a></li>
+        <li class="text-link"><a href="http://blog.sharetribe.com" target="_blank" onclick="ga('send', 'event', 'footer', 'blog', 'home', {'noninteraction': 1});">Blog</a></li>
+        <li class="footer-last text-link"><a href="contact.html" onclick="ga('send', 'event', 'footer', 'features', 'contact', {'noninteraction': 1});">Contact us</a></li>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+
+      <div class="main-wrapper">
+
+        <p class="left">© Sharetribe is crafted with love & coffee in Helsinki.</p>
+        <p class="right"><a href="privacypolicy.html">Privacy Policy</a> & <a href="termsofuse.html">Terms of use</a></p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Mobile menu -->
+
+  <div class="menu-cover" style="display: none; top: 0px;">
+
+	  <div class="logo"><img class="svg" src="images/svg/logo.valk.svg" alt="Sharetribe logo"></div>
+
+    <div class="mobile-menu-close"><a id="menuclose"><img class="svg menu-close" src="images/icons/menu-close.svg" alt="Sharetribe logo">Close</a></div>
+
+    <div class="menu-cover-text">
+
+		  <div class="menu-cover-text-container">
+
+			  <ul>
+
+  				<li><a href="index.html">Home</a></li>
+  				<li><a href="features.html">Features</a></li>
+  				<li><a href="stories.html">Success stories</a></li>
+  				<li><a href="pricing.html">Pricing</a></li>
+  				<li><a href="about.html">About us</a></li>
+  				<li><a href="http://blog.sharetribe.com" target="_blank">Blog</a></li>
+  				<li><a href="contact.html">Contact us</a></li>
+
+			  </ul>
+
+		  </div>
+
+	  </div>
+
+    <div class="button-bottom">
+
+		  <a class="button ghost">Get started</a>
+
+	  </div>
+
+  </div>
+
+
   <!-- Load all JavaScript here, at the end of the document body.
        No need to use domReady or anything like that.
 
        This will be replaced by grunt build -->
   <script data-main="js/app" src="vendor/require.js"></script>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+  <script>
+
+    $( "#mobilemenu" ).click(function() {
+      $( ".menu-cover" ).slideDown( "slow" );
+    });
+
+    $( "#menuclose" ).click(function() {
+      $( ".menu-cover" ).slideUp( "slow" );
+    });
+
+  </script>
+
+  <!-- VERSION -->
+
 </body>
 </html>
