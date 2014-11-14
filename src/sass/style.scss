@@ -368,10 +368,16 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
   }
 
   img.crown {
+    width: 100%;
+  }
+
+  .crown-icon-wrapper {
+    // SVG image width has to be 100%, otherwis IE doesn't scale it properly, thus the wrapper
+    width: 15px;
+    display: inline-block;
     margin-right: 7px;
     float: none;
     display: inline-block;
-    width: 15px;
     vertical-align: -1px;
   }
 
