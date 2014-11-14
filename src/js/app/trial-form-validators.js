@@ -10,7 +10,7 @@ define(['lodash'], function(_) {
   };
 
   var language = function(language) {
-    return language.length === 2;
+    return /^[a-z]{2}(-[A-Z]{2})?$/.test(language);
   };
 
   var firstName = function(firstName) {
