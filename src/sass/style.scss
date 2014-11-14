@@ -658,7 +658,7 @@ img.svg.paypal {
     font-size: 26px;
     line-height: 36px;
   }
-  
+
   h6 {
     color: $white;
     margin: 130px auto 30px;
@@ -836,7 +836,7 @@ img.svg.paypal {
   &.two-thirds-last { float: left; width: 550px; margin-right: 0; margin-left: 0; }
 
   .img-left { margin-left: -25px; margin-top: -22px; }
-  
+
   .img-right { margin-left: -15px; margin-top: -15px;  }
 
 }
@@ -945,20 +945,27 @@ img.svg.paypal {
     vertical-align: top;
   }
 
-  .hundred {
-    vertical-align: middle;
-    right: -6px;
+  .hundred, .ten{
+    display: inline-block;
     position: relative;
+    width: 40px;
   }
 
-  .pro .hundred {
-    margin-right: -8px;
+  .hundred {
+    right: -8px;
+  }
+
+  .odometer-value {
+   width: 100%;
   }
 
   .price {
     @include Gibson-Light;
     font-size: 72px;
     letter-spacing: 0em;
+    //copies from odometer, to prevent jumping when odometer kicks in
+    vertical-align: middle;
+    line-height: 1.1em;
   }
 
   .month {
@@ -997,7 +1004,7 @@ img.svg.paypal {
     margin-top: 36px;
     line-height: 21px;
   }
-  
+
   a.switch-monthly {
     color: #b3b3b3;
 
@@ -1007,7 +1014,7 @@ img.svg.paypal {
   a.switch-biannually {
     color: $orange;
 
-    &:hover { 
+    &:hover {
       color: $blue;
     }
   }
@@ -1062,7 +1069,7 @@ p.pricing-faq {
     margin-bottom: 15px;
   }
 
-  &.first { 
+  &.first {
     margin-left: 40px!important;
   }
 
@@ -1084,8 +1091,8 @@ p.pricing-faq {
   height: 300px;
   background-color: $blue;
 
-  &:hover { 
-    box-shadow: 0px 300px rgba(237, 79, 46, 0.9) inset; 
+  &:hover {
+    box-shadow: 0px 300px rgba(237, 79, 46, 0.9) inset;
     cursor: hand;
   }
 }
@@ -1519,24 +1526,24 @@ br.br-titlebreak {
 }
 
 @media screen and (max-width: 1500px) {
-  
+
   .hero h1 {
     @include transition(all, 0.2s, ease-in-out);
     font-size: 54px;
     line-height: 64px;
     max-width: 500px;
   }
-  
-  
+
+
 }
 
 @media screen and (max-width: 1150px) {
-  
+
   h6 {
     font-size: 11px;
     letter-spacing: 7px;
   }
-  
+
   .story {
     margin-bottom: 130px;
   }
@@ -1609,12 +1616,12 @@ br.br-titlebreak {
     width: 16%;
     margin: 0 2%;
   }
-  
+
   h6.reasons, h6.stories-title {
     margin: 80px auto 50px;
     padding-bottom: 20px;
   }
-  
+
   h6.reasons {
     max-width: 340px;
     width: 90%;
@@ -1717,11 +1724,11 @@ br.br-titlebreak {
 		&.text-page {
 			max-width: 850px;
 		}
-		
+
 		&.reasons-wrapper {
   		width: 92%;
 		}
-		
+
 		&.stories-wrapper {
   		width: 92%;
 		}
@@ -1834,110 +1841,110 @@ br.br-titlebreak {
       margin-left: 5%;
     }
   }
-  
+
   .feature-screenshot, .right-screenshot {
     width: 75%;
   }
-  
-  
+
+
   // WHERE & WHAT
-  
+
   .where, .what {
     max-height: 405px;
-    
+
     p {
       padding: 10px 0 120px;
     }
-    
+
     h6 {
       margin: 100px auto 30px;
       padding-bottom: 25px;
       width: 70px;
     }
-  } 
+  }
 }
 
 @media screen and (max-width: 1024px) {
-  
+
   .hero {
     @include transition(all, 0.2s, ease-in-out);
     background: url("../images/bg.hero.jpg") no-repeat -520px -200px;
     background-color: $orange;
-    
+
     h1 {
       @include transition(all, 0.2s, ease-in-out);
       font-size: 46px;
       line-height: 56px;
       width: 500px;
     }
-    
+
     p {
       @include transition(all, 0.2s, ease-in-out);
       font-size: 17px;
       line-height: 28px;
     }
-    
+
     .logo {
       @include transition(all, 0.2s, ease-in-out);
       margin-bottom: 75px;
     }
   }
-  
+
   .hero-text {
     @include transition(all, 0.2s, ease-in-out);
     left: 7.5%;
     height: 450px;
   }
-  
+
   .video {
     background: url("../images/bg.video.jpg") no-repeat -520px -330px;
   }
-  
+
   .trial {
     background: url("../images/bg.footer.jpg") no-repeat center top;
   }
-  
+
   .where {
     background: url("../images/bg.where.jpg") no-repeat center center;
   }
-  
+
   .what {
     background: url("../images/bg.video.jpg") no-repeat center top;
     max-height: 405px;
   }
-  
+
   .feature-info {
     @include transition(all, 0.2s, ease-in-out);
     width: 43%;
     margin-top: -44px;
     margin-right: 7%;
-    
+
     a.button {
       top: 35px;
     }
-    
+
     &.track-manage {
       margin-top: 57px;
       margin-bottom: -38px;
     }
   }
-  
+
   .feature-info.right-info {
     @include transition(all, 0.2s, ease-in-out);
     width: 40%;
     margin-top: -80px;
     margin-left: 7%;
   }
-  
+
  .feature-screenshot, .right-screenshot {
    @include transition(all, 0.2s, ease-in-out);
     width: 75%;
   }
-  
+
   .right-screenshot {
     margin-top: 155px;
   }
-  
+
   .bg-color {
     @include transition(all, 0.2s, ease-in-out);
     height: 730px;
@@ -1965,7 +1972,7 @@ br.br-titlebreak {
   }
 
   .feature {
-    
+
     @include transition(all, 0.2s, ease-in-out);
 
     &.one-third { width: 30%; margin-right: 5%; }
@@ -2001,23 +2008,23 @@ br.br-titlebreak {
 }
 
 @media screen and (max-width: 920px) { // Fade the main nav
-  
+
   h2 {
    font-size: 36px;
    line-height: 46px;
-  
+
     &.centered {
       padding-bottom: 50px;
       text-align: center;
       margin: 0 auto 40px;
     }
   }
-  
+
   .hero {
     a.button.white {
       font-size: 13px;
       padding: 14px 20px;
-    } 
+    }
   }
 
 	// NAVIGATION
@@ -2145,60 +2152,60 @@ br.br-titlebreak {
 }
 
 @media screen and (max-width: 768px) {
-  
+
   .feature-info, .feature-info.right-info {
     width: 52%
   }
-  
+
   .feature-info {
     &.manage-track {
       margin-top: 0px;
     }
   }
-  
+
   h6.marketplace-design, h6.track-manage {
     margin: 40px 0 30px;
   }
-  
+
   .right-screenshot img {
     margin-top: 41px;
   }
-  
+
   .bg-color {
     height: 630px;
   }
-  
+
   .main-wrapper {
-    
+
   	&.stories-wrapper {
   		width: 90%;
 		}
-		
+
 		&.features {
   	    overflow-x: hidden;
 		}
   }
-  
+
   .story {
     margin-bottom: 100px;
   }
-  
+
   .logo-tablet {
       display: inline;
       top: 30px;
       margin-left: 30px;
-      position: relative; 
-      
+      position: relative;
+
       img {
         width: 140px;
       }
   }
-  
+
   .hero {
     background-size: cover!important;
     background: url("../images/bg.hero.tablet.jpg") no-repeat center center;
     background-color: $orange;
-  
+
     .logo {
       display: none;
     }
@@ -2209,7 +2216,7 @@ br.br-titlebreak {
     margin-left: 10%;
     margin-right: 10%;
     height: 0px;
-    
+
     h1 {
       width: 100%;
       margin-left: auto;
@@ -2217,7 +2224,7 @@ br.br-titlebreak {
       margin-top: 40px;
     }
   }
-  
+
   .hero-text-container {
     text-align: center;
     float: none;
@@ -2226,20 +2233,20 @@ br.br-titlebreak {
   .where, .what {
     max-height: 405px;
     min-height: 300px;
-    
+
     p {
       padding: 10px 0 70px;
       font-size: 19px;
       line-height: 28px;
     }
-    
+
     h6 {
       margin: 60px auto 20px;
       padding-bottom: 15px;
       width: 70px;
     }
   }
-  
+
   .story {
     width: 45%;
     margin-left: 2.5%;
@@ -2332,16 +2339,16 @@ br.br-titlebreak {
     &.two-thirds { width: 40%; margin-top: -70px; }
 
     &.two-thirds-last { width: 40%; }
-    
+
     .img-right {
       margin-left: 11px;
     }
-    
+
     .img-left{
       display: none;
     }
   }
-  
+
   div#manage-track {
     width: 90%;
     margin-bottom: 20px;
@@ -2349,7 +2356,7 @@ br.br-titlebreak {
 }
 
 @media screen and (max-width: 640px) {
-  
+
   .hero {
     height: 800px;
 
@@ -2358,25 +2365,25 @@ br.br-titlebreak {
       line-height: 34px;
       width: 100%;
     }
-    
+
     p {
       font-size: 14px;
       line-height: 21px;
     }
-    
+
     a.button.ghost {
       display: none;
     }
-    
+
     a.button.white {
       margin-right: 0;
     }
   }
-  
+
     h2 {
      font-size: 30px;
      line-height: 40px;
-    
+
     &.centered {
       padding-bottom: 50px;
       text-align: center;
@@ -2392,19 +2399,19 @@ br.br-titlebreak {
 
 		&.about-us {
   		margin: 40px auto 60px;
-		
+
 		  p {
 			  font-size: 16px;
         line-height: 24px;
       }
-      
+
       h4 {
         font-size: 21px;
         line-height: 28px;
-        margin: 50px auto 20px;  
+        margin: 50px auto 20px;
       }
-    
-    }   
+
+    }
 
 		&.pricing {
   		width: 95%;
@@ -2417,7 +2424,7 @@ br.br-titlebreak {
 
   	&.jackie {display: none;}
 	}
-	
+
 
 	.where, .what {
   	width: 100%;
@@ -2429,7 +2436,7 @@ br.br-titlebreak {
     	width: 80%;
     	max-width: 640px;
   	}
-  	
+
   	h6 {
       margin: 50px auto 10px;
       padding-bottom: 15px;
@@ -2440,68 +2447,68 @@ br.br-titlebreak {
 	.what {
   	margin-top: 0px;
   }
-  
+
   .feature-info {
     max-width: 640px;
     width: 90%;
     margin-right: 5%;
     margin-left: 5%;
     margin-top: 0;
-    
+
     p {
       font-size: 16px;
       line-height: 24px;
       margin-bottom: 40px;
     }
-    
+
     h6, .right-info h6 {
       margin-top: 30px;
     }
-    
+
     a.button {
       top: 0px;
     }
-    
+
     &.feature-info.right-info {
       width: 90%;
       margin-left: 5%;
       margin-right: 5%;
     }
   }
-  
+
   img.svg.paypal, img.svg.creditcards {
     margin-top: 0px;
     margin-bottom: 50px;
-    
+
   }
-  
+
   .feature-screenshot {
       left: -20px;
       width: 100%;
       margin-left: -30px;
-    
+
       img {
         width: 100%;
       }
-      
+
       &.track-manage {
         margin-bottom: -60px;
         margin-top: 60px;
       }
   }
-  
+
   .right-screenshot {
     width: 100%;
     right: -20px;
     margin-right: -30px;
     margin-top: 15px;
     margin-bottom: 75px;
-    
+
       img {
         width: 100%;
       }
   }
-  
+
   .bg-color {
     height: auto;
   }
@@ -2576,18 +2583,18 @@ br.br-titlebreak {
 			margin-right: 5%;
 			padding-top: 0px;
 			padding-bottom: 0px;
-			
+
 			p.important-privacy {
   			font-size: 26px;
         line-height: 34px;
 			}
-			
+
 		  h3 {
   		  font-size: 21px;
   		  line-height: 28px;
-		  }	
+		  }
 		}
-		
+
 		&.features-page {
   		margin-top: -30px;
 		}
@@ -2680,7 +2687,7 @@ br.br-titlebreak {
     &.one-half-last { width: 90%; }
 
   }
-  
+
   .reason {
     width: 28%;
     margin-bottom: 30px;
@@ -2695,7 +2702,7 @@ br.br-titlebreak {
   br.br-titlebreak {
     display: none;
   }
-  
+
   .reason {
     width: 45%;
     margin-bottom: 30px;
@@ -2716,7 +2723,7 @@ br.br-titlebreak {
 			margin-left: 15px;
 		}
 	}
-	
+
 	.mobile-menu { right: 0px; top: 0px; }
 
 	.menu-cover {
@@ -2844,131 +2851,131 @@ br.br-titlebreak {
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
-  
+
    html {  -webkit-text-size-adjust: 100%!important; }
-   
+
    .contact {
      height: 450px;
    }
-   
+
    .contact-text {
      height: auto;
      margin: 50px auto;
      padding-bottom: 100px;
      top: 0px;
    }
-   
+
    .about-cover {
      height: 650px;
    }
-   
+
    .about-cover-text {
      height: auto;
    }
-   
+
    .main-wrapper {
 
 		&.about-us {
   		margin: 40px auto 60px;
-		
+
 		  p {
 			  font-size: 16px;
         line-height: 24px;
       }
-      
+
       h4 {
         font-size: 21px;
         line-height: 28px;
-        margin: 50px auto 20px;  
+        margin: 50px auto 20px;
       }
-    }   
-	} 
+    }
+	}
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 767px) and (orientation : landscape) { // Header for landscape
-  
+
   .menu-cover {
     height: 750px;
-    
+
     li a {
       font-size: 100%;
       line-height: 200%;
     }
   }
-  
+
   .hero {
     background: url("../images/bg.hero.jpg") no-repeat center center;
     background-color: $orange;
     background-size: cover;
     height: 480px;
-  
+
     h1 {
       font-size: 30px;
       line-height: 38px;
       width: auto;
     }
-    
+
     p {
       font-size: 17px;
       line-height: 28px;
     }
-    
+
     .logo {
       margin-bottom: 75px;
     }
-    
+
     a.button.ghost {
       display: none;
     }
   }
-  
+
   .hero-text {
     left: 0;
     margin-left: 5%;
     width: 40%;
     margin-top: 50px;
     height: auto;
-    
+
     h1 {
       margin-left: 0;
     }
-  }  
-  
+  }
+
   .hero-text-container {
     text-align: left;
   }
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : portrait) { // Header for portrait
-  
+
   .hero {
     background-size: cover!important;
     background: url("../images/bg.hero.tablet.jpg") no-repeat center center;
     background-color: $orange;
-  
+
     .logo {
       display: none;
     }
   }
-  
+
   .logo-tablet {
     display: inline;
     top: 30px;
     margin-left: 30px;
-    position: relative; 
-    
+    position: relative;
+
     img {
       width: 110px;
     }
   }
-  
+
   .hero-text {
     left: 0%;
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
     height: 0px;
-    
+
     h1 {
       width: 100%;
       margin-left: auto;
@@ -2976,7 +2983,7 @@ br.br-titlebreak {
       margin-top: 40px;
     }
   }
-  
+
   .hero-text-container {
     text-align: center;
     float: none;
