@@ -181,9 +181,13 @@ h2 {
   &.centered {
     padding-bottom: 50px;
     max-width: 700px;
-    width: 85%;
+    width: 95%;
     text-align: center;
     margin: 0 auto 40px;
+    
+    &.tablet, &.mobile {
+      display: none;
+    }
   }
 }
 
@@ -1618,14 +1622,14 @@ br.br-titlebreak {
   }
 
   h6.reasons, h6.stories-title {
-    margin: 80px auto 50px;
-    padding-bottom: 20px;
+    margin: 80px auto 40px;
+    padding-bottom: 15px;
   }
 
   h6.reasons {
     max-width: 340px;
-    width: 90%;
-    line-height: 21px;
+    width: 176px;
+    line-height: 24px;
   }
 
 	// FOOTER
@@ -2256,6 +2260,15 @@ br.br-titlebreak {
       display: none;
     }
   }
+  
+  h2.centered.desktop {
+    display: none;
+  }
+  
+  h2.centered.tablet {
+    display: block;
+    width: 72%;
+  }
 
   .video .center-v {
   	padding: 100px 0;
@@ -2386,7 +2399,7 @@ br.br-titlebreak {
      line-height: 40px;
 
     &.centered {
-      padding-bottom: 50px;
+      padding-bottom: 0px;
       text-align: center;
       margin: 0 auto 40px;
     }
@@ -2394,6 +2407,33 @@ br.br-titlebreak {
   
   .hero-text h1 {
     margin-top: 30px!important;
+  }
+  
+  img.svg.creditcards {
+    display: none;
+  }
+  
+  .video {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    
+    h3 {
+      font-size: 23px;
+      margin-bottom: 40px;
+    }
+    
+    h4 {
+      font-size: 21px;
+    }
+    
+    .center-v {
+      padding: 60px 0;
+    }
+  }
+  
+  h6.reasons, h6.stories-title {
+    margin: 50px auto 40px;
+    padding-bottom: 15px;
   }
 
 	.main-wrapper {
@@ -2426,9 +2466,18 @@ br.br-titlebreak {
 	.story {
   	width: 100%;
   	margin-left: 0;
+  	margin-bottom: 50px;
 
   	&.jackie {display: none;}
 	}
+	
+  h2.centered.tablet {
+    display: none;
+  }
+  
+  h2.centered.mobile {
+    display: block;
+  }
 
 
 	.where, .what {
@@ -2451,6 +2500,10 @@ br.br-titlebreak {
 
 	.what {
   	margin-top: 0px;
+  }
+  
+  .where {
+    margin-top: 80px;
   }
 
   .feature-info {
@@ -2709,7 +2762,7 @@ br.br-titlebreak {
   }
 
   .reason {
-    width: 45%;
+    width: 46%;
     margin-bottom: 30px;
   }
 
@@ -2850,8 +2903,9 @@ br.br-titlebreak {
 
 @media screen and (max-width: 320px) {
   .reason {
-    width: 90%;
-    margin-left: 5%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -2954,7 +3008,7 @@ br.br-titlebreak {
 
   .hero {
     background-size: cover!important;
-    background: url("../images/bg.hero.tablet.jpg") no-repeat center 8px;
+    background: url("../images/bg.hero.tablet.jpg") no-repeat center center;
     background-color: $orange;
 
     .logo {
@@ -2994,6 +3048,18 @@ br.br-titlebreak {
   }
 }
 
+@media only screen and (min-device-width : 320px) and (max-device-width : 640px) and (orientation : portrait) { // Headerfix for portrait
+
+  .hero {
+    background-size: cover!important;
+    background: url("../images/bg.hero.tablet.jpg") no-repeat center 10px;
+    background-color: $orange;
+
+    .logo {
+      display: none;
+    }
+  }
+}
 
 
 
