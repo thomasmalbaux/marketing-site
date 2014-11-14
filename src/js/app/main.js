@@ -38,6 +38,10 @@ define(
 
         scrollSpy.init($('#side-navigation a'));
 
+        if (window.console && window.console.log) {
+          window.console.log('Hi there! Interested in code?\n\nSharetribe is an open-source marketplace platform. See our Github profile https://github.com/sharetribe/ for more information about the open-source project.');
+        }
+
         $(".fancybox")
           .fancybox({
             width       : '100%',

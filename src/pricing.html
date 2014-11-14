@@ -315,8 +315,8 @@
   <!-- Script to track billing period change -->
   <script>
   function UA_eventbilling(index, typeplan) {
-    var s=x[index];
     var x = document.getElementsByClassName("billing-cycle");
+    var s=x[index];
     var layer = document.createElement('p');
     layer.className="billing-cycle";
     layer.textContent="Billed every 6 months";
