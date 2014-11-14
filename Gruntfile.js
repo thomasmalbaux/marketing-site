@@ -139,6 +139,7 @@ module.exports = function(grunt) {
         , collapseBooleanAttributes: true
         , removeRedundantAttributes: true
         , removeEmptyAttributes: true
+        , ignoreCustomComments: [/VERSION/]
         },
         files: [{
           expand: true,
