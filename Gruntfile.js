@@ -24,7 +24,8 @@ module.exports = function(grunt) {
         options: {
           sassDir: '.build-tmp/sass',
           cssDir: '.build-tmp/css',
-          environment: 'production'
+          environment: 'production',
+          outputStyle: 'compressed'
         }
       },
       dev: {
@@ -45,7 +46,10 @@ module.exports = function(grunt) {
       temp: {
         expand: true,
         cwd: 'src/',
-        src: ['**'],
+        src: [
+          '**',
+          '!css/**/*'
+        ],
         dest: '.build-tmp/'
       },
 
