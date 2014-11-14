@@ -198,7 +198,12 @@ module.exports = function(grunt) {
           }},
 
           // Not compressed filed with long cache expiration
-          {expand: true, cwd: 'dist-packaged/', src: ['images/*', 'images/vendor/*'], dest: '', params: {
+          {expand: true, cwd: 'dist-packaged/', src: [
+            'images/*',
+            'images/vendor/*',
+            'favicon.ico',
+            'images/favicons/*'
+          ], dest: '', params: {
             CacheControl: "max-age=" + 3600 * 24 * 365 + "" // One year
           }},
 
@@ -231,7 +236,12 @@ module.exports = function(grunt) {
           }},
 
           // Not compressed filed with long cache expiration
-          {expand: true, cwd: 'dist-packaged/', src: ['images/*', 'images/vendor/*'], dest: '', params: {
+          {expand: true, cwd: 'dist-packaged/', src: [
+            'images/*',
+            'images/vendor/*',
+            'favicon.ico',
+            'images/favicons/*'
+          ], dest: '', params: {
             CacheControl: "max-age=" + 3600 * 24 * 365 + "" // One year
           }},
 
