@@ -945,13 +945,18 @@ img.svg.paypal {
     vertical-align: top;
   }
 
-  .hundred {
-    vertical-align: middle;
-    right: -6px;
+  .hundred, .ten{
+    display: inline-block;
     position: relative;
-    //copies from odometer, to prevent jumping when odometer kicks in
-    vertical-align: middle;
-    line-height: 1.1em;
+    width: 40px;
+  }
+
+  .hundred {
+    right: -8px;
+  }
+
+  .odometer-value {
+   width: 100%;
   }
 
   .price {
