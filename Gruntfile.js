@@ -77,7 +77,7 @@ module.exports = function(grunt) {
           '!sass/**', // SASS source is not needed. Only CSS.
           '!vendor/**', // These are included by SASS and RequireJS
           '!templates/**', // Templates are bundled with RequireJS package
-	  '!html/**' // Bake compiles html
+          '!html/**' // Bake compiles html
         ],
         dest: 'dist/'
       },
@@ -127,6 +127,25 @@ module.exports = function(grunt) {
           livereload: true
         },
         tasks: 'copy:dev'
+      }
+    },
+    htmlmin: {
+      dist: {
+        options:
+        { removeComments: true
+        , collapseWhitespace: true
+        , conservativeCollapse: true
+        , preserveLineBreaks: true
+        , collapseBooleanAttributes: true
+        , removeRedundantAttributes: true
+        , removeEmptyAttributes: true
+        },
+        files: [{
+          expand: true,
+          cwd: '.build-tmp/',
+          src: '*.html',
+          dest: '.build-tmp/'
+        }]
       }
     },
     revision: { /* Default options are just fine */ },
@@ -308,7 +327,7 @@ module.exports = function(grunt) {
           "dev-tmp/stories.html": "src/html/stories.html",
           "dev-tmp/termsofuse.html": "src/html/termsofuse.html",
           "dev-tmp/thequiver.html": "src/html/thequiver.html"
-        },
+        }
       },
       dist: {
         files: {
@@ -345,6 +364,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-git-revision');
   grunt.loadNpmTasks('grunt-bake');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
   /**
     Task to build a distribution package. Outputs to `dist` directory.
@@ -364,6 +384,7 @@ module.exports = function(grunt) {
     'requirejs:compile',
     'replace:requirejs',
     'compass:dist',
+    'htmlmin',
     'filerev',
     'usemin',
     'copy:dist'
@@ -379,6 +400,7 @@ module.exports = function(grunt) {
     'requirejs:compile',
     'replace:requirejs',
     'compass:dist',
+    'htmlmin',
     'filerev',
     'usemin',
     'copy:dist'
