@@ -7,7 +7,7 @@ module.exports = function(grunt) {
       dev: {
         options: {
           port: 8888,
-          base: 'src',
+          base: 'build',
           livereload: true
         }
       },
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       dev: {
         options: {
           sassDir: 'src/sass',
-          cssDir: 'src/css'
+          cssDir: 'build/css'
         }
       }
     },
@@ -41,11 +41,21 @@ module.exports = function(grunt) {
       package: ['dist-packaged/']
     },
     copy: {
-
+      dev: {
+        expand: true,
+        cwd: 'src/',
+        src: [
+          '**',
+          '!css/**/*',
+          '!html/**/*',
+          '!sass/**/*'
+        ],
+        dest: 'build'
+      },
       // Copy files to temporary location
       temp: {
         expand: true,
-        cwd: 'src/',
+        cwd: 'build/',
         src: [
           '**',
           '!css/**/*'
@@ -87,6 +97,14 @@ module.exports = function(grunt) {
 
     },
     watch: {
+      bake: {
+        files: ['src/html/**'],
+        tasks: 'bake:build',
+        options: {
+          atBegin: true,
+          livereload: true
+        }
+      },
       css: {
         files: '**/*.scss',
         tasks: ['compass:dev'],
@@ -100,6 +118,14 @@ module.exports = function(grunt) {
         options: {
           reload: true
         }
+      },
+      assets: {
+        files: ['src/**', '!src/html/**', '!src/sass/**'],
+        options: {
+          atBegin: true,
+          livereload: true
+        },
+        tasks: 'copy:dev'
       }
     },
     revision: { /* Default options are just fine */ },
@@ -263,6 +289,26 @@ module.exports = function(grunt) {
           {cwd: 'dist-packaged/', dest: '/', action: 'delete'},
         ]
       }
+    },
+    bake: {
+      build: {
+        files: {
+          "build/_menu.html": "src/html/_menu.html",
+          "build/about.html": "src/html/about.html",
+          "build/casaguau.html": "src/html/about.html",
+          "build/contact.html": "src/html/contact.html",
+          "build/features.html": "src/html/features.html",
+          "build/form.html": "src/html/form.html",
+          "build/index.html": "src/html/index.html",
+          "build/maggieskidmarket.html": "src/html/maggieskidmarket.html",
+          "build/press.html": "src/html/press.html",
+          "build/pricing.html": "src/html/pricing.html",
+          "build/privacypolicy.html": "src/html/privacypolicy.html",
+          "build/stories.html": "src/html/stories.html",
+          "build/termsofuse.html": "src/html/termsofuse.html",
+          "build/thequiver.html": "src/html/thequiver.html"
+        }
+      }
     }
   });
 
@@ -279,6 +325,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-git-revision');
+  grunt.loadNpmTasks('grunt-bake');
 
   /**
     Task to build a distribution package. Outputs to `dist` directory.
