@@ -40,7 +40,7 @@ _tl;dr Run `grunt build package deploy-staging`_
 
 1. Build task creates a new folder `dist`. Run `grunt test` to test the `dist` folder in http://localhost:8889.
 
-1. Run `grunt package deploy`
+1. Run `grunt package deploy-staging`
 
 1. Go to S3 URL (http://www.sharetri.be.s3-website-us-east-1.amazonaws.com/ or http://www.sharetribe.com.s3-website-us-east-1.amazonaws.com/) and test.
 
