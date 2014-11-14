@@ -98,6 +98,8 @@ $trial-next-button-wide-width: 120px;
   }
 }
 
+
+
 /*
   Base class for look and feel for form elements.
   Use @extend to make element specific (input, text, select) classes.
@@ -124,15 +126,6 @@ $trial-next-button-wide-width: 120px;
 
   padding-left: 24px;
   padding-right: 24px;
-}
-
-@mixin with-next-button($button-width) {
-  padding-right: 24px + $button-width; // Add right padding, so that text doesn't go under the next button
-}
-
-.trial-input {
-  @extend .trial-input-look-and-feel;
-  @include with-next-button($trial-next-button-width + $trial-next-button-margin);
 
   @include input-placeholder {
     color: $light-grey;
@@ -144,14 +137,28 @@ $trial-next-button-wide-width: 120px;
       color: $blue;
     }
   }
+}
 
-  &:focus {
-    color: $orange;
-    @include input-placeholder {
+.chosen-container-active,
+.trial-input-look-and-feel:hover,
+.trial-input-look-and-feel:focus {
+  background: $white;
+  border-bottom: solid 3px $blue;
+
+  color: $orange;
+  @include input-placeholder {
       color: $orange;
       opacity: 0.5;
-    }
   }
+}
+
+@mixin with-next-button($button-width) {
+  padding-right: 24px + $button-width; // Add right padding, so that text doesn't go under the next button
+}
+
+.trial-input {
+  @extend .trial-input-look-and-feel;
+  @include with-next-button($trial-next-button-width + $trial-next-button-margin);
 
   // Without this, Chrome allows user to input multiline text to text input
   // See: http://stackoverflow.com/a/20376723/432787
@@ -244,7 +251,7 @@ $trial-next-button-wide-width: 120px;
 }
 
 .trial-name-first-input {
-  @extend .trial-input-look-and-feel;
+  @extend .trial-input;
   @extend .trial-first-input;
 }
 
@@ -253,7 +260,7 @@ $trial-next-button-wide-width: 120px;
 }
 
 .trial-password-input {
-  @extend .trial-input-look-and-feel;
+  @extend .trial-input;
   @extend .trial-first-input;
 }
 
@@ -324,9 +331,12 @@ $trial-next-button-wide-width: 120px;
   right: $trial-next-button-margin;
   width: $trial-next-button-width;
 
-  &:hover {
+  &:hover, &:focus {
     background-color: $blue;
   }
+
+  // Disable blue highlight
+  outline: 0;
 }
 
 .trial-next-button-with-slide-number {

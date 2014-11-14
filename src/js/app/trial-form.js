@@ -179,10 +179,24 @@ define([
     }
   };
 
+  var focusFormInSlide = function(elSlide) {
+    elSlide.find('form :input:first') // select first input
+      .focus()                        // and focus it
+      .trigger('chosen:activate');    // trigger event to activate chosen selects
+  };
+
+  var showAndFocus = function(elShow, clbk) {
+    clbk = clbk || function() {};
+    show(elShow, function() {
+      focusFormInSlide(elShow);
+      clbk();
+    });
+  };
+
   var hideAndShow = function(elHide, elShow, clbk) {
     clbk = clbk || function() {};
     hide(elHide, function() {
-      show(elShow, clbk);
+      showAndFocus(elShow, clbk);
     });
   };
 
@@ -215,7 +229,7 @@ define([
       if(animationDone && checkDone) {
         if (emailAvailable) {
           data.admin_email = email;
-          show(el.localizationSlide);
+          showAndFocus(el.localizationSlide);
         } else {
           show(el.existingAccountSlide);
         }

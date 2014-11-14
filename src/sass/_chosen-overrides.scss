@@ -36,7 +36,12 @@
 
         &.chosen-container-active, &:hover, &:focus {
             background-color: $bg-grey;
-            color: $light-grey;
+            color: $orange;
+
+            span {
+              color: $orange;
+              opacity: 0.5;
+            }
         }
 
         .chosen-drop {
