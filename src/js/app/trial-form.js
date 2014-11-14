@@ -71,7 +71,7 @@ define([
       marketplaceSlide: $('#trial-marketplace-slide'),
       marketplaceForm: $('#trial-marketplace-form'),
       marketplaceTypeSelect: $('#trial-marketplace-type-select'),
-      marketplaceTypeSelectDefault: $('#trial-marketplace-type-default'),
+      marketplaceTypeDefault: $('#trial-marketplace-type-default'),
       marketplaceNameInput: $('#trial-marketplace-name-input'),
       marketplaceTypeInvalid: $('#trial-marketplace-type-invalid'),
       marketplaceNameTooShort: $('#trial-marketplace-name-too-short'),
