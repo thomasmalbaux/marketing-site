@@ -6,9 +6,8 @@ $trial-next-button-width: 80px;
 $trial-next-button-margin: 15px;
 $trial-next-button-wide-width: 120px;
 
-.trial {
+._trial {
   width: 100%;
-  background: url("../images/bg.footer.jpg") no-repeat center top;
   background-size: cover;
   color: $white;
   text-align: center;
@@ -23,6 +22,15 @@ $trial-next-button-wide-width: 120px;
   }
 
   position: relative;
+}
+
+.trial-inline {
+  @extend ._trial;
+  background: url("../images/bg.footer.jpg") no-repeat center top;
+}
+
+.trial-lightbox {
+  @extend ._trial;
 }
 
 .trial-content {
@@ -147,8 +155,8 @@ $trial-next-button-wide-width: 120px;
 
   color: $orange;
   @include input-placeholder {
-      color: $orange;
-      opacity: 0.5;
+    color: $orange;
+    opacity: 0.5;
   }
 }
 

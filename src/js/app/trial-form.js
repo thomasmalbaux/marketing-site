@@ -29,6 +29,7 @@ define([
 
   var init = function() {
     el = {
+      trial: $('#trial'),
       animationContainer: $('#trial-animation-container'),
 
       emailSlide: $('#trial-email-slide'),
@@ -81,6 +82,8 @@ define([
 
       gotoButton: $('#trial-goto-button')
     };
+
+    if (!el.trial.length) { return; } // Trial form is not present
 
     initEmail();
     initLocalization();

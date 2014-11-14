@@ -34,8 +34,6 @@ define(
 
         this.initializeOdometers();
 
-        // Initialize trial to DOM element
-        // Trial.initializeTrialForm($('.trial'));
         trialForm.init();
 
         scrollSpy.init($('#side-navigation a'));
