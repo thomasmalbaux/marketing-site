@@ -2021,7 +2021,7 @@ br.br-titlebreak {
   }
 
   .hero {
-    a.button.white {
+    a.button.white, a.button.ghost {
       font-size: 13px;
       padding: 14px 20px;
     }
@@ -2358,7 +2358,7 @@ br.br-titlebreak {
 @media screen and (max-width: 640px) {
 
   .hero {
-    height: 800px;
+    height: 600px;
 
     h1 {
       font-size: 28px;
@@ -2367,16 +2367,17 @@ br.br-titlebreak {
     }
 
     p {
-      font-size: 14px;
-      line-height: 21px;
+      font-size: 0px;
+      line-height: 0px;
+      margin-top: 10px;
+      margin-bottom: 0px;
     }
 
     a.button.ghost {
-      display: none;
     }
 
     a.button.white {
-      margin-right: 0;
+      margin-right: 20px;
     }
   }
 
@@ -2389,6 +2390,10 @@ br.br-titlebreak {
       text-align: center;
       margin: 0 auto 40px;
     }
+  }
+  
+  .hero-text h1 {
+    margin-top: 30px!important;
   }
 
 	.main-wrapper {
@@ -2907,7 +2912,7 @@ br.br-titlebreak {
     background: url("../images/bg.hero.jpg") no-repeat center center;
     background-color: $orange;
     background-size: cover;
-    height: 480px;
+    height: 350px;
 
     h1 {
       font-size: 30px;
@@ -2916,24 +2921,23 @@ br.br-titlebreak {
     }
 
     p {
-      font-size: 17px;
-      line-height: 28px;
+      font-size: 0px;
+      line-height: 0px;
+      margin-bottom: 0px;
+      margin-top: 15px;
     }
 
     .logo {
       margin-bottom: 75px;
     }
 
-    a.button.ghost {
-      display: none;
-    }
   }
 
   .hero-text {
     left: 0;
     margin-left: 5%;
     width: 40%;
-    margin-top: 50px;
+    margin-top: 7%;
     height: auto;
 
     h1 {
@@ -2950,7 +2954,7 @@ br.br-titlebreak {
 
   .hero {
     background-size: cover!important;
-    background: url("../images/bg.hero.tablet.jpg") no-repeat center center;
+    background: url("../images/bg.hero.tablet.jpg") no-repeat center 8px;
     background-color: $orange;
 
     .logo {
