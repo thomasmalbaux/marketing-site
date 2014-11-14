@@ -73,8 +73,10 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'dist/',
         src: [
-          '**/images/*',
-          '**/images/vendor/*'
+          'favicon.ico',
+          'images/*',
+          'images/vendor/*',
+          'images/favicons/*'
         ],
         dest: 'dist-packaged/'
       }
