@@ -551,7 +551,7 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
   width: 100%;
   overflow: hidden;
   float: left;
-  
+
   img {
     width: 100%;
   }
@@ -569,7 +569,7 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
   overflow: hidden;
   float: right;
   margin-top: 166px;
-  
+
   img {
     width: 100%;
   }
@@ -727,7 +727,6 @@ img.svg.paypal {
 ///////////
 
 @import 'trial';
-@import 'chosen-overrides';
 
 ////////////
 // FOOTER //

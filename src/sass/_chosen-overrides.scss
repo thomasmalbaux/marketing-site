@@ -1,5 +1,5 @@
 /* chosen overrides */
-.trial { // Wrap inside trial class. This is a bit ugly, but necessary to give higher precense to the overrides.
+@mixin chosen-overrides { // Wrap inside trial class. This is a bit ugly, but necessary to give higher precense to the overrides.
     .chosen-container-active .chosen-single {
         @include Gibson-Regular;
         border: none;

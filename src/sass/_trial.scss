@@ -1,12 +1,14 @@
 @import "compass/css3/user-interface";
 @import "compass/utilities/general/clearfix";
 @import "compass/css3/opacity";
+@import "chosen-overrides";
 
 $trial-next-button-width: 80px;
 $trial-next-button-margin: 15px;
 $trial-next-button-wide-width: 120px;
 
 ._trial {
+  @include chosen-overrides;
   width: 100%;
   background-size: cover;
   color: $white;
