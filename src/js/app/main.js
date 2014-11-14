@@ -23,7 +23,6 @@ define(
         //Initialize smooth-scroll plugin
         SmoothScroll.init({
           speed: 300,
-          offset: 105,
           callbackBefore: function(toggle, anchor) {
             scrollSpy.stop();
             scrollSpy.select(anchor);
