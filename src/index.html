@@ -262,8 +262,424 @@
 
   <!-- Sign up -->
 
-    <div class="trial">
+  <div id="trial" class="trial-inline">
+    <h4 class="trial-h4">No credit card or business loan required.</h4>
+    <h3 class="trial-h3">Start your free 30-day trial of Sharetribe.</h3>
+
+    <div class="trial-content">
+      <div id="trial-animation-container" class="trial-animation-container"></div>
+
+      <!-- email -->
+      <div id="trial-email-slide" class="trial-slide">
+        <form id="trial-email-form">
+          <div class="trial-email-inputs">
+            <div class="trial-input-with-next-wrapper">
+              <input id="trial-email-input" class="trial-input" type="text" name="email" placeholder="First, what's your email?" />
+              <button id="trial-email-next" class="trial-next-button" type="submit">Next ›</button>
+            </div>
+          </div>
+        </form>
+
+        <p id="trial-email-not-sell" class="trial-info">We pinky promise that we will never sell your information.</p>
+        <p id="trial-email-invalid" class="trial-warning hidden">Sorry, we need a valid email address.</p>
+      </div>
+
+      <!-- account exists -->
+      <div id="trial-existing-account" class="trial-slide hidden">
+        <p class="trial-text">It seems you already have a Sharetribe account.</p>
+        <p class="trial-text">If you want to create a new marketplace with this account, <a class="trial-link" href="contact.html" alt="contact us">contact us</a>.</p>
+      </div>
+
+      <!-- email check failed -->
+      <div id="trial-email-check-failed" class="trial-slide hidden">
+        <p class="trial-warning">Oops... Email availability check failed. Please refresh and try again.</p>
+      </div>
+
+      <!-- localization -->
+      <div id="trial-localization" class="trial-slide hidden">
+        <form id="trial-localization-form">
+          <div class="trial-localization-selects">
+            <div class="trial-country-select-container">
+              <select id="trial-localization-country-select" class="trial-select" type="text" name="country" placeholder="Country" data-placeholder="Country" >
+                <option id="trial-localization-country-default" value="default"></option>
+                <option value="AC">Ascension Island</option>
+                <option value="AD">Andorra</option>
+                <option value="AF">Afghanistan</option>
+                <option value="AG">Antigua and Barbuda</option>
+                <option value="AI">Anguilla</option>
+                <option value="AL">Albania</option>
+                <option value="AM">Armenia</option>
+                <option value="AN">Netherlands Antilles</option>
+                <option value="AO">Angola</option>
+                <option value="AQ">Antarctica</option>
+                <option value="AR">Argentina</option>
+                <option value="AS">American Samoa</option>
+                <option value="AT">Austria</option>
+                <option value="AU">Australia</option>
+                <option value="AW">Aruba</option>
+                <option value="AZ">Azerbaijan</option>
+                <option value="BA">Bosnia and Herzegovina</option>
+                <option value="BB">Barbados</option>
+                <option value="BD">Bangladesh</option>
+                <option value="BE">Belgium</option>
+                <option value="BF">Burkina Faso</option>
+                <option value="BG">Bulgaria</option>
+                <option value="BH">Bahrain</option>
+                <option value="BI">Burundi</option>
+                <option value="BJ">Benin</option>
+                <option value="BL">Saint Barthélemy</option>
+                <option value="BM">Bermuda</option>
+                <option value="BN">Brunei</option>
+                <option value="BO">Bolivia</option>
+                <option value="BR">Brazil</option>
+                <option value="BS">Bahamas</option>
+                <option value="BT">Bhutan</option>
+                <option value="BV">Bouvet Island</option>
+                <option value="BW">Botswana</option>
+                <option value="BY">Belarus</option>
+                <option value="BZ">Belize</option>
+                <option value="CA">Canada</option>
+                <option value="BQ">Caribbean Netherlands</option>
+                <option value="CC">Cocos [Keeling] Islands</option>
+                <option value="CD">Congo - Kinshasa</option>
+                <option value="CD">Congo [DRC]</option>
+                <option value="CF">Central African Republic</option>
+                <option value="CG">Congo - Brazzaville</option>
+                <option value="CG">Congo [Republic]</option>
+                <option value="CI">Côte d’Ivoire</option>
+                <option value="CI">Ivory Coast</option>
+                <option value="CK">Cook Islands</option>
+                <option value="CL">Chile</option>
+                <option value="CM">Cameroon</option>
+                <option value="CN">China</option>
+                <option value="CO">Colombia</option>
+                <option value="CP">Clipperton Island</option>
+                <option value="CR">Costa Rica</option>
+                <option value="CU">Cuba</option>
+                <option value="CV">Cape Verde</option>
+                <option value="CW">Curaçao</option>
+                <option value="CX">Christmas Island</option>
+                <option value="CY">Cyprus</option>
+                <option value="CZ">Czech Republic</option>
+                <option value="DE">Germany</option>
+                <option value="DG">Diego Garcia</option>
+                <option value="DJ">Djibouti</option>
+                <option value="DK">Denmark</option>
+                <option value="DM">Dominica</option>
+                <option value="DO">Dominican Republic</option>
+                <option value="DZ">Algeria</option>
+                <option value="EA">Ceuta and Melilla</option>
+                <option value="EC">Ecuador</option>
+                <option value="EE">Estonia</option>
+                <option value="EG">Egypt</option>
+                <option value="EH">Western Sahara</option>
+                <option value="ER">Eritrea</option>
+                <option value="ES">Spain</option>
+                <option value="ET">Ethiopia</option>
+                <option value="EU">European Union</option>
+                <option value="FI">Finland</option>
+                <option value="FJ">Fiji</option>
+                <option value="FK">Falkland Islands</option>
+                <option value="FK">Falkland Islands [Islas Malvinas]</option>
+                <option value="FM">Micronesia</option>
+                <option value="FO">Faroe Islands</option>
+                <option value="FR">France</option>
+                <option value="GA">Gabon</option>
+                <option value="GB">United Kingdom</option>
+                <option value="GD">Grenada</option>
+                <option value="GE">Georgia</option>
+                <option value="GF">French Guiana</option>
+                <option value="GG">Guernsey</option>
+                <option value="GH">Ghana</option>
+                <option value="GI">Gibraltar</option>
+                <option value="GL">Greenland</option>
+                <option value="GM">Gambia</option>
+                <option value="GN">Guinea</option>
+                <option value="GP">Guadeloupe</option>
+                <option value="GQ">Equatorial Guinea</option>
+                <option value="GR">Greece</option>
+                <option value="GS">South Georgia and the South Sandwich Islands</option>
+                <option value="GT">Guatemala</option>
+                <option value="GU">Guam</option>
+                <option value="GW">Guinea-Bissau</option>
+                <option value="GY">Guyana</option>
+                <option value="HK">Hong Kong SAR China</option>
+                <option value="HK">Hong Kong</option>
+                <option value="HM">Heard Island and McDonald Islands</option>
+                <option value="HN">Honduras</option>
+                <option value="HR">Croatia</option>
+                <option value="HT">Haiti</option>
+                <option value="HU">Hungary</option>
+                <option value="IC">Canary Islands</option>
+                <option value="ID">Indonesia</option>
+                <option value="IE">Ireland</option>
+                <option value="IL">Israel</option>
+                <option value="IM">Isle of Man</option>
+                <option value="IN">India</option>
+                <option value="IO">British Indian Ocean Territory</option>
+                <option value="IQ">Iraq</option>
+                <option value="IR">Iran</option>
+                <option value="IS">Iceland</option>
+                <option value="IT">Italy</option>
+                <option value="JE">Jersey</option>
+                <option value="JM">Jamaica</option>
+                <option value="JO">Jordan</option>
+                <option value="JP">Japan</option>
+                <option value="KE">Kenya</option>
+                <option value="KG">Kyrgyzstan</option>
+                <option value="KH">Cambodia</option>
+                <option value="KI">Kiribati</option>
+                <option value="KM">Comoros</option>
+                <option value="KN">Saint Kitts and Nevis</option>
+                <option value="KP">North Korea</option>
+                <option value="KR">South Korea</option>
+                <option value="KW">Kuwait</option>
+                <option value="KY">Cayman Islands</option>
+                <option value="KZ">Kazakhstan</option>
+                <option value="LA">Laos</option>
+                <option value="LB">Lebanon</option>
+                <option value="LC">Saint Lucia</option>
+                <option value="LI">Liechtenstein</option>
+                <option value="LK">Sri Lanka</option>
+                <option value="LR">Liberia</option>
+                <option value="LS">Lesotho</option>
+                <option value="LT">Lithuania</option>
+                <option value="LU">Luxembourg</option>
+                <option value="LV">Latvia</option>
+                <option value="LY">Libya</option>
+                <option value="MA">Morocco</option>
+                <option value="MC">Monaco</option>
+                <option value="MD">Moldova</option>
+                <option value="ME">Montenegro</option>
+                <option value="MF">Saint Martin</option>
+                <option value="MG">Madagascar</option>
+                <option value="MH">Marshall Islands</option>
+                <option value="MK">Macedonia</option>
+                <option value="MK">Macedonia [FYROM]</option>
+                <option value="ML">Mali</option>
+                <option value="MM">Myanmar [Burma]</option>
+                <option value="MN">Mongolia</option>
+                <option value="MO">Macau SAR China</option>
+                <option value="MO">Macau</option>
+                <option value="MP">Northern Mariana Islands</option>
+                <option value="MQ">Martinique</option>
+                <option value="MR">Mauritania</option>
+                <option value="MS">Montserrat</option>
+                <option value="MT">Malta</option>
+                <option value="MU">Mauritius</option>
+                <option value="MV">Maldives</option>
+                <option value="MW">Malawi</option>
+                <option value="MX">Mexico</option>
+                <option value="MY">Malaysia</option>
+                <option value="MZ">Mozambique</option>
+                <option value="NA">Namibia</option>
+                <option value="NC">New Caledonia</option>
+                <option value="NE">Niger</option>
+                <option value="NF">Norfolk Island</option>
+                <option value="NG">Nigeria</option>
+                <option value="NI">Nicaragua</option>
+                <option value="NL">Netherlands</option>
+                <option value="NO">Norway</option>
+                <option value="NP">Nepal</option>
+                <option value="NR">Nauru</option>
+                <option value="NU">Niue</option>
+                <option value="NZ">New Zealand</option>
+                <option value="OM">Oman</option>
+                <option value="PA">Panama</option>
+                <option value="PE">Peru</option>
+                <option value="PF">French Polynesia</option>
+                <option value="PG">Papua New Guinea</option>
+                <option value="PH">Philippines</option>
+                <option value="PK">Pakistan</option>
+                <option value="PL">Poland</option>
+                <option value="PM">Saint Pierre and Miquelon</option>
+                <option value="PN">Pitcairn Islands</option>
+                <option value="PR">Puerto Rico</option>
+                <option value="PS">Palestinian Territories</option>
+                <option value="PS">Palestine</option>
+                <option value="PT">Portugal</option>
+                <option value="PW">Palau</option>
+                <option value="PY">Paraguay</option>
+                <option value="QA">Qatar</option>
+                <option value="QO">Outlying Oceania</option>
+                <option value="RE">Réunion</option>
+                <option value="RO">Romania</option>
+                <option value="RS">Serbia</option>
+                <option value="RU">Russia</option>
+                <option value="RW">Rwanda</option>
+                <option value="SA">Saudi Arabia</option>
+                <option value="SB">Solomon Islands</option>
+                <option value="SC">Seychelles</option>
+                <option value="SD">Sudan</option>
+                <option value="SE">Sweden</option>
+                <option value="SG">Singapore</option>
+                <option value="SH">Saint Helena</option>
+                <option value="SI">Slovenia</option>
+                <option value="SJ">Svalbard and Jan Mayen</option>
+                <option value="SK">Slovakia</option>
+                <option value="SL">Sierra Leone</option>
+                <option value="SM">San Marino</option>
+                <option value="SN">Senegal</option>
+                <option value="SO">Somalia</option>
+                <option value="SR">Suriname</option>
+                <option value="SS">South Sudan</option>
+                <option value="ST">São Tomé and Príncipe</option>
+                <option value="SV">El Salvador</option>
+                <option value="SX">Sint Maarten</option>
+                <option value="SY">Syria</option>
+                <option value="SZ">Swaziland</option>
+                <option value="CH">Switzerland</option>
+                <option value="TA">Tristan da Cunha</option>
+                <option value="TC">Turks and Caicos Islands</option>
+                <option value="TD">Chad</option>
+                <option value="TF">French Southern Territories</option>
+                <option value="TG">Togo</option>
+                <option value="TH">Thailand</option>
+                <option value="TJ">Tajikistan</option>
+                <option value="TK">Tokelau</option>
+                <option value="TL">Timor-Leste</option>
+                <option value="TL">East Timor</option>
+                <option value="TM">Turkmenistan</option>
+                <option value="TN">Tunisia</option>
+                <option value="TO">Tonga</option>
+                <option value="TR">Turkey</option>
+                <option value="TT">Trinidad and Tobago</option>
+                <option value="TV">Tuvalu</option>
+                <option value="TW">Taiwan</option>
+                <option value="TZ">Tanzania</option>
+                <option value="UA">Ukraine</option>
+                <option value="UG">Uganda</option>
+                <option value="UM">U.S. Outlying Islands</option>
+                <option value="AE">United Arab Emirates</option>
+                <option value="US">United States</option>
+                <option value="UY">Uruguay</option>
+                <option value="UZ">Uzbekistan</option>
+                <option value="VA">Vatican City</option>
+                <option value="VC">Saint Vincent and the Grenadines</option>
+                <option value="VE">Venezuela</option>
+                <option value="VG">British Virgin Islands</option>
+                <option value="VI">U.S. Virgin Islands</option>
+                <option value="VN">Vietnam</option>
+                <option value="VU">Vanuatu</option>
+                <option value="WF">Wallis and Futuna</option>
+                <option value="WS">Samoa</option>
+                <option value="YE">Yemen</option>
+                <option value="YT">Mayotte</option>
+                <option value="ZA">South Africa</option>
+                <option value="ZM">Zambia</option>
+                <option value="ZW">Zimbabwe</option>
+                <option value="AX">Åland Islands</option>
+                <option value="ZZ">Unknown Region</option>
+              </select>
+            </div>
+
+            <div class="trial-language-select-container">
+              <select id="trial-localization-language-select" class="trial-language-select" type="text" name="language" placeholder="Marketplace's language" data-placeholder="Language">
+                <option id="trial-localization-language-default" value="default"></option>
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="es">Spanish</option>
+                <option value="pt-BR">Portuguese</option>
+                <option value="it">Italian</option>
+                <option value="nl">Dutch</option>
+                <option value="fi">Finnish</option>
+                <option value="sv">Swedish</option>
+                <option value="el">Greek</option>
+              </select>
+
+              <button id="trial-localizaton-next" class="trial-next-button-with-slide-number" type="submit"><span class="trial-slide-number">2 of 5</span> Next ›</button>
+            </div>
+          </div>
+        </form>
+
+        <p id="trial-localization-didnt-find-language" class="trial-info">Didn't find your language? Easily translate your marketplace yourself! <a class="trial-link" href="contact.html">Contact us</a> to learn more.</p>
+        <p id="trial-localization-country-invalid" class="trial-warning hidden">Please select a country from the list.</p>
+        <p id="trial-localization-language-invalid" class="trial-warning hidden">Please select a language from the list.</p>
+      </div>
+
+      <!-- name -->
+      <div id="trial-name-slide" class="trial-slide hidden">
+        <form id="trial-name-form">
+          <div class="trial-form-content">
+            <input id="trial-name-first-input" class="trial-name-first-input" type="text" name="first-name" placeholder="Your first..." />
+
+            <div class="trial-input-with-next-wrapper trial-name-last-input-container">
+              <input id="trial-name-last-input" class="trial-input" type="text" name="last-name" placeholder="...and last name?" />
+              <button id="trial-name-next" class="trial-next-button-with-slide-number" type="submit"><span class="trial-slide-number">3 of 5</span> Next ›</button>
+            </div>
+          </div>
+        </form>
+
+        <p id="trial-name-first-invalid" class="trial-warning hidden">Please enter your first name.</p>
+        <p id="trial-name-last-invalid" class="trial-warning hidden">Please enter your last name.</p>
+      </div>
+
+      <div id="trial-password-slide" class="trial-slide hidden">
+        <form id="trial-password-form">
+          <div class="trial-form-content">
+            <input id="trial-password-input" class="trial-password-input" type="password" placeholder="Password">
+
+            <div class="trial-input-with-next-wrapper trial-password-confirmation-input-container">
+              <input id="trial-password-confirmation-input" class="trial-input" type="password" name="confirm" placeholder="Confirm password" />
+              <button id="trial-password-next" class="trial-next-button-with-slide-number" type="submit"><span class="trial-slide-number">4 of 5</span> Next ›</button>
+            </div>
+          </div>
+        </form>
+
+        <p id="trial-password-missing" class="trial-warning hidden">Please enter your password.</p>
+        <p id="trial-password-confirmation-missing" class="trial-warning hidden">Please enter password confirmation.</p>
+        <p id="trial-password-too-short" class="trial-warning hidden">Password must be at least 8 characters long.</p>
+        <p id="trial-password-confirmation-mismatch" class="trial-warning hidden">Password and confirmation did not match.</p>
+      </div>
+
+      <!-- marketplace -->
+      <div id="trial-marketplace-slide" class="trial-slide hidden">
+        <form id="trial-marketplace-form">
+          <div class="trial-marketplace-fields">
+            <div class="trial-marketplace-type-select-container">
+              <select id="trial-marketplace-type-select" class="trial-select" type="text" name="marketplace-type" placeholder="Marketplace type" data-placeholder="Marketplace type">
+                <option id="trial-marketplace-type-default" value="default"></option>
+                <option value="product">Product marketplace</option>
+                <option value="rental">Rental marketplace</option>
+                <option value="service">Service marketplace</option>
+              </select>
+            </div>
+
+            <div class="trial-input-with-next-wrapper trial-marketplace-name-input-container">
+              <input id="trial-marketplace-name-input" class="trial-input" type="text" name="marketplace-name" placeholder="Marketplace name..." />
+              <button id="trial-password-next" class="trial-next-button-with-slide-number" type="submit"><span class="trial-slide-number">5 of 5</span> Next ›</button>
+            </div>
+          </div>
+        </form>
+
+        <p id="trial-marketplace-didnt-find" class="trial-info">Didn't find a suitable type for your marketplace idea? <a class="trial-link" href="contact.html">Contact us</a>.<br />By creating your marketplace, you agree to Sharetribe's <a class="trial-link" href="termsofuse.html">Terms of Service</a> and <a class="trial-link" href="privacypolicy.html">Privacy policy.</a></p>
+
+
+        <p id="trial-marketplace-type-invalid" class="trial-warning hidden">Please select marketplace type.</p>
+        <p id="trial-marketplace-name-too-short" class="trial-warning hidden">Marketplace name must be at least 2 characters long.</p>
+      </div>
+
+      <!-- created -->
+      <div id="trial-created-slide" class="trial-slide hidden">
+        <p class="trial-text">Please wait...</p>
+        <p class="trial-text">We're setting up your marketplace.</p>
+      </div>
+
+      <!-- create failed -->
+      <div id="trial-create-failed-slide" class="trial-slide hidden">
+        <p class="trial-warning">Oops... Something went wrong while creating the marketplace. Please refresh and try again</p>
+      </div>
+
+      <!-- create success -->
+      <div id="trial-create-success-slide" class="trial-slide hidden">
+        <p class="trial-text">Congratulations!</p>
+        <p class="trial-text">Your marketplace is now ready.</p>
+
+        <a id="trial-goto-button" class="trial-goto-button" target="_blank">Go to your marketplace</a>
+      </div>
     </div>
+  </div>
 
     <div class="clear"></div>
 

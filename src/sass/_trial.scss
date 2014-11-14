@@ -1,0 +1,368 @@
+@import "compass/css3/user-interface";
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/opacity";
+
+$trial-next-button-width: 80px;
+$trial-next-button-margin: 15px;
+$trial-next-button-wide-width: 120px;
+
+._trial {
+  width: 100%;
+  background-size: cover;
+  color: $white;
+  text-align: center;
+  padding: 120px 0px; // Vertical centering
+
+  @media screen and (max-width: 1150px) {
+    padding: 80px 0px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 40px 0px;
+  }
+
+  position: relative;
+}
+
+.trial-inline {
+  @extend ._trial;
+  background: url("../images/bg.footer.jpg") no-repeat center top;
+}
+
+.trial-lightbox {
+  @extend ._trial;
+}
+
+.trial-content {
+  margin: auto;
+  max-width: 1140px;
+  width: 90%;
+  height: 170px; // add fixed height so that we can freely change slides without container height change
+
+  @media screen and (max-width: 768px) {
+    // Need more height due to stacking
+    height: 260px; // Estimation of needed size: two dropdowns, margin, and info texts
+  }
+
+  @media screen and (max-width: 470px) {
+    // Need more height due to stacking
+    height: 300px; // Estimation of needed size: two dropdowns, margin, and info texts
+  }
+
+  position: relative;
+}
+
+// Container for animations. Overflow set to be hidden.
+.trial-animation-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  overflow: hidden;
+}
+
+.trial-h4 {
+  font-size: 23px;
+  font-family: Gibson-LightIt;
+  margin-bottom: 15px;
+
+  @media screen and (max-width: 1150px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  @media screen and (max-width: 470px) {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+}
+
+.trial-h3 {
+  font-size: 42px;
+  @include Gibson-Light;
+  letter-spacing: 0.01em;
+  margin-bottom: 40px;
+
+  @media screen and (max-width: 1150px) {
+    font-size: 34px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 26px;
+    line-height: 42px;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 470px) {
+    font-size: 26px;
+    line-height: 42px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+/*
+  Base class for look and feel for form elements.
+  Use @extend to make element specific (input, text, select) classes.
+  Do NOT include element specific declarations in this class
+*/
+.trial-input-look-and-feel {
+  -webkit-appearance: none;
+  @include transition(all, 0.2s, ease-in-out);
+  background-color: $bg-grey;
+  font-size: 18px;
+  border: none;
+  height: 70px;
+  @include border-radius(5px);
+  @include Gibson-Light;
+
+  width: 100%;
+  border-bottom: solid 3px #ff836d;
+  outline: none;
+
+  &:hover, &:focus {
+    background: $white;
+    border-bottom: solid 3px $blue;
+  }
+
+  padding-left: 24px;
+  padding-right: 24px;
+
+  @include input-placeholder {
+    color: $light-grey;
+  }
+
+  &:hover {
+    cursor: hand;
+    @include input-placeholder {
+      color: $blue;
+    }
+  }
+}
+
+.chosen-container-active,
+.trial-input-look-and-feel:hover,
+.trial-input-look-and-feel:focus {
+  background: $white;
+  border-bottom: solid 3px $blue;
+
+  color: $orange;
+  @include input-placeholder {
+    color: $orange;
+    opacity: 0.5;
+  }
+}
+
+@mixin with-next-button($button-width) {
+  padding-right: 24px + $button-width; // Add right padding, so that text doesn't go under the next button
+}
+
+.trial-input {
+  @extend .trial-input-look-and-feel;
+  @include with-next-button($trial-next-button-width + $trial-next-button-margin);
+
+  // Without this, Chrome allows user to input multiline text to text input
+  // See: http://stackoverflow.com/a/20376723/432787
+  word-break: normal;
+}
+
+.trial-select {
+  // Note that there are a lot of chosen styles and chosen style overrides to affecting select element look and feel
+  @extend .trial-input-look-and-feel;
+}
+
+.trial-form-content {
+  position: relative;
+  height: 70px;
+  max-width: 670px;
+  width: 100%;
+  margin: auto;
+
+  @media screen and (max-width: 768px) {
+    // Need more height due to stacking
+    height: (70px * 2) + 10px; // Estimation of needed size: two dropdowns, margin, and info text
+  }
+}
+
+.trial-email-inputs {
+  width: 100%;
+  max-width: 540px;
+  margin: auto;
+}
+
+.trial-localization-selects {
+  @extend .trial-form-content;
+}
+
+/* The size of the chosen select element is 100%, so this container limits the size */
+.trial-country-select-container {
+  max-width: 270px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+
+  @media screen and (max-width: 768px) {
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* The size of the chosen select element is 100%, so this container limits the size */
+.trial-language-select-container {
+  max-width: 380px;
+  width: 100%;
+  position: absolute;
+  right: 0;
+
+  @media screen and (max-width: 768px) {
+    position: relative;
+    max-width: 100%;
+  }
+}
+
+.trial-language-select {
+  @extend .trial-select;
+  @include with-next-button($trial-next-button-wide-width + $trial-next-button-margin);
+}
+
+// For two input slides (name, password), this can be used for the first input
+.trial-first-input {
+  width: 250px;
+  margin-right: 20px;
+  float: left;
+
+  @media screen and (max-width: 768px) {
+    float: none;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 10px;
+  }
+}
+
+// For two input slides (name, password), this can be used for the second input (with next button) container
+.trial-second-input-container {
+  float: left;
+  width: 400px;
+
+  @media screen and (max-width: 768px) {
+    float: none;
+    width: 100%;
+  }
+}
+
+.trial-name-first-input {
+  @extend .trial-input;
+  @extend .trial-first-input;
+}
+
+.trial-name-last-input-container {
+  @extend .trial-second-input-container;
+}
+
+.trial-password-input {
+  @extend .trial-input;
+  @extend .trial-first-input;
+}
+
+.trial-password-confirmation-input-container {
+  @extend .trial-second-input-container;
+}
+
+.trial-marketplace-type-select-container {
+  @extend .trial-first-input;
+}
+
+.trial-marketplace-name-input-container {
+  @extend .trial-second-input-container;
+}
+
+.trial-marketplace-fields {
+  @extend .trial-form-content;
+}
+
+.trial-info {
+  margin-top: 30px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #f3ab9e;
+  @include Gibson-Regular;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.trial-text {
+  color: darken($white, 15%);
+  font-size: 18px;
+  @include Gibson-Regular;
+  margin-bottom: 10px;
+}
+
+.trial-link {
+  color: white;
+}
+
+.trial-warning {
+  @extend .trial-info;
+  color: yellow;
+}
+
+.trial-slide {
+  position: relative;
+  left: 0px;
+}
+
+.trial-next-button {
+  @include transition(all, 0.2s, ease-in-out);
+  border: none;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  border-radius: 3px;
+  background-color: $orange;
+  color: white;
+  cursor: pointer;
+  padding: 12px 20px;
+
+  // Position on top of the input
+  position: absolute;
+  top: $trial-next-button-margin;
+  bottom: $trial-next-button-margin + 3px; // normal margin + bottom border
+  right: $trial-next-button-margin;
+  width: $trial-next-button-width;
+
+  &:hover, &:focus {
+    background-color: $blue;
+  }
+
+  // Disable blue highlight
+  outline: 0;
+}
+
+.trial-next-button-with-slide-number {
+  @extend .trial-next-button;
+  width: $trial-next-button-wide-width;
+}
+
+.trial-slide-number {
+  @include opacity(0.7);
+}
+
+.trial-input-with-next-wrapper {
+  position: relative;
+  margin: auto;
+}
+
+.trial-goto-button {
+  margin-top: 10px;
+  @include button($orange,$white,$white,$white,$blue,$blue);
+  display: inline-block;
+}
