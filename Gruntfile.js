@@ -152,6 +152,14 @@ module.exports = function(grunt) {
             return '<!-- VERSION ' + grunt.config('meta.revision') + ' at ' + new Date() + ' -->';
           }
         }]
+      },
+      prodendpoint: {
+        src: ['.build-tmp/js/app/trial-form.js'],
+        overwrite: true,
+        replacements: [{
+          from: "var CATCH_ST_URL = 'http://catch.sharetri.be/int_api';",
+          to: "var CATCH_ST_URL = 'https://catch.sharetribe.com/int_api';"
+        }]
       }
     },
     compress: {
@@ -294,13 +302,44 @@ module.exports = function(grunt) {
     'copy:dist'
   ]);
 
+  grunt.registerTask('build-prod', [
+    'clean',
+    'copy:temp',
+    'revision',
+    'replace:version',
+    'replace:prodendpoint',
+    'requirejs:compile',
+    'replace:requirejs',
+    'compass:dist',
+    'filerev',
+    'usemin',
+    'copy:dist'
+  ]);
+
   grunt.registerTask('package', [
     'compress',
     'copy:package'
   ]);
 
-  grunt.registerTask('deploy', [
-    'aws_s3:staging'
+  grunt.registerTask('print-staging', function () {
+    grunt.log.write("Done. Check the deployed staging content at: http://www.sharetri.be.s3-website-us-east-1.amazonaws.com/");
+  });
+
+  grunt.registerTask('deploy-staging', [
+    'aws_s3:staging',
+    'print-staging'
+  ]);
+
+  grunt.registerTask('print-production', function () {
+    grunt.log.writeln("Production deployment done! \\(^_^)/");
+    grunt.log.writeln();
+    grunt.log.writeln("Check the deployed production content at: http://www.sharetribe.com.s3-website-us-east-1.amazonaws.com/.");
+    grunt.log.writeln("And don't forget to invalidate the CloudFront distribution!");
+  });
+
+  grunt.registerTask('deploy-prod', [
+    'aws_s3:production',
+    'print-production'
   ]);
 
   grunt.registerTask('dev', [

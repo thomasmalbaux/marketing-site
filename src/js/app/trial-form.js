@@ -8,6 +8,9 @@ define([
   , 'chosen'
   , 'placeholder'
 ], function($, _, move, validator, Modernizr) {
+
+  var CATCH_ST_URL = 'http://catch.sharetri.be/int_api';
+
   $('input, textarea').placeholder();
 
   // cache elements
@@ -207,7 +210,7 @@ define([
     var request = $.ajax(
       {
         type: "GET"
-        , url: 'http://catch.sharetri.be/int_api/check_email_availability'
+        , url: CATCH_ST_URL + '/check_email_availability'
         , data: {email: email}
         , dataType: 'json'
       });
@@ -355,7 +358,7 @@ define([
   var createMarketplace = function(data, success, error) {
     var request = $.ajax({
       type: "POST",
-      url: 'http://catch.sharetri.be/int_api/create_trial_marketplace',
+      url: CATCH_ST_URL + '/create_trial_marketplace',
       data: data,
       dataType: 'json'
     });
