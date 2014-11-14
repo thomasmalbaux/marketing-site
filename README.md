@@ -30,9 +30,9 @@ This task also watches changed in SCSS files and auto-compiles new CSS files and
 
 ## Deploy
 
-### Build, package and deploy new version
+### Build, package and deploy new version (Staging)
 
-_tl;dr Run `grunt build package deploy`_
+_tl;dr Run `grunt build package deploy-staging`_
 
 (Make sure you have `aws-keys.json` file)
 
@@ -47,6 +47,17 @@ _tl;dr Run `grunt build package deploy`_
 1. Go to [CloudFront console](https://console.aws.amazon.com/cloudfront/home), click the distribution to see the details and select `Invalidations` tab. Now invalidate all HTML files. The easiest way to do this is to locate a previous invalidation task, which invalidated all the HTML files and click `Copy`.
 
 1. Make sure the cache is invalidated: Open the browser and go to the site URL. See the source code. Scroll to the bottom and make sure the VERSION is updated.
+
+
+### Production deployment
+
+_tl;dr Run `grunt build-prod package deploy-prod`_
+
+So it's the same as with staging except that you run build-prod and
+deploy-prod. You then need to make sure you invalidate the content in
+correct CloudFront distribution (the one with comment talking about
+production site).
+
 
 ### AWS Credentials
 
