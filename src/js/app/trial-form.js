@@ -350,8 +350,9 @@ define([
           }, function() {
             hideAndShow(el.createdSlide, el.createFailedSlide);
           });
+        });
+      }
     });
-
     var createMarketplace = function(data, success, error) {
       var request = $.ajax({
         type: "POST",
