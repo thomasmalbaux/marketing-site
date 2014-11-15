@@ -314,6 +314,7 @@ module.exports = function(grunt) {
     bake: {
       dev: {
         files: {
+          "dev-tmp/404.html": "src/html/404.html",
           "dev-tmp/about.html": "src/html/about.html",
           "dev-tmp/casaguau.html": "src/html/casaguau.html",
           "dev-tmp/contact.html": "src/html/contact.html",
@@ -330,6 +331,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
+          ".build-tmp/404.html": ".build-tmp/html/404.html",
           ".build-tmp/about.html": ".build-tmp/html/about.html",
           ".build-tmp/casaguau.html": ".build-tmp/html/casaguau.html",
           ".build-tmp/contact.html": ".build-tmp/html/contact.html",
