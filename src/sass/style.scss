@@ -86,7 +86,7 @@ a {
     margin-right: 45px;
     @include transition(all, 0.2s, ease-in-out);
   }
-  
+
   li.current {
     border-bottom: 1px solid $light-grey;
     padding-bottom: 15px;
@@ -357,7 +357,7 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
   height: 100%;
   background-color: $orange;
   color: $white;
-  background: url("../images/bg.hero.jpg") no-repeat center center fixed;
+  background: url("/images/bg.hero.jpg") no-repeat center center fixed;
   background-size: cover;
 
   a.button.ghost {
@@ -446,7 +446,7 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
   width: 100%;
   background-color: $orange;
   color: $white;
-  background: url("../images/bg.where.jpg") no-repeat center bottom fixed;
+  background: url("/images/bg.where.jpg") no-repeat center bottom fixed;
   background-size: cover;
 
   h2 {
@@ -471,7 +471,7 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
   height: 90%;
   background-color: $orange;
   color: $white;
-  background: url("../images/bg.where.jpg") no-repeat center bottom fixed;
+  background: url("/images/bg.where.jpg") no-repeat center bottom fixed;
   background-size: cover;
 
   h2 {
@@ -506,7 +506,7 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
 .icon-hexagon-bg {
   height: auto;
   margin-bottom: 30px;
-  background: url("../images/svg/hexagon.svg") no-repeat center center;
+  background: url("/images/svg/hexagon.svg") no-repeat center center;
 }
 
 .icon-hexagon {
@@ -525,7 +525,7 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
   margin-top: 165px;
   margin-bottom: 100px;
   width: 100%;
-  background: url('../images/bg.video.jpg') no-repeat center top fixed;
+  background: url('/images/bg.video.jpg') no-repeat center top fixed;
   background-color: $blue;
   background-size: cover;
   text-align: center;
@@ -688,13 +688,13 @@ img.svg.paypal {
 }
 
 .where {
-  background: url("../images/bg.where.jpg") no-repeat center center fixed;
+  background: url("/images/bg.where.jpg") no-repeat center center fixed;
   background-size: cover;
   float: left;
 }
 
 .what {
-  background: url('../images/bg.video.jpg') no-repeat center top fixed;
+  background: url('/images/bg.video.jpg') no-repeat center top fixed;
   background-size: cover;
   float: right;
 }
@@ -1116,11 +1116,11 @@ p.pricing-faq {
   }
 }
 
-.thequiver { background: url("../images/bg.thequiver.jpg") no-repeat center center; }
+.thequiver { background: url("/images/bg.thequiver.jpg") no-repeat center center; }
 
-.maggieskidmarket { background: url("../images/bg.maggieskidmarket.jpg") no-repeat center center; }
+.maggieskidmarket { background: url("/images/bg.maggieskidmarket.jpg") no-repeat center center; }
 
-.casaguau { background: url("../images/bg.casaguau.jpg") no-repeat center center; }
+.casaguau { background: url("/images/bg.casaguau.jpg") no-repeat center center; }
 
 .thequiver, .maggieskidmarket, .casaguau {
   background-size: cover;
@@ -1229,17 +1229,17 @@ img.story-left, img.story-right {
 }
 
 .maggieskidmarket-banner {
-  background: url("../images/bg.maggieskidmarket.jpg") no-repeat center center;
+  background: url("/images/bg.maggieskidmarket.jpg") no-repeat center center;
   background-size: cover;
 }
 
 .casaguau-banner {
-  background: url('../images/bg.casaguau.jpg') no-repeat center center;
+  background: url('/images/bg.casaguau.jpg') no-repeat center center;
   background-size: cover;
 }
 
 .thequiver-banner {
-  background: url('../images/bg.thequiver.jpg') no-repeat center center;
+  background: url('/images/bg.thequiver.jpg') no-repeat center center;
   background-size: cover;
 }
 
@@ -1364,7 +1364,7 @@ img.story-left, img.story-right {
   height: 100%;
   background: $orange;
   color: $orange;
-  background: url("../images/cover.aboutus.jpg") no-repeat bottom center;
+  background: url("/images/cover.aboutus.jpg") no-repeat bottom center;
   background-size: cover;
   text-align: center;
   background-attachment: fixed;
@@ -1888,7 +1888,7 @@ br.br-titlebreak {
 
   .hero {
     @include transition(all, 0.2s, ease-in-out);
-    background: url("../images/bg.hero.jpg") no-repeat -520px -200px;
+    background: url("/images/bg.hero.jpg") no-repeat -520px -200px;
     background-color: $orange;
 
     h1 {
@@ -1917,19 +1917,19 @@ br.br-titlebreak {
   }
 
   .video {
-    background: url("../images/bg.video.jpg") no-repeat -520px -330px;
+    background: url("/images/bg.video.jpg") no-repeat -520px -330px;
   }
 
   .trial {
-    background: url("../images/bg.footer.jpg") no-repeat center top;
+    background: url("/images/bg.footer.jpg") no-repeat center top;
   }
 
   .where {
-    background: url("../images/bg.where.jpg") no-repeat center center;
+    background: url("/images/bg.where.jpg") no-repeat center center;
   }
 
   .what {
-    background: url("../images/bg.video.jpg") no-repeat center top;
+    background: url("/images/bg.video.jpg") no-repeat center top;
     max-height: 405px;
   }
 
@@ -2223,7 +2223,7 @@ br.br-titlebreak {
 
   .hero {
     background-size: cover!important;
-    background: url("../images/bg.hero.tablet.jpg") no-repeat center center;
+    background: url("/images/bg.hero.tablet.jpg") no-repeat center center;
     background-color: $orange;
 
     .logo {
@@ -2979,7 +2979,7 @@ br.br-titlebreak {
   }
 
   .hero {
-    background: url("../images/bg.hero.jpg") no-repeat center center;
+    background: url("/images/bg.hero.jpg") no-repeat center center;
     background-color: $orange;
     background-size: cover;
     height: 350px;
@@ -3024,7 +3024,7 @@ br.br-titlebreak {
 
   .hero {
     background-size: cover!important;
-    background: url("../images/bg.hero.tablet.jpg") no-repeat center center;
+    background: url("/images/bg.hero.tablet.jpg") no-repeat center center;
     background-color: $orange;
 
     .logo {
@@ -3068,7 +3068,7 @@ br.br-titlebreak {
 
   .hero {
     background-size: cover!important;
-    background: url("../images/bg.hero.tablet.jpg") no-repeat center 10px;
+    background: url("/images/bg.hero.tablet.jpg") no-repeat center 10px;
     background-color: $orange;
 
     .logo {

@@ -169,7 +169,13 @@ module.exports = function(grunt) {
       fonts: { src: ['.build-tmp/fonts/webfonts/*'] }
     },
     usemin: {
-      html: '.build-tmp/*.html',
+      options: {
+        assetsDirs: ['.build-tmp']
+      },
+      html: [
+        '.build-tmp/*.html',
+        '.build-tmp/press/*.html'
+      ],
       css: '.build-tmp/css/style.*.css'
     },
     requirejs: {
@@ -185,7 +191,10 @@ module.exports = function(grunt) {
     },
     replace: {
       requirejs: {
-        src: ['.build-tmp/*.html'],
+        src: [
+          '.build-tmp/*.html',
+          '.build-tmp/press/*.html'
+        ],
         overwrite: true,
         replacements: [{
           from: '<script data-main="/js/app" src="vendor/require.js"></script>',
@@ -193,7 +202,10 @@ module.exports = function(grunt) {
         }]
       },
       version: {
-        src: ['.build-tmp/*.html'],
+        src: [
+          '.build-tmp/*.html',
+          '.build-tmp/press/*.html'
+        ],
         overwrite: true,
         replacements: [{
           from: '<!-- VERSION -->',
@@ -219,6 +231,7 @@ module.exports = function(grunt) {
         files: [
           {expand: true, cwd: 'dist/', src: [
             '*.html',
+            'press/*.html',
             'js/*',
             'css/*',
             'fonts/**/*',
