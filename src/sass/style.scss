@@ -83,8 +83,13 @@ a {
     list-style-type: none;
     float: left;
     font-size: 15px;
-    padding-right: 45px;
+    margin-right: 45px;
     @include transition(all, 0.2s, ease-in-out);
+  }
+  
+  li.current {
+    border-bottom: 1px solid $light-grey;
+    padding-bottom: 15px;
   }
 
   a {
