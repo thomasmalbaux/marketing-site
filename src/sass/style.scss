@@ -355,7 +355,7 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
   position: relative;
   width: 100%;
   height: 100%;
-  background: $orange;
+  background-color: $orange;
   color: $white;
   background: url("../images/bg.hero.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -1276,9 +1276,9 @@ img.story-left, img.story-right {
     letter-spacing: 0.04em;
   }
 
-  a { color: $blue;
+  a { color: $white;
 
-    &:hover { color: #000; }
+    &:hover { color: $blue; }
   }
 
   p.osoite {

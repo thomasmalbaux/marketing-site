@@ -293,7 +293,7 @@ $trial-next-button-wide-width: 120px;
 
 .trial-info {
   margin-top: 30px;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 24px;
   color: #f3ab9e;
   @include Gibson-Regular;
@@ -311,7 +311,7 @@ $trial-next-button-wide-width: 120px;
 }
 
 .trial-link {
-  color: white;
+  color: #f9d9d3;
 }
 
 .trial-warning {
@@ -337,9 +337,9 @@ $trial-next-button-wide-width: 120px;
 
   // Position on top of the input
   position: absolute;
-  top: $trial-next-button-margin;
-  bottom: $trial-next-button-margin + 3px; // normal margin + bottom border
-  right: $trial-next-button-margin;
+  top: $trial-next-button-margin - 3px;
+  bottom: $trial-next-button-margin + 1px; // normal margin + bottom border
+  right: $trial-next-button-margin - 2px;
   width: $trial-next-button-width;
 
   &:hover, &:focus {
