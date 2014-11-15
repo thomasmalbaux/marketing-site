@@ -186,8 +186,8 @@ module.exports = function(grunt) {
         src: ['.build-tmp/*.html'],
         overwrite: true,
         replacements: [{
-          from: '<script data-main="js/app" src="vendor/require.js"></script>',
-          to: '<script src="js/app.js"></script>'
+          from: '<script data-main="/js/app" src="vendor/require.js"></script>',
+          to: '<script src="/js/app.js"></script>'
         }]
       },
       version: {
