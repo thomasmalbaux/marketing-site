@@ -91,7 +91,8 @@ module.exports = function(grunt) {
           'favicon.ico',
           'images/*',
           'images/vendor/*',
-          'images/favicons/*'
+          'images/favicons/*',
+          'images/press/*'
         ],
         dest: 'dist-packaged/'
       }
@@ -160,6 +161,7 @@ module.exports = function(grunt) {
       // the originals if expand is true
       images: { src: '.build-tmp/images/*' },
       vendor: { src: '.build-tmp/images/vendor/*' },
+      press: { src: '.build-tmp/images/press/*' },
       icons: { src: '.build-tmp/images/icons/*' },
       svg: { src: '.build-tmp/images/svg/*' },
       css: { src: '.build-tmp/css/*' },
@@ -167,7 +169,13 @@ module.exports = function(grunt) {
       fonts: { src: ['.build-tmp/fonts/webfonts/*'] }
     },
     usemin: {
-      html: '.build-tmp/*.html',
+      options: {
+        assetsDirs: ['.build-tmp']
+      },
+      html: [
+        '.build-tmp/*.html',
+        '.build-tmp/press/*.html'
+      ],
       css: '.build-tmp/css/style.*.css'
     },
     requirejs: {
@@ -183,15 +191,21 @@ module.exports = function(grunt) {
     },
     replace: {
       requirejs: {
-        src: ['.build-tmp/*.html'],
+        src: [
+          '.build-tmp/*.html',
+          '.build-tmp/press/*.html'
+        ],
         overwrite: true,
         replacements: [{
-          from: '<script data-main="js/app" src="vendor/require.js"></script>',
-          to: '<script src="js/app.js"></script>'
+          from: '<script data-main="/js/app" src="vendor/require.js"></script>',
+          to: '<script src="/js/app.js"></script>'
         }]
       },
       version: {
-        src: ['.build-tmp/*.html'],
+        src: [
+          '.build-tmp/*.html',
+          '.build-tmp/press/*.html'
+        ],
         overwrite: true,
         replacements: [{
           from: '<!-- VERSION -->',
@@ -217,6 +231,7 @@ module.exports = function(grunt) {
         files: [
           {expand: true, cwd: 'dist/', src: [
             '*.html',
+            'press/*.html',
             'js/*',
             'css/*',
             'fonts/**/*',
@@ -257,13 +272,17 @@ module.exports = function(grunt) {
             'images/*',
             'images/vendor/*',
             'favicon.ico',
-            'images/favicons/*'
+            'images/favicons/*',
+            'images/press/*'
           ], dest: '', params: {
             CacheControl: "max-age=" + 3600 * 24 * 365 + "" // One year
           }},
 
           // Compressed files without cache
-          {expand: true, cwd: 'dist-packaged/', src: ['*.html'], dest: '', params: {
+          {expand: true, cwd: 'dist-packaged/', src: [
+            '*.html',
+            'press/*.html'
+          ], dest: '', params: {
             ContentEncoding: "gzip"
           }},
 
@@ -295,13 +314,17 @@ module.exports = function(grunt) {
             'images/*',
             'images/vendor/*',
             'favicon.ico',
-            'images/favicons/*'
+            'images/favicons/*',
+            'images/press/*'
           ], dest: '', params: {
             CacheControl: "max-age=" + 3600 * 24 * 365 + "" // One year
           }},
 
           // Compressed files without cache
-          {expand: true, cwd: 'dist-packaged/', src: ['*.html'], dest: '', params: {
+          {expand: true, cwd: 'dist-packaged/', src: [
+            '*.html',
+            'press/*.html'
+            ], dest: '', params: {
             ContentEncoding: "gzip"
           }},
 
@@ -313,6 +336,9 @@ module.exports = function(grunt) {
     },
     bake: {
       dev: {
+        options: {
+          basePath: "src/html/"
+        },
         files: {
           "dev-tmp/404.html": "src/html/404.html",
           "dev-tmp/about.html": "src/html/about.html",
@@ -321,7 +347,7 @@ module.exports = function(grunt) {
           "dev-tmp/features.html": "src/html/features.html",
           "dev-tmp/index.html": "src/html/index.html",
           "dev-tmp/maggieskidmarket.html": "src/html/maggieskidmarket.html",
-          "dev-tmp/press.html": "src/html/press.html",
+          "dev-tmp/press/index.html": "src/html/pages/press/index.html",
           "dev-tmp/pricing.html": "src/html/pricing.html",
           "dev-tmp/privacypolicy.html": "src/html/privacypolicy.html",
           "dev-tmp/stories.html": "src/html/stories.html",
@@ -330,6 +356,9 @@ module.exports = function(grunt) {
         }
       },
       dist: {
+        options: {
+          basePath: ".build-tmp/html/"
+        },
         files: {
           ".build-tmp/404.html": ".build-tmp/html/404.html",
           ".build-tmp/about.html": ".build-tmp/html/about.html",
@@ -338,7 +367,7 @@ module.exports = function(grunt) {
           ".build-tmp/features.html": ".build-tmp/html/features.html",
           ".build-tmp/index.html": ".build-tmp/html/index.html",
           ".build-tmp/maggieskidmarket.html": ".build-tmp/html/maggieskidmarket.html",
-          ".build-tmp/press.html": ".build-tmp/html/press.html",
+          ".build-tmp/press/index.html": ".build-tmp/html/pages/press/index.html",
           ".build-tmp/pricing.html": ".build-tmp/html/pricing.html",
           ".build-tmp/privacypolicy.html": ".build-tmp/html/privacypolicy.html",
           ".build-tmp/stories.html": ".build-tmp/html/stories.html",
