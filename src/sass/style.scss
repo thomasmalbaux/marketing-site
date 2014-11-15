@@ -1367,6 +1367,7 @@ img.story-left, img.story-right {
   background: url("../images/cover.aboutus.jpg") no-repeat bottom center;
   background-size: cover;
   text-align: center;
+  background-attachment: fixed;
 
   h6 {
 	  width: 138px;
