@@ -11,7 +11,7 @@ The marketing site shown at www.sharetribe.com
 ```bash
 git clone git@github.com:sharetribe/marketing-site.git
 cd marketing-site
-mpn install -g grunt-cli
+npm install -g grunt-cli
 npm install # This will download the whole internet, so be patient
 ```
 
