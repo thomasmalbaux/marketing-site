@@ -383,9 +383,9 @@ module.exports = function(grunt) {
     'requirejs:compile',
     'replace:requirejs',
     'compass:dist',
-    'htmlmin',
     'filerev',
     'usemin',
+    'htmlmin',
     'copy:dist'
   ]);
 
@@ -399,9 +399,9 @@ module.exports = function(grunt) {
     'requirejs:compile',
     'replace:requirejs',
     'compass:dist',
-    'htmlmin',
     'filerev',
     'usemin',
+    'htmlmin',
     'copy:dist'
   ]);
 
