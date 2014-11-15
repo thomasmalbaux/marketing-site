@@ -315,7 +315,7 @@ module.exports = function(grunt) {
       dev: {
         files: {
           "dev-tmp/about.html": "src/html/about.html",
-          "dev-tmp/casaguau.html": "src/html/about.html",
+          "dev-tmp/casaguau.html": "src/html/casaguau.html",
           "dev-tmp/contact.html": "src/html/contact.html",
           "dev-tmp/features.html": "src/html/features.html",
           "dev-tmp/form.html": "src/html/form.html",
@@ -332,7 +332,7 @@ module.exports = function(grunt) {
       dist: {
         files: {
           ".build-tmp/about.html": ".build-tmp/html/about.html",
-          ".build-tmp/casaguau.html": ".build-tmp/html/about.html",
+          ".build-tmp/casaguau.html": ".build-tmp/html/casaguau.html",
           ".build-tmp/contact.html": ".build-tmp/html/contact.html",
           ".build-tmp/features.html": ".build-tmp/html/features.html",
           ".build-tmp/form.html": ".build-tmp/html/form.html",
