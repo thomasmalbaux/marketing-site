@@ -10,6 +10,24 @@ define(
   , "googleAnalytics"
   ]
   , function ($, SmoothScroll, Odometer, trialForm, scrollSpy, fancybox, sticky, FastClick) {
+
+    var initializeTrialLightbox = function(el) {
+      $(el)
+        .fancybox({
+          width       : '100%',
+          height      : '100%',
+          type        : 'inline',
+          autoSize    : false,
+
+          // This prevents jumping when the lightbox is closed
+          helpers: {
+            overlay: {
+              locked: false
+            }
+          }
+        });
+    };
+
     var app = {
       init: function() {
         new FastClick(document.body);
@@ -35,17 +53,10 @@ define(
         this.initializeOdometers();
 
         // Initialize lightbox
-        var clone = $('#trial').clone();
-
-        clone
-          .attr('id', 'trial-lightbox')
-          .removeClass('trial-inline')
-          .addClass('trial-lightbox')
-          .appendTo($('body'));
+        trialForm.init($('#trial-lightbox'));
 
         // Initialize index page trial form
         trialForm.init($('#trial'));
-        trialForm.init(clone);
 
         scrollSpy.init($('#side-navigation a'));
 
@@ -70,20 +81,10 @@ define(
             }
           });
 
-        $(".get-started")
-          .fancybox({
-            width       : '100%',
-            height      : '100%',
-            type        : 'inline',
-            autoSize    : false,
+        initializeTrialLightbox("#home-get-started");
+        initializeTrialLightbox("#menu-get-started");
+        initializeTrialLightbox(".pricing-get-started");
 
-            // This prevents jumping when the lightbox is closed
-            helpers: {
-              overlay: {
-                locked: false
-              }
-            }
-          });
         }
 
       , initializeOdometers: function() {
