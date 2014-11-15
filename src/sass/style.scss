@@ -74,6 +74,10 @@ a {
     margin-top: -20px;
   }
 
+  ul {
+    float: left;
+  }
+
   li {
     @include Gibson-Regular;
     list-style-type: none;
@@ -184,7 +188,7 @@ h2 {
     width: 95%;
     text-align: center;
     margin: 0 auto 40px;
-    
+
     &.tablet, &.mobile {
       display: none;
     }
@@ -2266,11 +2270,11 @@ br.br-titlebreak {
       display: none;
     }
   }
-  
+
   h2.centered.desktop {
     display: none;
   }
-  
+
   h2.centered.tablet {
     display: block;
     width: 72%;
@@ -2410,33 +2414,33 @@ br.br-titlebreak {
       margin: 0 auto 40px;
     }
   }
-  
+
   .hero-text h1 {
     margin-top: 30px!important;
   }
-  
+
   img.svg.creditcards {
     display: none;
   }
-  
+
   .video {
     margin-top: 40px;
     margin-bottom: 40px;
-    
+
     h3 {
       font-size: 23px;
       margin-bottom: 40px;
     }
-    
+
     h4 {
       font-size: 21px;
     }
-    
+
     .center-v {
       padding: 60px 0;
     }
   }
-  
+
   h6.reasons, h6.stories-title {
     margin: 50px auto 40px;
     padding-bottom: 15px;
@@ -2476,11 +2480,11 @@ br.br-titlebreak {
 
   	&.jackie {display: none;}
 	}
-	
+
   h2.centered.tablet {
     display: none;
   }
-  
+
   h2.centered.mobile {
     display: block;
   }
@@ -2507,7 +2511,7 @@ br.br-titlebreak {
 	.what {
   	margin-top: 0px;
   }
-  
+
   .where {
     margin-top: 80px;
   }
