@@ -61,7 +61,7 @@ define(
         scrollSpy.init($('#side-navigation a'));
 
         if (window.console && window.console.log) {
-          window.console.log('Hi there! Interested in code?\n\nSharetribe is an open-source marketplace platform. See our Github profile https://github.com/sharetribe/sharetribe for more information about the open-source project.');
+          window.console.log('Hi there! Interested in code?\n\nSharetribe is an open-source marketplace platform. See https://github.com/sharetribe/sharetribe for more information about the open-source project.');
         }
 
         $("#sharetribe-video")
