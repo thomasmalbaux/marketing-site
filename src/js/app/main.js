@@ -55,9 +55,10 @@ define(
 
         $("#sharetribe-video")
           .fancybox({
-            width       : '100%',
-            height      : '100%',
+            width       : '75%',
+            height      : '75%',
             type        : 'iframe',
+            padding     : '0',
             scrolling   : 'no',
             preload     : 'true',
 
@@ -71,9 +72,10 @@ define(
 
         $(".get-started")
           .fancybox({
-            type: 'inline',
-            autoSize: false,
-            width: 1000,
+            width       : '100%',
+            height      : '100%',
+            type        : 'inline',
+            autoSize    : false,
 
             // This prevents jumping when the lightbox is closed
             helpers: {
