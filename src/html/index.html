@@ -221,26 +221,11 @@
 
   <!--(bake includes/mobilemenu.html")-->
 
-
-
   <!-- Load all JavaScript here, at the end of the document body.
        No need to use domReady or anything like that.
 
        This will be replaced by grunt build -->
   <script data-main="js/app" src="vendor/require.js"></script>
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-
-  <script>
-
-    $( "#mobilemenu" ).click(function() {
-      $( ".menu-cover" ).slideDown( "slow" );
-    });
-
-    $( "#menuclose" ).click(function() {
-      $( ".menu-cover" ).slideUp( "slow" );
-    });
-
-  </script>
 </body>
 
 <!-- VERSION -->

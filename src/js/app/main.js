@@ -85,6 +85,14 @@ define(
         initializeTrialLightbox("#menu-get-started");
         initializeTrialLightbox(".pricing-get-started");
 
+        $( "#mobilemenu" ).click(function() {
+          $( ".menu-cover" ).slideDown( "slow" );
+        });
+
+        $( "#menuclose" ).click(function() {
+          $( ".menu-cover" ).slideUp( "slow" );
+        });
+
         }
 
       , initializeOdometers: function() {
