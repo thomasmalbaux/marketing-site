@@ -266,7 +266,10 @@ module.exports = function(grunt) {
           }},
 
           // Compressed files without cache
-          {expand: true, cwd: 'dist-packaged/', src: ['*.html'], dest: '', params: {
+          {expand: true, cwd: 'dist-packaged/', src: [
+            '*.html',
+            'press/*.html'
+          ], dest: '', params: {
             ContentEncoding: "gzip"
           }},
 
@@ -305,7 +308,10 @@ module.exports = function(grunt) {
           }},
 
           // Compressed files without cache
-          {expand: true, cwd: 'dist-packaged/', src: ['*.html'], dest: '', params: {
+          {expand: true, cwd: 'dist-packaged/', src: [
+            '*.html',
+            'press/*.html'
+            ], dest: '', params: {
             ContentEncoding: "gzip"
           }},
 
