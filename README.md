@@ -6,11 +6,12 @@ The marketing site shown at www.sharetribe.com
 
 ### Setting up the dev environment
 
-**Prerequisites:** git, node, npm, grunt-cli
+**Prerequisites:** git, node, npm
 
 ```bash
 git clone git@github.com:sharetribe/marketing-site.git
 cd marketing-site
+mpn install -g grunt-cli
 npm install # This will download the whole internet, so be patient
 ```
 
