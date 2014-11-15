@@ -116,11 +116,15 @@ define(
           );
 
           $pricingTable.find('.switch-price').on('click', function(e) {
+	    e.preventDefault();
+
+	    //no monthly class is reduced price, and price is reduced by default
+	    $deal.toggleClass('monthly')
+
             var switchPrice = $(e.currentTarget);
 
-            var currentPrice = $deal.text().replace(/\s/g, "");
-            if(currentPrice == reducedPrice) {
-              $deal.text(monthlyPrice);
+            if($deal.hasClass('monthly')) {
+              $deal.html(monthlyPrice);
               switchPrice
                 .removeClass('switch-monthly')
                 .addClass('switch-biannually')
@@ -129,7 +133,7 @@ define(
               $pricingTable.find('.billing-cycle').text('Billed monthly');
 
             } else {
-              $deal.text(reducedPrice);
+              $deal.html(reducedPrice);
               switchPrice
                 .removeClass('switch-biannually')
                 .addClass('switch-monthly')
