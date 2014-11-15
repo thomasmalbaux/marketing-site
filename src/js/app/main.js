@@ -22,7 +22,7 @@ define(
           // This prevents jumping when the lightbox is closed
           helpers: {
             overlay: {
-              locked: false
+              locked: true
             }
           }
         });
