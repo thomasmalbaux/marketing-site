@@ -10,7 +10,6 @@ $trial-next-button-wide-width: 120px;
 ._trial {
   @include chosen-overrides;
   width: 100%;
-  background-size: cover;
   color: $white;
   text-align: center;
   padding: 120px 0px; // Vertical centering
@@ -29,6 +28,7 @@ $trial-next-button-wide-width: 120px;
 .trial-inline {
   @extend ._trial;
   background: url("../images/bg.footer.jpg") no-repeat center top;
+  background-size: cover;
 }
 
 .trial-lightbox {
