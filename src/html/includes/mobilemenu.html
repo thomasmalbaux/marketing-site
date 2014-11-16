@@ -13,13 +13,13 @@
     <div class="menu-cover-text-container">
 
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/features.html">Features</a></li>
-        <li><a href="/stories.html">Success stories</a></li>
-        <li><a href="/pricing.html">Pricing</a></li>
-        <li><a href="/about.html">About us</a></li>
-        <li><a href="http://blog.sharetribe.com" target="_blank">Blog</a></li>
-        <li><a href="/contact.html">Contact us</a></li>
+        <li><a href="/" onclick="ga('send', 'event', 'menu', 'home', 'mobile', {'noninteraction': 1});">Home</a></li>
+        <li><a href="/features.html" onclick="ga('send', 'event', 'menu', 'features', 'mobile', {'noninteraction': 1});">Features</a></li>
+        <li><a href="/stories.html" onclick="ga('send', 'event', 'menu', 'stories', 'mobile', {'noninteraction': 1});">Success stories</a></li>
+        <li><a href="/pricing.html" onclick="ga('send', 'event', 'menu', 'pricing', 'mobile', {'noninteraction': 1});">Pricing</a></li>
+        <li><a href="/about.html" onclick="ga('send', 'event', 'menu', 'about', 'mobile', {'noninteraction': 1});">About us</a></li>
+        <li><a href="http://blog.sharetribe.com" target="_blank" onclick="ga('send', 'event', 'menu', 'blog', 'mobile', {'noninteraction': 1});">Blog</a></li>
+        <li><a href="/contact.html" onclick="ga('send', 'event', 'menu', 'contact', 'mobile', {'noninteraction': 1});">Contact us</a></li>
       </ul>
 
     </div>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="button-bottom">
-    <a id="mobilemenu-get-started" class="button ghost" href="#trial-lightbox">Get started</a>
+    <a id="mobilemenu-get-started" class="button ghost" href="#trial-lightbox" onclick="ga('send', 'event', 'start-trial', 'menu', window.document.URL, {'noninteraction': 1});">Get started</a>
   </div>
 
 </div>

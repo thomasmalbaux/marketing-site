@@ -1,6 +1,6 @@
 <!--(bake includes/header.html title=" - Our Story")-->
 
-<nav class="main-navigation" style="position: fixed;">
+<div id="navigation-wrapper">
 
   <div class="logo">
     <a href="/" onclick="ga('send', 'event', 'menu', 'home', {{ga-page}}, {'noninteraction': 1});">
@@ -18,13 +18,11 @@
       <li><a href="contact.html" onclick="ga('send', 'event', 'menu', 'contact', {{ga-page}}, {'noninteraction': 1});">Contact us</a></li>
     </ul>
 
-    <a id="menu-get-started" class="fancybox button get-started" href="#trial-lightbox">Get started</a>
+  <div id="learn-more" >
 
-    <div class="mobile-menu"><a id="mobilemenu"><img class="svg hamburger" src="images/icons/menu-hamburger.svg" alt="Sharetribe logo">Menu</a></div>
+    <!--(bake includes/menu.html ga-page="about")-->
 
-  </div>
-
-</nav>
+<!-- Subpage Header -->
 
 <!-- Trial form lightbox -->
 <!--(bake includes/trial-form.html id="trial-lightbox" class="trial-lightbox")-->

@@ -234,8 +234,12 @@ define([
           if (emailAvailable) {
             data.admin_email = email;
             showAndFocus(el.localizationSlide);
+			ga('send','pageview','trial-localization');
+    
           } else {
             show(el.existingAccountSlide);
+			ga('send','pageview','trial-email-err-already-exists');
+     
           }
         }
       };
@@ -255,7 +259,8 @@ define([
       } else {
         el.emailNotSell.hide();
         el.emailInvalid.show();
-      }
+		ga('send','pageview','trial-email-err-invalid-email'); 
+     }
     });
 
     var localizationHandler = submitHandler(function(e) {
@@ -266,15 +271,18 @@ define([
         el.localizationDidntFindLanguage.hide();
         el.localizationLanguageInvalid.hide();
         el.localizationCountryInvalid.show();
+		ga('send','pageview','trial-localization-err-missing-country');
       } else if (!validator.validLanguage(language)) {
         el.localizationDidntFindLanguage.hide();
         el.localizationCountryInvalid.hide();
         el.localizationLanguageInvalid.show();
+		ga('send','pageview','trial-localization-err-missing-language');
       } else {
         data.marketplace_country = country;
         data.marketplace_language = language;
         hideAndShow(el.localizationSlide, el.nameSlide);
-      }
+		ga('send','pageview','trial-name');
+     }
     });
 
     var nameHandler = submitHandler(function(e) {
@@ -284,14 +292,17 @@ define([
       if (!validator.validFirstName(first)) {
         el.nameFirstInvalid.show();
         el.nameLastInvalid.hide();
-      } else if (!validator.validLastName(last)) {
+		ga('send','pageview','trial-name-err-missing-first-name');
+       } else if (!validator.validLastName(last)) {
         el.nameFirstInvalid.hide();
         el.nameLastInvalid.show();
-      } else {
+		ga('send','pageview','trial-name-err-missing-last-name');
+     } else {
         data.admin_first_name = first;
         data.admin_last_name = last;
         hideAndShow(el.nameSlide, el.passwordSlide);
-      }
+		ga('send','pageview','trial-password');
+     }
     });
 
     var passwordHandler = submitHandler(function(e) {
@@ -317,16 +328,21 @@ define([
 
       if (!password) {
         showMessage(el.passwordMissing);
+		ga('send','pageview','trial-password-err-missing-password');
       } else if (!validator.validPassword(password)) {
         showMessage(el.passwordTooShort);
+		ga('send','pageview','trial-password-err-too-short');
       } else if (!confirmation) {
         showMessage(el.passwordConfirmationMissing);
-      } else if (password !== confirmation) {
+		ga('send','pageview','trial-password-err-confirmation-missing');
+     } else if (password !== confirmation) {
         showMessage(el.passwordConfirmationMismatch);
-      } else {
+		ga('send','pageview','trial-password-confirmation-mismatch');
+     } else {
         data.admin_password = password;
         hideAndShow(el.passwordSlide, el.marketplaceSlide);
-      }
+		ga('send','pageview','trial-marketplace');
+     }
     });
 
     var marketplaceHandler = submitHandler(function(e) {
@@ -336,18 +352,24 @@ define([
       if (!validator.validMarketplaceType(type)) {
         el.marketplaceTypeInvalid.show();
         el.marketplaceNameTooShort.hide();
-      } else if (!validator.validMarketplaceName(name)) {
+		ga('send','pageview','trial-marketplace-err-type-missing');
+     } else if (!validator.validMarketplaceName(name)) {
         el.marketplaceTypeInvalid.hide();
         el.marketplaceNameTooShort.show();
-      } else {
+		ga('send','pageview','trial-marketplace-err-name-too-short');
+     } else {
         data.marketplace_type = type;
         data.marketplace_name = name;
         hideAndShow(el.marketplaceSlide, el.createdSlide, function() {
           createMarketplace(data, function(marketplaceUrl) {
             el.gotoButton.attr('href', marketplaceUrl);
             hideAndShow(el.createdSlide, el.createSuccessSlide);
-          }, function() {
+  			ga('send','pageview','trial-creation');
+			ga('send','event','trial','creation');
+        }, function() {
             hideAndShow(el.createdSlide, el.createFailedSlide);
+ 			ga('send','pageview','trial-creation-err-fail');
+			ga('send','event','trial','creation', 'err-fail');
           });
         });
       }
