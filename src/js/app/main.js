@@ -18,6 +18,7 @@ define(
           height      : '100%',
           type        : 'inline',
           autoSize    : false,
+          padding     : '0',
 
           // This prevents jumping when the lightbox is closed
           helpers: {
@@ -58,7 +59,7 @@ define(
         // Initialize index page trial form
         trialForm.init($('#trial'));
 
-        scrollSpy.init($('#side-navigation a'));
+        scrollSpy.init($('.scrollspy a'));
 
         if (window.console && window.console.log) {
           window.console.log('Hi there! Interested in code?\n\nSharetribe is an open-source marketplace platform. See https://github.com/sharetribe/sharetribe for more information about the open-source project.');
@@ -83,6 +84,7 @@ define(
 
         initializeTrialLightbox("#home-get-started");
         initializeTrialLightbox("#menu-get-started");
+        initializeTrialLightbox("#mobilemenu-get-started");
         initializeTrialLightbox(".pricing-get-started");
 
         $( "#mobilemenu" ).click(function() {

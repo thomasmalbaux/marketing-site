@@ -221,7 +221,6 @@ define([
 
     var emailHandler = submitHandler(function(e) {
       // Keep animation and email check state in memory
-      debugger;
       var animationDone = false;
       var checkDone = false;
       var emailAvailable;

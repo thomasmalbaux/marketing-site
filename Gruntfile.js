@@ -197,7 +197,7 @@ module.exports = function(grunt) {
         ],
         overwrite: true,
         replacements: [{
-          from: '<script data-main="/js/app" src="vendor/require.js"></script>',
+          from: '<script data-main="/js/app" src="/vendor/require.js"></script>',
           to: '<script src="/js/app.js"></script>'
         }]
       },
