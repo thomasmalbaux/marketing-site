@@ -18,6 +18,7 @@ define(
           height      : '100%',
           type        : 'inline',
           autoSize    : false,
+          padding     : '0',
 
           // This prevents jumping when the lightbox is closed
           helpers: {
