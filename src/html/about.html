@@ -3,7 +3,7 @@
 <nav class="main-navigation" style="position: fixed;">
 
   <div class="logo">
-    <a href="/" onclick="ga('send', 'event', 'menu', 'home', {{ga-page}}, {'noninteraction': 1});">
+    <a href="/" onclick="ga('send', 'event', 'menu', 'home', '{{ga-page}}', {'noninteraction': 1});">
 
       <img class="svg logo" src="/images/svg/logo.svg" alt="Sharetribe logo" />
 
@@ -13,11 +13,11 @@
   <div class="menu-items">
     <ul>
       <li><a href="/features.html" onclick="ga('send', 'event', 'menu', 'features', '{{ga-page}}', {'noninteraction': 1});">Features</a></li>
-      <li><a href="/stories.html" onclick="ga('send', 'event', 'menu', 'stories', {{ga-page}}, {'noninteraction': 1});">Success stories</a></li>
-      <li><a href="/pricing.html" onclick="ga('send', 'event', 'menu', 'pricing', {{ga-page}}, {'noninteraction': 1});">Pricing</a></li>
-      <li><a href="/about.html" onclick="ga('send', 'event', 'menu', 'about', {{ga-page}}, {'noninteraction': 1});">About us</a></li>
-      <li><a href="http://blog.sharetribe.com" target="_blank" onclick="ga('send', 'event', 'menu', 'blog', {{ga-page}}, {'noninteraction': 1});">Blog</a></li>
-      <li><a href="/contact.html" onclick="ga('send', 'event', 'menu', 'contact', {{ga-page}}, {'noninteraction': 1});">Contact us</a></li>
+      <li><a href="/stories.html" onclick="ga('send', 'event', 'menu', 'stories', '{{ga-page}}', {'noninteraction': 1});">Success stories</a></li>
+      <li><a href="/pricing.html" onclick="ga('send', 'event', 'menu', 'pricing', '{{ga-page}}', {'noninteraction': 1});">Pricing</a></li>
+      <li><a href="/about.html" onclick="ga('send', 'event', 'menu', 'about', '{{ga-page}}', {'noninteraction': 1});">About us</a></li>
+      <li><a href="http://blog.sharetribe.com" target="_blank" onclick="ga('send', 'event', 'menu', 'blog', '{{ga-page}}', {'noninteraction': 1});">Blog</a></li>
+      <li><a href="/contact.html" onclick="ga('send', 'event', 'menu', 'contact', '{{ga-page}}', {'noninteraction': 1});">Contact us</a></li>
     </ul>
 
     <a id="menu-get-started" class="fancybox button get-started" href="#trial-lightbox">Get started</a>
@@ -86,6 +86,6 @@
   <!--(bake includes/trial-form.html id="trial" class="trial-inline")-->
 
   <!-- Footer -->
-  <!--(bake includes/footer.html)-->
+  <!--(bake includes/footer.html ga-page="about")-->
 </body>
 </html>
