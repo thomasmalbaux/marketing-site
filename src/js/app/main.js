@@ -58,7 +58,7 @@ define(
         // Initialize index page trial form
         trialForm.init($('#trial'));
 
-        scrollSpy.init($('#side-navigation a'));
+        scrollSpy.init($('.scrollspy a'));
 
         if (window.console && window.console.log) {
           window.console.log('Hi there! Interested in code?\n\nSharetribe is an open-source marketplace platform. See https://github.com/sharetribe/sharetribe for more information about the open-source project.');
