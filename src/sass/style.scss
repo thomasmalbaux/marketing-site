@@ -1367,7 +1367,6 @@ img.story-left, img.story-right {
   background: url("/images/cover.aboutus.jpg") no-repeat bottom center;
   background-size: cover;
   text-align: center;
-  background-attachment: fixed;
 
   h6 {
 	  width: 138px;
@@ -1644,7 +1643,7 @@ br.br-titlebreak {
 
   h6.reasons {
     max-width: 340px;
-    width: 176px;
+    width: 340px;
     line-height: 24px;
   }
 
@@ -2765,7 +2764,7 @@ br.br-titlebreak {
   .reason {
     width: 28%;
     margin-bottom: 30px;
-    float: right;
+    float: left;
   }
 
 
@@ -2780,6 +2779,7 @@ br.br-titlebreak {
   .reason {
     width: 46%;
     margin-bottom: 30px;
+    float: right;
   }
 
 	// NAVIGATION
@@ -2916,6 +2916,15 @@ br.br-titlebreak {
 	}
 
 }
+
+@media screen and (max-width: 400px) {
+  
+  h6.reasons {
+    width: 180px;
+    line-height: 24px;
+  }
+}
+
 
 @media screen and (max-width: 320px) {
   .reason {

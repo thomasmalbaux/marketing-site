@@ -29,6 +29,7 @@ $trial-next-button-wide-width: 120px;
   @extend ._trial;
   background: url("/images/bg.footer.jpg") no-repeat center top;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .trial-lightbox {
@@ -139,7 +140,7 @@ $trial-next-button-wide-width: 120px;
   padding-right: 24px;
 
   @include input-placeholder {
-    color: $light-grey;
+    color: $grey;
   }
 
   &:hover {
@@ -156,10 +157,11 @@ $trial-next-button-wide-width: 120px;
   background: $white;
   border-bottom: solid 3px $blue;
 
-  color: $orange;
+  color: #000;
+  
   @include input-placeholder {
     color: $orange;
-    opacity: 0.5;
+    opacity: 1.0;
   }
 }
 
@@ -179,6 +181,10 @@ $trial-next-button-wide-width: 120px;
 .trial-select {
   // Note that there are a lot of chosen styles and chosen style overrides to affecting select element look and feel
   @extend .trial-input-look-and-feel;
+}
+
+.trial-input, .trial-name-first-input {
+  padding-right: 90px;
 }
 
 .trial-form-content {
@@ -369,3 +375,4 @@ $trial-next-button-wide-width: 120px;
   @include button($orange,$white,$white,$white,$blue,$blue);
   display: inline-block;
 }
+

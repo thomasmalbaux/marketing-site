@@ -60,7 +60,7 @@
     <div id="trial-name-slide" class="trial-slide hidden">
       <form id="trial-name-form">
         <div class="trial-form-content">
-          <input id="trial-name-first-input" class="trial-name-first-input" type="text" name="first-name" placeholder="Your first..." />
+          <input id="trial-name-first-input" class="trial-name-first-input" type="text" name="first-name" placeholder="Your first name..." />
 
           <div class="trial-input-with-next-wrapper trial-name-last-input-container">
             <input id="trial-name-last-input" class="trial-input" type="text" name="last-name" placeholder="...and last name?" />
@@ -85,6 +85,8 @@
         </div>
       </form>
 
+      <p id="trial-password-characters" class="trial-info">Your password should be atleast 8 characters long.</p>
+
       <p id="trial-password-missing" class="trial-warning hidden">Please enter your password.</p>
       <p id="trial-password-confirmation-missing" class="trial-warning hidden">Please enter password confirmation.</p>
       <p id="trial-password-too-short" class="trial-warning hidden">Password must be at least 8 characters long.</p>
@@ -105,13 +107,13 @@
           </div>
 
           <div class="trial-input-with-next-wrapper trial-marketplace-name-input-container">
-            <input id="trial-marketplace-name-input" class="trial-input" type="text" name="marketplace-name" placeholder="Marketplace name..." />
+            <input id="trial-marketplace-name-input" class="trial-input" type="text" name="marketplace-name" placeholder="Marketplace name...*" />
             <button id="trial-password-next" class="trial-next-button-with-slide-number" type="submit">Create!</button>
           </div>
         </div>
       </form>
 
-      <p id="trial-marketplace-didnt-find" class="trial-info">Didn't find a suitable type for your marketplace idea? <a class="trial-link" href="/contact.html">Contact us</a>.<br />By creating your marketplace, you agree to Sharetribe's <a class="trial-link" href="/termsofuse.html">Terms of Service</a> and <a class="trial-link" href="/privacypolicy.html">Privacy policy.</a></p>
+      <p id="trial-marketplace-didnt-find" class="trial-info">*Don't worry, you can change your marketplace's name later.<br/>Didn't find a suitable type for your marketplace idea? <a class="trial-link" href="/contact.html">Contact us</a>.<br />By creating your marketplace, you agree to Sharetribe's <a class="trial-link" href="/termsofuse.html">Terms of Service</a> and <a class="trial-link" href="/privacypolicy.html">Privacy policy.</a></p>
 
 
       <p id="trial-marketplace-type-invalid" class="trial-warning hidden">Please select marketplace type.</p>
@@ -120,6 +122,7 @@
 
     <!-- created -->
     <div id="trial-created-slide" class="trial-slide hidden">
+      <p class="tria-text"><img src="/images/loadinfo.net.gif"></p>
       <p class="trial-text">Please wait...</p>
       <p class="trial-text">We're setting up your marketplace.</p>
     </div>
