@@ -83,6 +83,7 @@ define(
 
         initializeTrialLightbox("#home-get-started");
         initializeTrialLightbox("#menu-get-started");
+        initializeTrialLightbox("#mobilemenu-get-started");
         initializeTrialLightbox(".pricing-get-started");
 
         $( "#mobilemenu" ).click(function() {
