@@ -18,7 +18,7 @@ $trial-next-button-wide-width: 120px;
     padding: 80px 0px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding: 40px 0px;
   }
 
@@ -43,7 +43,7 @@ $trial-next-button-wide-width: 120px;
   width: 90%;
   height: 170px; // add fixed height so that we can freely change slides without container height change
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     // Need more height due to stacking
     height: 360px; // Estimation of needed size: two dropdowns, margin, and info texts
   }
@@ -76,7 +76,7 @@ $trial-next-button-wide-width: 120px;
     font-size: 20px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     font-size: 16px;
     margin-bottom: 5px;
   }
@@ -97,7 +97,7 @@ $trial-next-button-wide-width: 120px;
     font-size: 34px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     font-size: 26px;
     line-height: 42px;
     margin-bottom: 20px;
@@ -166,7 +166,7 @@ $trial-next-button-wide-width: 120px;
 }
 
 @mixin with-next-button($button-width) {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 767px) {
     padding-right: 24px + $button-width; // Add right padding, so that text doesn't go under the next button
   }
 }
@@ -196,7 +196,7 @@ $trial-next-button-wide-width: 120px;
   width: 100%;
   margin: auto;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     // Need more height due to stacking
     height: (70px * 3) + 10px; // Estimation of needed size: two dropdowns, margin, and info text
   }
@@ -219,7 +219,7 @@ $trial-next-button-wide-width: 120px;
   position: absolute;
   left: 0;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     position: relative;
     max-width: 100%;
     margin-bottom: 10px;
@@ -233,7 +233,7 @@ $trial-next-button-wide-width: 120px;
   position: absolute;
   right: 0;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     position: relative;
     max-width: 100%;
   }
@@ -251,7 +251,7 @@ $trial-next-button-wide-width: 120px;
   margin-right: 20px;
   float: left;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     float: none;
     width: 100%;
     margin-right: 0px;
@@ -264,7 +264,7 @@ $trial-next-button-wide-width: 120px;
   float: left;
   width: 400px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     float: none;
     width: 100%;
   }
@@ -307,7 +307,7 @@ $trial-next-button-wide-width: 120px;
   color: #f3ab9e;
   @include Gibson-Regular;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     font-size: 14px;
   }
 }
@@ -339,12 +339,12 @@ $trial-next-button-wide-width: 120px;
   font-size: 12px;
   letter-spacing: 0.03em;
   border-radius: 3px;
-  background-color: $orange;
+  background-color: $blue;
   color: white;
   cursor: pointer;
 
   // Position on top of the input
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 767px) {
     padding: 12px 20px;
     position: absolute;
     top: $trial-next-button-margin - 3px;
@@ -353,18 +353,24 @@ $trial-next-button-wide-width: 120px;
     width: $trial-next-button-width;
   }
 
-  @media screen and (max-width: 768px) {
-    border: 1px solid $white;
+  @media screen and (max-width: 767px) {
+    border: none;
+    border-radius: 5px;
+    background-color: $blue;
     margin-top: 10px;
     width: 100%;
     height: 70px;
-    line-height: 70px;
     font-size: 14px;
   }
 
   &:hover, &:focus {
-    background-color: $blue;
-    border-color: $blue;
+    background-color: $orange;
+    border-color: $white;
+    
+    @media screen and (max-width: 767px) {
+      background-color: $blue;
+      border-color: $white;
+    }
   }
 
   // Disable blue highlight
@@ -375,7 +381,7 @@ $trial-next-button-wide-width: 120px;
   @extend .trial-next-button;
   width: $trial-next-button-wide-width;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     width: 100%;
   }
 }
