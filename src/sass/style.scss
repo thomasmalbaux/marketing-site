@@ -66,6 +66,11 @@ a {
   .logo {
     position: relative;
     margin-left: 20px;
+    
+    :hover {
+      opacity: 0.8;
+      @include transition(all, 0.1s, ease-in-out);
+    }
   }
 
   .menu-items {
@@ -1440,7 +1445,7 @@ img.story-left, img.story-right {
 
   .logo {
     position: relative;
-    margin-left: 25px;
+    margin-left: 26px;
     top: 25px;
     width: 140px;
   }
@@ -1450,8 +1455,8 @@ img.story-left, img.story-right {
 		font-size: 14px;
 		@include Gibson-Regular;
 		position: absolute;
-		right: 146px;
-    top: 32px;
+		right: 142px;
+    top: 30px;
 
 		a {
 			color: $white;
@@ -1470,8 +1475,8 @@ img.story-left, img.story-right {
 
 .button-bottom {
 	position: absolute;
-	top: 32px;
-	right: 24px;
+	top: 25px;
+	right: 22px;
 
 	a.button.ghost {
 		position: relative;
@@ -2550,7 +2555,7 @@ br.br-titlebreak {
   }
 
   img.svg.paypal, img.svg.creditcards {
-    margin-top: 0px;
+    margin-top: 20px;
     margin-bottom: 50px;
 
   }
@@ -2809,12 +2814,12 @@ br.br-titlebreak {
 
 		.logo {
 			width: 109px;
-			margin-left: 15px;
-			top: 20px;
+			margin-left: 20px;
+			top: 16px;
 		}
 
 		.mobile-menu-close {
-			right: 26px;
+			right: 20px;
 			top: 18px;
 		}
 
