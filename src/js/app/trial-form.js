@@ -205,7 +205,8 @@ define([
     };
 
     var checkEmailAvailability = function(email, success, fail) {
-      var request = $.ajax(
+       ga('send','pageview','trial-email');
+	  var request = $.ajax(
         {
           type: "GET"
           , url: CATCH_ST_URL + '/check_email_availability'
