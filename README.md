@@ -39,7 +39,7 @@ _tl;dr Run `grunt deploy-staging`_
 
 Test before deploy:
 
-1. Run `grunt build test`
+1. Run `grunt build-staging test`
 
 1. Build task creates a new folder `dist`. Run `grunt test` to test the `dist` folder in http://localhost:8889.
 
@@ -58,7 +58,7 @@ Deploy:
 
 _tl;dr Run `grunt deploy-prod`_
 
-So it's the same as with staging except that you run deploy-prod.
+So it's the same as with staging except that you run `build-prod` and `deploy-prod`.
 You then need to make sure you invalidate the content in
 correct CloudFront distribution (the one with comment talking about
 production site).
