@@ -61,6 +61,28 @@ a {
   margin-bottom: 100px;
 }
 
+
+img.crown {
+  width: 100%;
+}
+
+a.button.white {
+  @include button($orange,$white,$white,$white,$blue,$blue);
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  padding: 16px 26px;
+}
+
+.crown-icon-wrapper {
+  // SVG image width has to be 100%, otherwis IE doesn't scale it properly, thus the wrapper
+  width: 15px;
+  display: inline-block;
+  margin-right: 7px;
+  float: none;
+  display: inline-block;
+  vertical-align: -1px;
+}
+
 .hero {
   position: relative;
   width: 100%;
@@ -71,6 +93,10 @@ a {
   background-attachment: fixed;
   background-size: cover;
 
+  a.button.white {
+    margin-right: 30px;
+  }
+
   a.button.ghost {
     font-family: Gibson-Regular;
     @include button($white,none,$white,$white,$blue,$blue);
@@ -78,28 +104,6 @@ a {
     letter-spacing: 0.07em;
     padding: 16px 26px;
     -webkit-font-smoothing: antialiased!important;
-  }
-
-  a.button.white {
-    @include button($orange,$white,$white,$white,$blue,$blue);
-    font-size: 15px;
-    letter-spacing: 0.03em;
-    margin-right: 30px;
-    padding: 16px 26px;
-  }
-
-  img.crown {
-    width: 100%;
-  }
-
-  .crown-icon-wrapper {
-    // SVG image width has to be 100%, otherwis IE doesn't scale it properly, thus the wrapper
-    width: 15px;
-    display: inline-block;
-    margin-right: 7px;
-    float: none;
-    display: inline-block;
-    vertical-align: -1px;
   }
 
   a.login {

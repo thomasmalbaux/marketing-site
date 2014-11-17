@@ -8,6 +8,7 @@ define(
   , "sticky"
   , "fastclick"
   , "googleAnalytics"
+  , "placeholder"
   ]
   , function ($, SmoothScroll, Odometer, trialForm, scrollSpy, fancybox, sticky, FastClick) {
 
@@ -86,6 +87,7 @@ define(
         initializeTrialLightbox("#menu-get-started");
         initializeTrialLightbox("#mobilemenu-get-started");
         initializeTrialLightbox(".pricing-get-started");
+        initializeTrialLightbox("#trial-mobile-get-started");
 
         $( "#mobilemenu" ).click(function() {
           $( ".menu-cover" ).slideDown( "slow" );

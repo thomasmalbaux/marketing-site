@@ -30,6 +30,23 @@ $trial-next-button-wide-width: 120px;
   background: url("/images/bg.footer.jpg") no-repeat center top;
   background-size: cover;
   background-attachment: fixed;
+
+  // Show lightbox instead of the form, if in mobile
+  // Do this only for content inside inlined trial form, not in lightbox
+  @media screen and (max-width: 767px) {
+    & > .trial-content {
+      display: none;
+    }
+  }
+}
+
+.trial-mobile-get-started-container {
+  padding: 20px;
+  display: none;
+
+  @media screen and (max-width: 767px) {
+    display: block;
+  }
 }
 
 .trial-lightbox {
