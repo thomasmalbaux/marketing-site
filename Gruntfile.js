@@ -444,6 +444,8 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('deploy-staging', [
+    'build',
+    'package',
     'aws_s3:staging',
     'print-staging'
   ]);
@@ -456,6 +458,8 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('deploy-prod', [
+    'build-prod',
+    'package',
     'aws_s3:production',
     'print-production'
   ]);
