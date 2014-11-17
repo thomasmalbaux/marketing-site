@@ -72,11 +72,12 @@ a {
   background-size: cover;
 
   a.button.ghost {
-    font-family: Gibson-Light!important;
+    font-family: Gibson-Regular;
     @include button($white,none,$white,$white,$blue,$blue);
     font-size: 15px;
     letter-spacing: 0.07em;
     padding: 16px 26px;
+    -webkit-font-smoothing: antialiased!important;
   }
 
   a.button.white {
@@ -2038,6 +2039,22 @@ br.br-titlebreak {
   }
 }
 
+@media screen and (max-height: 1000px) {
+
+  .about-cover {
+    background: url("/images/cover.aboutus.jpg") no-repeat center 15%;
+  }
+  
+}
+
+@media screen and (max-height: 800px) {
+
+  .about-cover {
+    background: url("/images/cover.aboutus.jpg") no-repeat center 15%;
+  }
+  
+}
+
 @media screen and (max-width: 920px) { // Fade the main nav
 
   h2 {
@@ -2701,10 +2718,14 @@ br.br-titlebreak {
 			width: 100%;
 		}
 	}
+	
+	.about-cover {
+    background: url("/images/cover.aboutus.jpg") no-repeat center 15%;
+  }
 
 	.about-cover-text {
 		height: auto;
-		margin-top: 50px;
+		margin-top: 75px;
 	}
 
 	.contact-text {
@@ -2786,6 +2807,10 @@ br.br-titlebreak {
 
   br.br-titlebreak {
     display: none;
+  }
+
+  .about-cover {
+    background: url("/images/cover.aboutus.jpg") no-repeat center 40%;
   }
 
   .reason {

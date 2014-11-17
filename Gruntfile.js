@@ -92,7 +92,8 @@ module.exports = function(grunt) {
           'images/*',
           'images/vendor/*',
           'images/favicons/*',
-          'images/press/*'
+          'images/press/*',
+          'files/**/*'
         ],
         dest: 'dist-packaged/'
       }
@@ -273,7 +274,8 @@ module.exports = function(grunt) {
             'images/vendor/*',
             'favicon.ico',
             'images/favicons/*',
-            'images/press/*'
+            'images/press/*',
+            'files/**/*'
           ], dest: '', params: {
             CacheControl: "max-age=" + 3600 * 24 * 365 + "" // One year
           }},
@@ -315,7 +317,8 @@ module.exports = function(grunt) {
             'images/vendor/*',
             'favicon.ico',
             'images/favicons/*',
-            'images/press/*'
+            'images/press/*',
+            'files/**/*'
           ], dest: '', params: {
             CacheControl: "max-age=" + 3600 * 24 * 365 + "" // One year
           }},
