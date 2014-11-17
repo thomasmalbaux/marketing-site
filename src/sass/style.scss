@@ -5,6 +5,7 @@
 @import 'variables';
 @import 'mixins';
 @import 'MyFontsWebfontsKit';
+@import 'animations';
 
 body, html { height: 100%; }
 
@@ -47,6 +48,102 @@ a {
   &:hover {
     color: $blue;
   }
+}
+
+
+//////////////////////
+// HOMEPAGE / HERO //
+/////////////////////
+
+.hero .logo {
+  position: relative;
+  top: 0;
+  margin-bottom: 100px;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #df492a;
+  color: $white;
+  background: url("/images/bg.hero.jpg") no-repeat center center fixed;
+  background-size: cover;
+
+  a.button.ghost {
+    font-family: Gibson-Light!important;
+    @include button($white,none,$white,$white,$blue,$blue);
+    font-size: 15px;
+    letter-spacing: 0.07em;
+    padding: 16px 26px;
+  }
+
+  a.button.white {
+    @include button($orange,$white,$white,$white,$blue,$blue);
+    font-size: 15px;
+    letter-spacing: 0.03em;
+    margin-right: 30px;
+    padding: 16px 26px;
+  }
+
+  img.crown {
+    width: 100%;
+  }
+
+  .crown-icon-wrapper {
+    // SVG image width has to be 100%, otherwis IE doesn't scale it properly, thus the wrapper
+    width: 15px;
+    display: inline-block;
+    margin-right: 7px;
+    float: none;
+    display: inline-block;
+    vertical-align: -1px;
+  }
+
+  a.login {
+    color: $white;
+    font-size: 13px;
+    opacity: 0.7;
+    @include transition(all, 0.1s, ease-in-out);
+
+    &:hover img.arrow { margin-left: 9px; }
+
+    &:hover { opacity: 1.0;}
+
+    img.arrow {
+      margin-left: 3px;
+      float: none;
+      display: inline-block;
+      width: 15px;
+      vertical-align: -3px;
+      @include transition(all, 0.1s, ease-in-out);
+    }
+  }
+
+  p {
+    @include Gibson-Regular;
+    font-size: 19px;
+    line-height: 36px;
+    margin-bottom: 55px;
+    letter-spacing: 0.02em;
+  }
+}
+
+.hero-text {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:10%;
+  right:0;
+  margin:auto;
+  height: 600px;
+
+  img { float: right; }
+}
+
+.hero-text-container {
+  max-width: 700px;
+  float: left;
 }
 
 
@@ -342,103 +439,6 @@ a.button { @include button($white, $orange, $orange, $white, $blue, $blue); }
       right: 10px; /* space between number and text */
     }
   }
-}
-
-
-
-//////////////////////
-// HOMEPAGE / HERO //
-/////////////////////
-
-.hero .logo {
-  position: relative;
-  top: 0;
-  margin-bottom: 100px;
-}
-
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: $orange;
-  color: $white;
-  background: url("/images/bg.hero.jpg") no-repeat center center fixed;
-  background-size: cover;
-
-  a.button.ghost {
-    font-family: Gibson-Light!important;
-    @include button($white,none,$white,$white,$blue,$blue);
-    font-size: 15px;
-    letter-spacing: 0.07em;
-    padding: 16px 26px;
-  }
-
-  a.button.white {
-    @include button($orange,$white,$white,$white,$blue,$blue);
-    font-size: 15px;
-    letter-spacing: 0.03em;
-    margin-right: 30px;
-    padding: 16px 26px;
-  }
-
-  img.crown {
-    width: 100%;
-  }
-
-  .crown-icon-wrapper {
-    // SVG image width has to be 100%, otherwis IE doesn't scale it properly, thus the wrapper
-    width: 15px;
-    display: inline-block;
-    margin-right: 7px;
-    float: none;
-    display: inline-block;
-    vertical-align: -1px;
-  }
-
-  a.login {
-    color: $white;
-    font-size: 13px;
-    opacity: 0.7;
-    @include transition(all, 0.1s, ease-in-out);
-
-    &:hover img.arrow { margin-left: 9px; }
-
-    &:hover { opacity: 1.0;}
-
-    img.arrow {
-      margin-left: 3px;
-      float: none;
-      display: inline-block;
-      width: 15px;
-      vertical-align: -3px;
-      @include transition(all, 0.1s, ease-in-out);
-    }
-  }
-
-  p {
-    @include Gibson-Regular;
-    font-size: 19px;
-    line-height: 36px;
-    margin-bottom: 55px;
-    letter-spacing: 0.02em;
-  }
-}
-
-.hero-text {
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:10%;
-  right:0;
-  margin:auto;
-  height: 600px;
-
-  img { float: right; }
-}
-
-.hero-text-container {
-  max-width: 700px;
-  float: left;
 }
 
 
@@ -1898,7 +1898,6 @@ br.br-titlebreak {
 @media screen and (max-width: 1024px) {
 
   .hero {
-    @include transition(all, 0.2s, ease-in-out);
     background: url("/images/bg.hero.jpg") no-repeat -520px -200px;
     background-color: $orange;
 
@@ -3089,7 +3088,7 @@ br.br-titlebreak {
 
   .hero {
     background-size: cover!important;
-    background: url("/images/bg.hero.tablet.jpg") no-repeat center 10px;
+    background: url("/images/bg.hero.mobile.jpg") no-repeat center 10px;
     background-color: $orange;
 
     .logo {

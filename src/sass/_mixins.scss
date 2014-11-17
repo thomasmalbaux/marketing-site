@@ -26,3 +26,44 @@
     }
 }
 
+@mixin header-animation($animation-name, $animation-duration, $animation-timing-fuction, $animation-delay) {
+  
+  -webkit-animation-name:                 $animation-name;
+  -webkit-animation-duration:             $animation-duration;
+  -webkit-animation-timing-function:      $animation-timing-fuction;
+  -webkit-animation-delay:                $animation-delay;
+  -webkit-animation-direction:            normal;
+  -webkit-animation-iteration-count:      1;
+  -webkit-animation-play-state:           running;
+  -webkit-animation-fill-mode:            forwards;
+  -webkit-backface-visibility:            hidden;
+  
+  -moz-animation-name:                    $animation-name;
+  -moz-animation-duration:                $animation-duration;
+  -moz-animation-timing-function:         $animation-timing-fuction;
+  -moz-animation-delay:                   $animation-delay;
+  -moz-animation-direction:               normal;
+  -moz-animation-iteration-count:         1;
+  -moz-animation-play-state:              running;
+  -moz-animation-fill-mode:               forwards;
+  
+  -o-animation-name:                      $animation-name;
+  -o-animation-duration:                  $animation-duration;
+  -o-animation-timing-function:           $animation-timing-fuction;
+  -o-animation-delay:                     $animation-delay;
+  -o-animation-direction:                 normal;
+  -o-animation-iteration-count:           1;
+  -o-animation-play-state:                running;
+  -o-animation-fill-mode:                 forwards;
+  
+  animation-name:                         $animation-name;
+  animation-duration:                     $animation-duration;
+  animation-timing-function:              $animation-timing-fuction;
+  animation-delay:                        $animation-delay;
+  animation-direction:                    normal;
+  animation-iteration-count:              1;
+  animation-play-state:                   running;
+  animation-fill-mode:                    forwards
+  
+}
+
