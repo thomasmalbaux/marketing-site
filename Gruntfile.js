@@ -281,10 +281,16 @@ module.exports = function(grunt) {
           // Compressed files without cache
           {expand: true, cwd: 'dist-packaged/', src: [
             '*.html',
-            'press/*.html'
-          ], dest: '', params: {
+            'press/*.html',
+
+            // Ignore redirects
+            '!press.html'
+            ], dest: '', params: {
             ContentEncoding: "gzip"
           }},
+
+          // Redirects
+          {expand: true, cwd: 'dist-packaged/', src: 'press.html', dest: '', params: { WebsiteRedirectLocation: '/press/' }},
 
           // Cleanup all old files. If differential: true, this deletes only
           // files that do not exists locally
@@ -323,10 +329,16 @@ module.exports = function(grunt) {
           // Compressed files without cache
           {expand: true, cwd: 'dist-packaged/', src: [
             '*.html',
-            'press/*.html'
+            'press/*.html',
+
+            // Ignore redirects
+            '!press.html'
             ], dest: '', params: {
             ContentEncoding: "gzip"
           }},
+
+          // Redirects
+          {expand: true, cwd: 'dist-packaged/', src: 'press.html', dest: '', params: { WebsiteRedirectLocation: '/press/' }},
 
           // Cleanup all old files. If differential: true, this deletes only
           // files that do not exists locally
@@ -348,6 +360,7 @@ module.exports = function(grunt) {
           "dev-tmp/index.html": "src/html/index.html",
           "dev-tmp/maggieskidmarket.html": "src/html/maggieskidmarket.html",
           "dev-tmp/press/index.html": "src/html/pages/press/index.html",
+          "dev-tmp/press.html": "src/html/press.html",
           "dev-tmp/pricing.html": "src/html/pricing.html",
           "dev-tmp/privacypolicy.html": "src/html/privacypolicy.html",
           "dev-tmp/stories.html": "src/html/stories.html",
@@ -368,6 +381,7 @@ module.exports = function(grunt) {
           ".build-tmp/index.html": ".build-tmp/html/index.html",
           ".build-tmp/maggieskidmarket.html": ".build-tmp/html/maggieskidmarket.html",
           ".build-tmp/press/index.html": ".build-tmp/html/pages/press/index.html",
+          ".build-tmp/press.html": "src/html/press.html",
           ".build-tmp/pricing.html": ".build-tmp/html/pricing.html",
           ".build-tmp/privacypolicy.html": ".build-tmp/html/privacypolicy.html",
           ".build-tmp/stories.html": ".build-tmp/html/stories.html",
