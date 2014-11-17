@@ -8,6 +8,7 @@ define(
   , "sticky"
   , "fastclick"
   , "googleAnalytics"
+  , "placeholder"
   ]
   , function ($, SmoothScroll, Odometer, trialForm, scrollSpy, fancybox, sticky, FastClick) {
 
