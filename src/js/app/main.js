@@ -1,5 +1,6 @@
 define(
   [ "jquery"
+  , "lodash"
   , "smoothScroll"
   , "odometer"
   , "app/trial-form"
@@ -11,23 +12,64 @@ define(
   , "placeholder"
   , "app/hotjar"
   ]
-  , function ($, SmoothScroll, Odometer, trialForm, scrollSpy, fancybox, sticky, FastClick, ga, placeholder, hotjar) {
-    var initializeTrialLightbox = function(el) {
-      $(el)
-        .fancybox({
-          width       : '100%',
-          height      : '100%',
-          type        : 'inline',
-          autoSize    : false,
-          padding     : '0',
+  , function ($, _, SmoothScroll, Odometer, trialForm, scrollSpy, fancybox, sticky, FastClick, ga, placeholder, hotjar) {
+    var initializeLightbox = function(el, opts, defaultOpts) {
+      return $(el).fancybox(_.defaults(opts || {}, defaultOpts || {}));
+    };
 
-          // This prevents jumping when the lightbox is closed
-          helpers: {
-            overlay: {
-              locked: true
-            }
+    var initializeTrialLightbox = function(el, opts) {
+      var defaultOpts = {
+        width       : '100%',
+        height      : '100%',
+        type        : 'inline',
+        autoSize    : false,
+        padding     : '0',
+
+        // This prevents jumping when the lightbox is closed
+        helpers: {
+          overlay: {
+            locked: true
           }
-        });
+        }
+      };
+
+      return initializeLightbox(el, opts, defaultOpts);
+    };
+
+    var initializeVideoLightbox = function(el, opts) {
+      var defaultOpts = {
+        width       : '75%',
+        height      : '75%',
+        type        : 'iframe',
+        padding     : '0',
+        scrolling   : 'no',
+        preload     : 'true',
+
+        // this prevents jumping when the lightbox is closed
+        helpers: {
+          overlay: {
+            locked: false
+          }
+        }
+      };
+
+      return initializeLightbox(el, opts, defaultOpts);
+    };
+
+    var initializeLightboxes = function() {
+      initializeVideoLightbox("#sharetribe-video", {
+        afterClose: function() {
+          console.log('Video closed');
+        }
+      });
+      initializeTrialLightbox("#home-get-started", {
+        afterClose: function() {
+          console.log('Home get started lightbox closed');
+        }
+      });
+      initializeTrialLightbox("#menu-get-started");
+      initializeTrialLightbox("#mobilemenu-get-started");
+      initializeTrialLightbox(".pricing-get-started");
     };
 
     var app = {
@@ -53,6 +95,7 @@ define(
         });
 
         this.initializeOdometers();
+        initializeLightboxes();
 
         // Initialize lightbox
         trialForm.init($('#trial-lightbox'));
