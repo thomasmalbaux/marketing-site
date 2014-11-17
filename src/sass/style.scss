@@ -724,7 +724,14 @@ img.svg.paypal {
     a { font-size: 18px; }
   }
 
-  img { margin-bottom: 40px; }
+  img { 
+    margin-bottom: 40px;
+    
+    &:hover {
+      @include transition(all, 0.1s, ease-in-out);
+      opacity: 0.8;
+    }
+  }
 
   i {
     font-family: Gibson-LightIt;
