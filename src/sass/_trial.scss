@@ -190,7 +190,6 @@ $trial-next-button-wide-width: 120px;
 
 .trial-input {
   @extend .trial-input-look-and-feel;
-  @include with-next-button($trial-next-button-width + $trial-next-button-margin);
 
   // Without this, Chrome allows user to input multiline text to text input
   // See: http://stackoverflow.com/a/20376723/432787
@@ -200,10 +199,6 @@ $trial-next-button-wide-width: 120px;
 .trial-select {
   // Note that there are a lot of chosen styles and chosen style overrides to affecting select element look and feel
   @extend .trial-input-look-and-feel;
-}
-
-.trial-input, .trial-name-first-input {
-  padding-right: 90px;
 }
 
 .trial-form-content {
@@ -217,6 +212,16 @@ $trial-next-button-wide-width: 120px;
     // Need more height due to stacking
     height: (70px * 3) + 10px; // Estimation of needed size: two dropdowns, margin, and info text
   }
+}
+
+.trial-with-next-button {
+  @extend .trial-input;
+  @include with-next-button($trial-next-button-wide-width + $trial-next-button-margin);
+}
+
+.trial-with-narrow-next-button {
+  @extend .trial-input;
+  @include with-next-button($trial-next-button-width + $trial-next-button-margin);
 }
 
 .trial-email-inputs {
