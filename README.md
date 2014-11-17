@@ -33,15 +33,19 @@ This task also watches changed in SCSS files and auto-compiles new CSS files and
 
 ### Build, package and deploy new version (Staging)
 
-_tl;dr Run `grunt build package deploy-staging`_
+_tl;dr Run `grunt deploy-staging`_
 
 (Make sure you have `aws-keys.json` file)
 
-1. Run `grunt build`
+Test before deploy:
+
+1. Run `grunt build-staging test`
 
 1. Build task creates a new folder `dist`. Run `grunt test` to test the `dist` folder in http://localhost:8889.
 
-1. Run `grunt package deploy-staging`
+Deploy:
+
+1. Run `grunt deploy-staging`
 
 1. Go to S3 URL (http://www.sharetri.be.s3-website-us-east-1.amazonaws.com/ or http://www.sharetribe.com.s3-website-us-east-1.amazonaws.com/) and test.
 
@@ -52,10 +56,10 @@ _tl;dr Run `grunt build package deploy-staging`_
 
 ### Production deployment
 
-_tl;dr Run `grunt build-prod package deploy-prod`_
+_tl;dr Run `grunt deploy-prod`_
 
-So it's the same as with staging except that you run build-prod and
-deploy-prod. You then need to make sure you invalidate the content in
+So it's the same as with staging except that you run `build-prod` and `deploy-prod`.
+You then need to make sure you invalidate the content in
 correct CloudFront distribution (the one with comment talking about
 production site).
 

@@ -403,7 +403,7 @@ module.exports = function(grunt) {
     2. In the `.build-tmp` directory, do all the necessary minifications and revving
     3. Copy necessary files from `.build-tmp` to `dist`
   */
-  grunt.registerTask('build', [
+  grunt.registerTask('build-staging', [
     'clean',
     'copy:temp',
     'bake:dist',
@@ -444,6 +444,8 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('deploy-staging', [
+    'build-staging',
+    'package',
     'aws_s3:staging',
     'print-staging'
   ]);
@@ -456,6 +458,8 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('deploy-prod', [
+    'build-prod',
+    'package',
     'aws_s3:production',
     'print-production'
   ]);
