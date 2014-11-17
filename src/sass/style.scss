@@ -1904,7 +1904,7 @@ br.br-titlebreak {
 @media screen and (max-width: 1024px) {
 
   .hero {
-    background: url("/images/bg.hero.jpg") no-repeat -520px -200px;
+    background: url("/images/bg.hero.jpg") no-repeat -300px -100px;
     background-color: $orange;
 
     h1 {
@@ -3029,7 +3029,7 @@ br.br-titlebreak {
   }
 
   .hero {
-    background: url("/images/bg.hero.jpg") no-repeat center center;
+    background: url("/images/bg.hero.jpg") no-repeat 50px center;
     background-color: $orange;
     background-size: cover;
     height: 350px;
@@ -3056,9 +3056,10 @@ br.br-titlebreak {
   .hero-text {
     left: 0;
     margin-left: 5%;
-    width: 40%;
+    width: 55%;
     margin-top: 7%;
     height: auto;
+    max-width: 310px;
 
     h1 {
       margin-left: 0;
@@ -3067,6 +3068,7 @@ br.br-titlebreak {
 
   .hero-text-container {
     text-align: left;
+    margin-top: 40px;
   }
 }
 
