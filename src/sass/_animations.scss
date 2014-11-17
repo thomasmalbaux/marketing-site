@@ -1,4 +1,21 @@
+// Keyframe filling animationfillcode.com
+
 @-webkit-keyframes hero-logo {
+  0%   { opacity: 0; top: -10px; }
+  100% { opacity: 1; top: 0px; }
+}
+
+@-moz-keyframes hero-logo {
+  0%   { opacity: 0; top: -10px; }
+  100% { opacity: 1; top: 0px; }
+}
+
+@-o-keyframes hero-logo {
+  0%   { opacity: 0; top: -10px; }
+  100% { opacity: 1; top: 0px; }
+}
+
+@keyframes hero-logo {
   0%   { opacity: 0; top: -10px; }
   100% { opacity: 1; top: 0px; }
 }
@@ -8,21 +25,43 @@
   100% { opacity: 1; margin-top: 0px; }
 }
 
+@-moz-keyframes hero-h1 {
+  0%   { opacity: 0; margin-top: -10px; }
+  100% { opacity: 1; margin-top: 0px; }
+}
+
+@-o-keyframes hero-h1 {
+  0%   { opacity: 0; margin-top: -10px; }
+  100% { opacity: 1; margin-top: 0px; }
+}
+
+@keyframes hero-h1 {
+  0%   { opacity: 0; margin-top: -10px; }
+  100% { opacity: 1; margin-top: 0px; }
+}
+
 @-webkit-keyframes hero-p {
   0%   { opacity: 0; margin-top: -10px;}
   100% { opacity: 1; margin-top: 0px; }
 }
 
-@-webkit-keyframes hero-bg {
-  0%   { -webkit-transform:scale(0.9);} 
-  100% { -webkit-transform:scale(1);}
+@-moz-keyframes hero-p {
+  0%   { opacity: 0; margin-top: -10px;}
+  100% { opacity: 1; margin-top: 0px; }
+}
+
+@-o-keyframes hero-p {
+  0%   { opacity: 0; margin-top: -10px;}
+  100% { opacity: 1; margin-top: 0px; }
+}
+
+@keyframes hero-p {
+  0%   { opacity: 0; margin-top: -10px;}
+  100% { opacity: 1; margin-top: 0px; }
 }
 
 
-
-.hero {
-  @include header-animation(hero-bg, 0.2s, ease-out, 0.0s);
-}
+// STYLES
 
 .hero .logo {
   @include header-animation(hero-logo, 0.3s, ease-out, 0.2s);
@@ -38,3 +77,20 @@
   @include header-animation(hero-p, 0.3s, ease-out, 0.6s);
   opacity: 0;
 }
+
+
+// @-webkit-keyframes hero-logo {
+//   0%   { opacity: 0; top: -10px; }
+//   100% { opacity: 1; top: 0px; }
+// }
+// 
+// @-webkit-keyframes hero-h1 {
+//   0%   { opacity: 0; margin-top: -10px; }
+//   100% { opacity: 1; margin-top: 0px; }
+// }
+// 
+// @-webkit-keyframes hero-p {
+//   0%   { opacity: 0; margin-top: -10px;}
+//   100% { opacity: 1; margin-top: 0px; }
+// }
+ 
