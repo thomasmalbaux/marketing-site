@@ -64,17 +64,17 @@
 // STYLES
 
 .hero .logo {
-  @include header-animation(hero-logo, 0.3s, ease-out, 0.2s);
+  @include header-animation(hero-logo, 0.3s, ease-out, 0.5s);
   opacity: 0;
 }
 
 .hero h1 {
-  @include header-animation(hero-h1, 0.3s, ease-out, 0.4s);
+  @include header-animation(hero-h1, 0.3s, ease-out, 0.7s);
   opacity: 0;
 }
 
 .hero p {
-  @include header-animation(hero-p, 0.3s, ease-out, 0.6s);
+  @include header-animation(hero-p, 0.3s, ease-out, 0.9s);
   opacity: 0;
 }
 
