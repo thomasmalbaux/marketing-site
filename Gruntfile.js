@@ -222,6 +222,28 @@ module.exports = function(grunt) {
           from: "var CATCH_ST_URL = 'http://catch.sharetri.be/int_api';",
           to: "var CATCH_ST_URL = 'https://catch.sharetribe.com/int_api';"
         }]
+      },
+      stagingogimage: {
+        src: [
+          '.build-tmp/*.html',
+          '.build-tmp/press/*.html'
+        ],
+        overwrite: true,
+        replacements: [{
+          from: "http://localhost:8888/files/sharetribe.logo.png",
+          to: "http://www.sharetri.be/files/sharetribe.logo.png"
+        }]
+      },
+      'prodogimage': {
+        src: [
+          '.build-tmp/*.html',
+          '.build-tmp/press/*.html'
+        ],
+        overwrite: true,
+        replacements: [{
+          from: "http://localhost:8888/files/sharetribe.logo.png",
+          to: "https://www.sharetribe.com/files/sharetribe.logo.png"
+        }]
       }
     },
     compress: {
@@ -426,6 +448,7 @@ module.exports = function(grunt) {
     'bake:dist',
     'revision',
     'replace:version',
+    'replace:stagingogimage',
     'requirejs:compile',
     'replace:requirejs',
     'compass:dist',
@@ -442,6 +465,7 @@ module.exports = function(grunt) {
     'revision',
     'replace:version',
     'replace:prodendpoint',
+    'replace:prodogimage',
     'requirejs:compile',
     'replace:requirejs',
     'compass:dist',
