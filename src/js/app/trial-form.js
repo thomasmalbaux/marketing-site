@@ -17,6 +17,41 @@ define([
     // save user input to this object right after validation
     var data = {};
 
+    // save the current form step in which the user currently is
+    // this is needed for analytics
+    // returns two functions: { moveTo, currentStep }
+    // throws if trying to move to illegal step
+    var step = (function(currentStep) {
+      var allowedSteps = [
+        'email',
+        'email-exists',
+        'email-failed', // Unknown server or network error.
+        'localization',
+        'name',
+        'password',
+        'marketplace',
+        'marketplace-created',
+        'marketplace-failed' // Unknown server or network error.
+      ];
+
+      var moveTo = function(nextStep) {
+        if (_.contains(allowedSteps, nextStep)) {
+          currentStep = nextStep;
+        } else {
+          throw new Error('Illegal step ' + nextStep);
+        }
+      };
+
+      var getCurrentStep = function() {
+        return currentStep;
+      };
+
+      return {
+        moveTo: moveTo,
+        currentStep: getCurrentStep
+      };
+    })('email');
+
     // Helper function to create submit handler
     var submitHandler = function(clbk) {
       return function(e) {
@@ -237,12 +272,14 @@ define([
           if (emailAvailable) {
             data.admin_email = email;
             showAndFocus(el.localizationSlide);
+            step.moveTo('localization');
 			ga('send','pageview','trial-localization');
-    
+
           } else {
             show(el.existingAccountSlide);
+            step.moveTo('email-exists');
 			ga('send','pageview','trial-email-err-already-exists');
-     
+
           }
         }
       };
@@ -257,12 +294,13 @@ define([
           emailAvailable = available;
           animationOrCheckDone();
         }, function() {
+          step.moveTo('email-failed');
           show(el.emailCheckFailedSlide);
         });
       } else {
         el.emailNotSell.hide();
         el.emailInvalid.show();
-		ga('send','pageview','trial-email-err-invalid-email'); 
+		ga('send','pageview','trial-email-err-invalid-email');
      }
     });
 
@@ -284,6 +322,7 @@ define([
         data.marketplace_country = country;
         data.marketplace_language = language;
         hideAndShow(el.localizationSlide, el.nameSlide);
+        step.moveTo('name');
 		ga('send','pageview','trial-name');
      }
     });
@@ -297,7 +336,7 @@ define([
         }
       });
     };
-    
+
     var nameHandler = submitHandler(function(e) {
       var first = el.nameFirstInput.val();
       var last = el.nameLastInput.val();
@@ -307,10 +346,10 @@ define([
 	el.nameLastMissing,
 	el.nameFirstTooLong,
 	el.nameLastTooLong
-      ] 
-      
+      ];
+
       var showNameMessage = _.partial(showMessage, allMessages);
-      
+
       if (!first) {
 	showNameMessage(el.nameFirstMissing);
 	ga('send','pageview','trial-name-err-missing-first-name');
@@ -327,6 +366,7 @@ define([
 	data.admin_first_name = first;
 	data.admin_last_name = last;
 	hideAndShow(el.nameSlide, el.passwordSlide);
+        step.moveTo('password');
 	ga('send','pageview','trial-password');
       }
     });
@@ -344,7 +384,7 @@ define([
       var confirmation = el.passwordConfirmationInput.val();
 
       var showPasswordMessage = _.partial(showMessage, allMessages);
-      
+
       if (!password) {
         showPasswordMessage(el.passwordMissing);
 	ga('send','pageview','trial-password-err-missing-password');
@@ -360,7 +400,8 @@ define([
       } else {
         data.admin_password = password;
         hideAndShow(el.passwordSlide, el.marketplaceSlide);
-	ga('send','pageview','trial-marketplace');
+        step.moveTo('marketplace');
+        ga('send','pageview','trial-marketplace');
       }
     });
 
@@ -383,10 +424,12 @@ define([
           createMarketplace(data, function(marketplaceUrl) {
             el.gotoButton.attr('href', marketplaceUrl);
             hideAndShow(el.createdSlide, el.createSuccessSlide);
+            step.moveTo('marketplace-created');
   			ga('send','pageview','trial-creation');
 			ga('send','event','trial','creation');
         }, function() {
             hideAndShow(el.createdSlide, el.createFailedSlide);
+            step.moveTo('marketplace-failed');
  			ga('send','pageview','trial-creation-err-fail');
 			ga('send','event','trial','creation', 'err-fail');
           });
@@ -408,12 +451,21 @@ define([
       request.fail(error);
     };
 
-    return {init: init};
-  };
+    return {
+      init: init,
+      currentStep: step.currentStep
+    };
+  }; // create
 
   return {
     init: function(root) {
-      create().init(root);
+      var formInstance = create();
+      formInstance.init(root);
+
+      // Expose
+      return {
+        currentStep: formInstance.currentStep
+      };
     }
   };
 });

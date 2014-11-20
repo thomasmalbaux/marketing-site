@@ -56,20 +56,32 @@ define(
       return initializeLightbox(el, opts, defaultOpts);
     };
 
-    var initializeLightboxes = function() {
-      initializeVideoLightbox("#sharetribe-video", {
-        afterClose: function() {
-          console.log('Video closed');
-        }
-      });
+    var initializeTrialLightboxes = function(lightboxForm) {
       initializeTrialLightbox("#home-get-started", {
         afterClose: function() {
-          console.log('Home get started lightbox closed');
+          console.log('Home get started lightbox closed, current step: ' + lightboxForm.currentStep());
         }
       });
-      initializeTrialLightbox("#menu-get-started");
-      initializeTrialLightbox("#mobilemenu-get-started");
-      initializeTrialLightbox(".pricing-get-started");
+      initializeTrialLightbox("#menu-get-started", {
+        afterClose: function() {
+          console.log('Menu get started lightbox closed, current step: ' + lightboxForm.currentStep());
+        }
+      });
+      initializeTrialLightbox("#mobilemenu-get-started", {
+        afterClose: function() {
+          console.log('Mobile menu get started lightbox closed, current step: ' + lightboxForm.currentStep());
+        }
+      });
+      initializeTrialLightbox(".pricing-get-started", {
+        afterClose: function() {
+          console.log('Pricing page get started lightbox closed, current step: ' + lightboxForm.currentStep());
+        }
+      });
+      initializeTrialLightbox("#trial-mobile-get-started", {
+        afterClose: function() {
+          console.log('Mobile page footer get started lightbox closed, current step: ' + lightboxForm.currentStep());
+        }
+      });
     };
 
     var app = {
@@ -95,13 +107,12 @@ define(
         });
 
         this.initializeOdometers();
-        initializeLightboxes();
 
         // Initialize lightbox
-        trialForm.init($('#trial-lightbox'));
+        var lightboxForm = trialForm.init($('#trial-lightbox'));
 
         // Initialize index page trial form
-        trialForm.init($('#trial'));
+        var inlineForm = trialForm.init($('#trial'));
 
         scrollSpy.init($('.scrollspy a'));
 
@@ -109,28 +120,13 @@ define(
           window.console.log('Hi there! Interested in code?\n\nSharetribe is an open-source marketplace platform. See https://github.com/sharetribe/sharetribe for more information about the open-source project.');
         }
 
-        $("#sharetribe-video")
-          .fancybox({
-            width       : '75%',
-            height      : '75%',
-            type        : 'iframe',
-            padding     : '0',
-            scrolling   : 'no',
-            preload     : 'true',
+        initializeVideoLightbox("#sharetribe-video", {
+          afterClose: function() {
+            console.log('Video closed');
+          }
+        });
 
-            // This prevents jumping when the lightbox is closed
-            helpers: {
-              overlay: {
-                locked: false
-              }
-            }
-          });
-
-        initializeTrialLightbox("#home-get-started");
-        initializeTrialLightbox("#menu-get-started");
-        initializeTrialLightbox("#mobilemenu-get-started");
-        initializeTrialLightbox(".pricing-get-started");
-        initializeTrialLightbox("#trial-mobile-get-started");
+        initializeTrialLightboxes(lightboxForm);
 
         $( "#mobilemenu" ).click(function() {
           $( ".menu-cover" ).slideDown( "slow" );
