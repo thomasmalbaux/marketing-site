@@ -9,9 +9,9 @@ define(
   , "fastclick"
   , "googleAnalytics"
   , "placeholder"
+  , "app/hotjar"
   ]
-  , function ($, SmoothScroll, Odometer, trialForm, scrollSpy, fancybox, sticky, FastClick) {
-
+  , function ($, SmoothScroll, Odometer, trialForm, scrollSpy, fancybox, sticky, FastClick, ga, placeholder, hotjar) {
     var initializeTrialLightbox = function(el) {
       $(el)
         .fancybox({

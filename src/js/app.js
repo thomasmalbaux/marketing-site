@@ -17,9 +17,13 @@ requirejs.config(
       , 'placeholder':  '../vendor/jquery-placeholder'
     }
   , shim:
-    { sticky:
+    { jquery:
       {
-        'deps': ['jquery']
+        exports: '$'
+      }
+    , sticky:
+      {
+        deps: ['jquery']
       }
     , chosen:
       {
