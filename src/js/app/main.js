@@ -59,27 +59,27 @@ define(
     var initializeTrialLightboxes = function(lightboxForm) {
       initializeTrialLightbox("#home-get-started", {
         afterClose: function() {
-          console.log('Home get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          // This can be used for testing console.log('Home get started lightbox closed, current step: ' + lightboxForm.currentStep());
         }
       });
       initializeTrialLightbox("#menu-get-started", {
         afterClose: function() {
-          console.log('Menu get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          // This can be used for testing console.log('Menu get started lightbox closed, current step: ' + lightboxForm.currentStep());
         }
       });
       initializeTrialLightbox("#mobilemenu-get-started", {
         afterClose: function() {
-          console.log('Mobile menu get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          // This can be used for testing console.log('Mobile menu get started lightbox closed, current step: ' + lightboxForm.currentStep());
         }
       });
       initializeTrialLightbox(".pricing-get-started", {
         afterClose: function() {
-          console.log('Pricing page get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          // This can be used for testing console.log('Pricing page get started lightbox closed, current step: ' + lightboxForm.currentStep());
         }
       });
       initializeTrialLightbox("#trial-mobile-get-started", {
         afterClose: function() {
-          console.log('Mobile page footer get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          // This can be used for testing console.log('Mobile page footer get started lightbox closed, current step: ' + lightboxForm.currentStep());
         }
       });
     };
@@ -122,7 +122,7 @@ define(
 
         initializeVideoLightbox("#sharetribe-video", {
           afterClose: function() {
-            console.log('Video closed');
+            // This can be used for testing console.log('Video closed');
           }
         });
 
