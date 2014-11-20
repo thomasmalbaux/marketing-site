@@ -242,8 +242,8 @@ define([
     };
 
     var checkEmailAvailability = function(email, success, fail) {
-       ga('send','pageview','trial-email');
-	  var request = $.ajax(
+      ga('send','pageview','trial-email');
+      var request = $.ajax(
         {
           type: "GET"
           , url: CATCH_ST_URL + '/check_email_availability'
@@ -273,12 +273,12 @@ define([
             data.admin_email = email;
             showAndFocus(el.localizationSlide);
             step.moveTo('localization');
-			ga('send','pageview','trial-localization');
+            ga('send','pageview','trial-localization');
 
           } else {
             show(el.existingAccountSlide);
             step.moveTo('email-exists');
-			ga('send','pageview','trial-email-err-already-exists');
+            ga('send','pageview','trial-email-err-already-exists');
 
           }
         }
@@ -300,7 +300,7 @@ define([
       } else {
         el.emailNotSell.hide();
         el.emailInvalid.show();
-		ga('send','pageview','trial-email-err-invalid-email');
+        ga('send','pageview','trial-email-err-invalid-email');
      }
     });
 
@@ -312,18 +312,18 @@ define([
         el.localizationDidntFindLanguage.hide();
         el.localizationLanguageInvalid.hide();
         el.localizationCountryInvalid.show();
-		ga('send','pageview','trial-localization-err-missing-country');
+        ga('send','pageview','trial-localization-err-missing-country');
       } else if (!validator.validLanguage(language)) {
         el.localizationDidntFindLanguage.hide();
         el.localizationCountryInvalid.hide();
         el.localizationLanguageInvalid.show();
-		ga('send','pageview','trial-localization-err-missing-language');
+        ga('send','pageview','trial-localization-err-missing-language');
       } else {
         data.marketplace_country = country;
         data.marketplace_language = language;
         hideAndShow(el.localizationSlide, el.nameSlide);
         step.moveTo('name');
-		ga('send','pageview','trial-name');
+        ga('send','pageview','trial-name');
      }
     });
 
@@ -386,17 +386,17 @@ define([
       var showPasswordMessage = _.partial(showMessage, allMessages);
 
       if (!password) {
-        showPasswordMessage(el.passwordMissing);
-	ga('send','pageview','trial-password-err-missing-password');
+        showMessage(el.passwordMissing);
+        ga('send','pageview','trial-password-err-missing-password');
       } else if (!validator.validPassword(password)) {
-        showPasswordMessage(el.passwordTooShort);
-	ga('send','pageview','trial-password-err-too-short');
+        showMessage(el.passwordTooShort);
+        ga('send','pageview','trial-password-err-too-short');
       } else if (!confirmation) {
-        showPasswordMessage(el.passwordConfirmationMissing);
-	ga('send','pageview','trial-password-err-confirmation-missing');
+        showMessage(el.passwordConfirmationMissing);
+        ga('send','pageview','trial-password-err-confirmation-missing');
       } else if (password !== confirmation) {
-        showPasswordMessage(el.passwordConfirmationMismatch);
-	ga('send','pageview','trial-password-confirmation-mismatch');
+        showMessage(el.passwordConfirmationMismatch);
+        ga('send','pageview','trial-password-confirmation-mismatch');
       } else {
         data.admin_password = password;
         hideAndShow(el.passwordSlide, el.marketplaceSlide);
@@ -412,12 +412,12 @@ define([
       if (!validator.validMarketplaceType(type)) {
         el.marketplaceTypeInvalid.show();
         el.marketplaceNameTooShort.hide();
-		ga('send','pageview','trial-marketplace-err-type-missing');
-     } else if (!validator.validMarketplaceName(name)) {
+        ga('send','pageview','trial-marketplace-err-type-missing');
+      } else if (!validator.validMarketplaceName(name)) {
         el.marketplaceTypeInvalid.hide();
         el.marketplaceNameTooShort.show();
-		ga('send','pageview','trial-marketplace-err-name-too-short');
-     } else {
+        ga('send','pageview','trial-marketplace-err-name-too-short');
+      } else {
         data.marketplace_type = type;
         data.marketplace_name = name;
         hideAndShow(el.marketplaceSlide, el.createdSlide, function() {
@@ -425,13 +425,13 @@ define([
             el.gotoButton.attr('href', marketplaceUrl);
             hideAndShow(el.createdSlide, el.createSuccessSlide);
             step.moveTo('marketplace-created');
-  			ga('send','pageview','trial-creation');
-			ga('send','event','trial','creation');
-        }, function() {
+            ga('send','pageview','trial-creation');
+            ga('send','event','trial','creation');
+          }, function() {
             hideAndShow(el.createdSlide, el.createFailedSlide);
             step.moveTo('marketplace-failed');
- 			ga('send','pageview','trial-creation-err-fail');
-			ga('send','event','trial','creation', 'err-fail');
+            ga('send','pageview','trial-creation-err-fail');
+            ga('send','event','trial','creation', 'err-fail');
           });
         });
       }
