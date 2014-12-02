@@ -57,8 +57,10 @@ define([
         nameFirstInput: root.find('#trial-name-first-input'),
         nameLastInput: root.find('#trial-name-last-input'),
         nameForm: root.find('#trial-name-form'),
-        nameFirstInvalid: root.find('#trial-name-first-invalid'),
-        nameLastInvalid: root.find('#trial-name-last-invalid'),
+        nameFirstMissing: root.find('#trial-name-first-missing'),
+        nameLastMissing: root.find('#trial-name-last-missing'),
+	nameFirstTooLong: root.find('#trial-name-first-too-short'),
+	nameLastTooLong: root.find('#trial-name-last-too-short'),
 
         passwordSlide: root.find('#trial-password-slide'),
         passwordForm: root.find('#trial-password-form'),
@@ -286,24 +288,47 @@ define([
      }
     });
 
+    var showMessage = function(allMessages, activeMessage) {
+      allMessages.forEach(function(message) {
+        if (message === activeMessage) {
+          message.show();
+        } else {
+          message.hide();
+        }
+      });
+    };
+    
     var nameHandler = submitHandler(function(e) {
       var first = el.nameFirstInput.val();
       var last = el.nameLastInput.val();
 
-      if (!validator.validFirstName(first)) {
-        el.nameFirstInvalid.show();
-        el.nameLastInvalid.hide();
-		ga('send','pageview','trial-name-err-missing-first-name');
-       } else if (!validator.validLastName(last)) {
-        el.nameFirstInvalid.hide();
-        el.nameLastInvalid.show();
-		ga('send','pageview','trial-name-err-missing-last-name');
-     } else {
-        data.admin_first_name = first;
-        data.admin_last_name = last;
-        hideAndShow(el.nameSlide, el.passwordSlide);
-		ga('send','pageview','trial-password');
-     }
+      var allMessages = [
+	el.nameFirstMissing,
+	el.nameLastMissing,
+	el.nameFirstTooLong,
+	el.nameLastTooLong
+      ] 
+      
+      var showNameMessage = _.partial(showMessage, allMessages);
+      
+      if (!first) {
+	showNameMessage(el.nameFirstMissing);
+	ga('send','pageview','trial-name-err-missing-first-name');
+      } else if (!last) {
+	showNameMessage(el.nameLastMissing);
+	ga('send','pageview','trial-name-err-missing-last-name');
+      } else if (!validator.validFirstName(first)) {
+	showNameMessage(el.nameFirstTooLong);
+	ga('send','pageview','trial-name-err-too-long-first-name');
+      } else if (!validator.validLastName(last)) {
+	showNameMessage(el.nameLastTooLong);
+	ga('send','pageview','trial-name-err-too-long-last-name');
+      } else {
+	data.admin_first_name = first;
+	data.admin_last_name = last;
+	hideAndShow(el.nameSlide, el.passwordSlide);
+	ga('send','pageview','trial-password');
+      }
     });
 
     var passwordHandler = submitHandler(function(e) {
@@ -314,36 +339,29 @@ define([
         el.passwordConfirmationMismatch
       ];
 
-      var showMessage = function(activeMessage) {
-        allMessages.forEach(function(message) {
-          if (message === activeMessage) {
-            message.show();
-          } else {
-            message.hide();
-          }
-        });
-      };
 
       var password = el.passwordInput.val();
       var confirmation = el.passwordConfirmationInput.val();
 
+      var showPasswordMessage = _.partial(showMessage, allMessages);
+      
       if (!password) {
-        showMessage(el.passwordMissing);
-		ga('send','pageview','trial-password-err-missing-password');
+        showPasswordMessage(el.passwordMissing);
+	ga('send','pageview','trial-password-err-missing-password');
       } else if (!validator.validPassword(password)) {
-        showMessage(el.passwordTooShort);
-		ga('send','pageview','trial-password-err-too-short');
+        showPasswordMessage(el.passwordTooShort);
+	ga('send','pageview','trial-password-err-too-short');
       } else if (!confirmation) {
-        showMessage(el.passwordConfirmationMissing);
-		ga('send','pageview','trial-password-err-confirmation-missing');
-     } else if (password !== confirmation) {
-        showMessage(el.passwordConfirmationMismatch);
-		ga('send','pageview','trial-password-confirmation-mismatch');
-     } else {
+        showPasswordMessage(el.passwordConfirmationMissing);
+	ga('send','pageview','trial-password-err-confirmation-missing');
+      } else if (password !== confirmation) {
+        showPasswordMessage(el.passwordConfirmationMismatch);
+	ga('send','pageview','trial-password-confirmation-mismatch');
+      } else {
         data.admin_password = password;
         hideAndShow(el.passwordSlide, el.marketplaceSlide);
-		ga('send','pageview','trial-marketplace');
-     }
+	ga('send','pageview','trial-marketplace');
+      }
     });
 
     var marketplaceHandler = submitHandler(function(e) {

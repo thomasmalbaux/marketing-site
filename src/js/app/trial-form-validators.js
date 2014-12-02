@@ -14,11 +14,11 @@ define(['lodash'], function(_) {
   };
 
   var firstName = function(firstName) {
-    return firstName.length > 2;
+    return firstName.length < 255;
   };
 
   var lastName = function(lastName) {
-    return lastName.length > 1;
+    return lastName.length < 255;
   };
 
   var password = function(password) {
