@@ -386,16 +386,16 @@ define([
       var showPasswordMessage = _.partial(showMessage, allMessages);
 
       if (!password) {
-        showMessage(el.passwordMissing);
+        showPasswordMessage(el.passwordMissing);
         ga('send','pageview','trial-password-err-missing-password');
       } else if (!validator.validPassword(password)) {
-        showMessage(el.passwordTooShort);
+        showPasswordMessage(el.passwordTooShort);
         ga('send','pageview','trial-password-err-too-short');
       } else if (!confirmation) {
-        showMessage(el.passwordConfirmationMissing);
+        showPasswordMessage(el.passwordConfirmationMissing);
         ga('send','pageview','trial-password-err-confirmation-missing');
       } else if (password !== confirmation) {
-        showMessage(el.passwordConfirmationMismatch);
+        showPasswordMessage(el.passwordConfirmationMismatch);
         ga('send','pageview','trial-password-confirmation-mismatch');
       } else {
         data.admin_password = password;
