@@ -8,4 +8,5 @@ if(document.location.hostname.match(/^(.*\.sharetri\.be)$/) ) {gaAccount='UA-101
 if (document.location.hostname.match(/^(.*\.sharetribe\.com)$/)) {gaAccount= 'UA-10178914-3'}
 
 ga('create', gaAccount, 'auto');
+ga('require', 'displayfeatures');
 ga('send', 'pageview');
