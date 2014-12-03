@@ -59,31 +59,36 @@ define(
     var initializeTrialLightboxes = function(lightboxForm) {
       initializeTrialLightbox("#home-get-started", {
         afterClose: function() {
-          // This can be used for testing console.log('Home get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          // This can be used for testing
+          // console.log('Home get started lightbox closed, current step: ' + lightboxForm.currentStep());
           ga('send','event', 'trial','close',  {'noninteraction': 1});
         }
       });
       initializeTrialLightbox("#menu-get-started", {
         afterClose: function() {
-          // This can be used for testing console.log('Menu get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          // This can be used for testing
+          // console.log('Menu get started lightbox closed, current step: ' + lightboxForm.currentStep());
           ga('send','event', 'trial','close',  {'noninteraction': 1});
         }
       });
       initializeTrialLightbox("#mobilemenu-get-started", {
         afterClose: function() {
-          // This can be used for testing console.log('Mobile menu get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          // This can be used for testing
+          // console.log('Mobile menu get started lightbox closed, current step: ' + lightboxForm.currentStep());
           ga('send','event', 'trial','close',  {'noninteraction': 1});
         }
       });
       initializeTrialLightbox(".pricing-get-started", {
         afterClose: function() {
-          // This can be used for testing console.log('Pricing page get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          // This can be used for testing
+          // console.log('Pricing page get started lightbox closed, current step: ' + lightboxForm.currentStep());
           ga('send','event', 'trial','close',  {'noninteraction': 1});
         }
       });
       initializeTrialLightbox("#trial-mobile-get-started", {
         afterClose: function() {
-          // This can be used for testing console.log('Mobile page footer get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          // This can be used for testing
+          // console.log('Mobile page footer get started lightbox closed, current step: ' + lightboxForm.currentStep());
           ga('send','event', 'trial','close',  {'noninteraction': 1});
         }
       });
