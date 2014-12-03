@@ -17,6 +17,41 @@ define([
     // save user input to this object right after validation
     var data = {};
 
+    // save the current form step in which the user currently is
+    // this is needed for analytics
+    // returns two functions: { moveTo, currentStep }
+    // throws if trying to move to illegal step
+    var step = (function(currentStep) {
+      var allowedSteps = [
+        'email',
+        'email-exists',
+        'email-failed', // Unknown server or network error.
+        'localization',
+        'name',
+        'password',
+        'marketplace',
+        'marketplace-created',
+        'marketplace-failed' // Unknown server or network error.
+      ];
+
+      var moveTo = function(nextStep) {
+        if (_.contains(allowedSteps, nextStep)) {
+          currentStep = nextStep;
+        } else {
+          throw new Error('Illegal step ' + nextStep);
+        }
+      };
+
+      var getCurrentStep = function() {
+        return currentStep;
+      };
+
+      return {
+        moveTo: moveTo,
+        currentStep: getCurrentStep
+      };
+    })('email');
+
     // Helper function to create submit handler
     var submitHandler = function(clbk) {
       return function(e) {
@@ -207,8 +242,8 @@ define([
     };
 
     var checkEmailAvailability = function(email, success, fail) {
-       ga('send','pageview','trial-email');
-	  var request = $.ajax(
+      ga('send','pageview','trial-email');
+      var request = $.ajax(
         {
           type: "GET"
           , url: CATCH_ST_URL + '/check_email_availability'
@@ -237,12 +272,14 @@ define([
           if (emailAvailable) {
             data.admin_email = email;
             showAndFocus(el.localizationSlide);
-			ga('send','pageview','trial-localization');
-    
+            step.moveTo('localization');
+            ga('send','pageview','trial-localization');
+
           } else {
             show(el.existingAccountSlide);
-			ga('send','pageview','trial-email-err-already-exists');
-     
+            step.moveTo('email-exists');
+            ga('send','pageview','trial-email-err-already-exists');
+
           }
         }
       };
@@ -257,12 +294,13 @@ define([
           emailAvailable = available;
           animationOrCheckDone();
         }, function() {
+          step.moveTo('email-failed');
           show(el.emailCheckFailedSlide);
         });
       } else {
         el.emailNotSell.hide();
         el.emailInvalid.show();
-		ga('send','pageview','trial-email-err-invalid-email'); 
+        ga('send','pageview','trial-email-err-invalid-email');
      }
     });
 
@@ -274,17 +312,18 @@ define([
         el.localizationDidntFindLanguage.hide();
         el.localizationLanguageInvalid.hide();
         el.localizationCountryInvalid.show();
-		ga('send','pageview','trial-localization-err-missing-country');
+        ga('send','pageview','trial-localization-err-missing-country');
       } else if (!validator.validLanguage(language)) {
         el.localizationDidntFindLanguage.hide();
         el.localizationCountryInvalid.hide();
         el.localizationLanguageInvalid.show();
-		ga('send','pageview','trial-localization-err-missing-language');
+        ga('send','pageview','trial-localization-err-missing-language');
       } else {
         data.marketplace_country = country;
         data.marketplace_language = language;
         hideAndShow(el.localizationSlide, el.nameSlide);
-		ga('send','pageview','trial-name');
+        step.moveTo('name');
+        ga('send','pageview','trial-name');
      }
     });
 
@@ -297,7 +336,7 @@ define([
         }
       });
     };
-    
+
     var nameHandler = submitHandler(function(e) {
       var first = el.nameFirstInput.val();
       var last = el.nameLastInput.val();
@@ -307,10 +346,10 @@ define([
 	el.nameLastMissing,
 	el.nameFirstTooLong,
 	el.nameLastTooLong
-      ] 
-      
+      ];
+
       var showNameMessage = _.partial(showMessage, allMessages);
-      
+
       if (!first) {
 	showNameMessage(el.nameFirstMissing);
 	ga('send','pageview','trial-name-err-missing-first-name');
@@ -327,6 +366,7 @@ define([
 	data.admin_first_name = first;
 	data.admin_last_name = last;
 	hideAndShow(el.nameSlide, el.passwordSlide);
+        step.moveTo('password');
 	ga('send','pageview','trial-password');
       }
     });
@@ -344,23 +384,24 @@ define([
       var confirmation = el.passwordConfirmationInput.val();
 
       var showPasswordMessage = _.partial(showMessage, allMessages);
-      
+
       if (!password) {
         showPasswordMessage(el.passwordMissing);
-	ga('send','pageview','trial-password-err-missing-password');
+        ga('send','pageview','trial-password-err-missing-password');
       } else if (!validator.validPassword(password)) {
         showPasswordMessage(el.passwordTooShort);
-	ga('send','pageview','trial-password-err-too-short');
+        ga('send','pageview','trial-password-err-too-short');
       } else if (!confirmation) {
         showPasswordMessage(el.passwordConfirmationMissing);
-	ga('send','pageview','trial-password-err-confirmation-missing');
+        ga('send','pageview','trial-password-err-confirmation-missing');
       } else if (password !== confirmation) {
         showPasswordMessage(el.passwordConfirmationMismatch);
-	ga('send','pageview','trial-password-confirmation-mismatch');
+        ga('send','pageview','trial-password-confirmation-mismatch');
       } else {
         data.admin_password = password;
         hideAndShow(el.passwordSlide, el.marketplaceSlide);
-	ga('send','pageview','trial-marketplace');
+        step.moveTo('marketplace');
+        ga('send','pageview','trial-marketplace');
       }
     });
 
@@ -371,24 +412,26 @@ define([
       if (!validator.validMarketplaceType(type)) {
         el.marketplaceTypeInvalid.show();
         el.marketplaceNameTooShort.hide();
-		ga('send','pageview','trial-marketplace-err-type-missing');
-     } else if (!validator.validMarketplaceName(name)) {
+        ga('send','pageview','trial-marketplace-err-type-missing');
+      } else if (!validator.validMarketplaceName(name)) {
         el.marketplaceTypeInvalid.hide();
         el.marketplaceNameTooShort.show();
-		ga('send','pageview','trial-marketplace-err-name-too-short');
-     } else {
+        ga('send','pageview','trial-marketplace-err-name-too-short');
+      } else {
         data.marketplace_type = type;
         data.marketplace_name = name;
         hideAndShow(el.marketplaceSlide, el.createdSlide, function() {
           createMarketplace(data, function(marketplaceUrl) {
             el.gotoButton.attr('href', marketplaceUrl);
             hideAndShow(el.createdSlide, el.createSuccessSlide);
-  			ga('send','pageview','trial-creation');
-			ga('send','event','trial','creation');
-        }, function() {
+            step.moveTo('marketplace-created');
+            ga('send','pageview','trial-creation');
+            ga('send','event','trial','creation');
+          }, function() {
             hideAndShow(el.createdSlide, el.createFailedSlide);
- 			ga('send','pageview','trial-creation-err-fail');
-			ga('send','event','trial','creation', 'err-fail');
+            step.moveTo('marketplace-failed');
+            ga('send','pageview','trial-creation-err-fail');
+            ga('send','event','trial','creation', 'err-fail');
           });
         });
       }
@@ -408,12 +451,21 @@ define([
       request.fail(error);
     };
 
-    return {init: init};
-  };
+    return {
+      init: init,
+      currentStep: step.currentStep
+    };
+  }; // create
 
   return {
     init: function(root) {
-      create().init(root);
+      var formInstance = create();
+      formInstance.init(root);
+
+      // Expose
+      return {
+        currentStep: formInstance.currentStep
+      };
     }
   };
 });

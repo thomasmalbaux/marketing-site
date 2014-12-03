@@ -1,5 +1,6 @@
 define(
   [ "jquery"
+  , "lodash"
   , "smoothScroll"
   , "odometer"
   , "app/trial-form"
@@ -11,23 +12,86 @@ define(
   , "placeholder"
   , "app/hotjar"
   ]
-  , function ($, SmoothScroll, Odometer, trialForm, scrollSpy, fancybox, sticky, FastClick, ga, placeholder, hotjar) {
-    var initializeTrialLightbox = function(el) {
-      $(el)
-        .fancybox({
-          width       : '100%',
-          height      : '100%',
-          type        : 'inline',
-          autoSize    : false,
-          padding     : '0',
+  , function ($, _, SmoothScroll, Odometer, trialForm, scrollSpy, fancybox, sticky, FastClick, ga, placeholder, hotjar) {
+    var initializeLightbox = function(el, opts, defaultOpts) {
+      return $(el).fancybox(_.defaults(opts || {}, defaultOpts || {}));
+    };
 
-          // This prevents jumping when the lightbox is closed
-          helpers: {
-            overlay: {
-              locked: true
-            }
+    var initializeTrialLightbox = function(el, opts) {
+      var defaultOpts = {
+        width       : '100%',
+        height      : '100%',
+        type        : 'inline',
+        autoSize    : false,
+        padding     : '0',
+
+        // This prevents jumping when the lightbox is closed
+        helpers: {
+          overlay: {
+            locked: true
           }
-        });
+        }
+      };
+
+      return initializeLightbox(el, opts, defaultOpts);
+    };
+
+    var initializeVideoLightbox = function(el, opts) {
+      var defaultOpts = {
+        width       : '75%',
+        height      : '75%',
+        type        : 'iframe',
+        padding     : '0',
+        scrolling   : 'no',
+        preload     : 'true',
+
+        // this prevents jumping when the lightbox is closed
+        helpers: {
+          overlay: {
+            locked: false
+          }
+        }
+      };
+
+      return initializeLightbox(el, opts, defaultOpts);
+    };
+
+    var initializeTrialLightboxes = function(lightboxForm) {
+      initializeTrialLightbox("#home-get-started", {
+        afterClose: function() {
+          // This can be used for testing
+          // console.log('Home get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          ga('send','event', 'trial','close',  {'noninteraction': 1});
+        }
+      });
+      initializeTrialLightbox("#menu-get-started", {
+        afterClose: function() {
+          // This can be used for testing
+          // console.log('Menu get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          ga('send','event', 'trial','close',  {'noninteraction': 1});
+        }
+      });
+      initializeTrialLightbox("#mobilemenu-get-started", {
+        afterClose: function() {
+          // This can be used for testing
+          // console.log('Mobile menu get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          ga('send','event', 'trial','close',  {'noninteraction': 1});
+        }
+      });
+      initializeTrialLightbox(".pricing-get-started", {
+        afterClose: function() {
+          // This can be used for testing
+          // console.log('Pricing page get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          ga('send','event', 'trial','close',  {'noninteraction': 1});
+        }
+      });
+      initializeTrialLightbox("#trial-mobile-get-started", {
+        afterClose: function() {
+          // This can be used for testing
+          // console.log('Mobile page footer get started lightbox closed, current step: ' + lightboxForm.currentStep());
+          ga('send','event', 'trial','close',  {'noninteraction': 1});
+        }
+      });
     };
 
     var app = {
@@ -55,10 +119,10 @@ define(
         this.initializeOdometers();
 
         // Initialize lightbox
-        trialForm.init($('#trial-lightbox'));
+        var lightboxForm = trialForm.init($('#trial-lightbox'));
 
         // Initialize index page trial form
-        trialForm.init($('#trial'));
+        var inlineForm = trialForm.init($('#trial'));
 
         scrollSpy.init($('.scrollspy a'));
 
@@ -66,28 +130,16 @@ define(
           window.console.log('Hi there! Interested in code?\n\nSharetribe is an open-source marketplace platform. See https://github.com/sharetribe/sharetribe for more information about the open-source project.');
         }
 
-        $("#sharetribe-video")
-          .fancybox({
-            width       : '75%',
-            height      : '75%',
-            type        : 'iframe',
-            padding     : '0',
-            scrolling   : 'no',
-            preload     : 'true',
+        initializeVideoLightbox("#sharetribe-video", {
+          afterLoad: function() {
+            ga('send','event', 'video','play',  {'noninteraction': 1});
+          },
+          afterClose: function() {
+            ga('send','event', 'video','close',  {'noninteraction': 1});
+          }
+        });
 
-            // This prevents jumping when the lightbox is closed
-            helpers: {
-              overlay: {
-                locked: false
-              }
-            }
-          });
-
-        initializeTrialLightbox("#home-get-started");
-        initializeTrialLightbox("#menu-get-started");
-        initializeTrialLightbox("#mobilemenu-get-started");
-        initializeTrialLightbox(".pricing-get-started");
-        initializeTrialLightbox("#trial-mobile-get-started");
+        initializeTrialLightboxes(lightboxForm);
 
         $( "#mobilemenu" ).click(function() {
           $( ".menu-cover" ).slideDown( "slow" );
